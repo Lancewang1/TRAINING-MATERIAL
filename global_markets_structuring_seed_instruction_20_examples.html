@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Markets Structuring & Exotic Derivatives — Seed Question Instructions + 20 Worked Examples</title>
+<style>
+  :root {
+    --bg:#f5f7fb; --paper:#ffffff; --ink:#172033; --muted:#667085; --line:#e5eaf2;
+    --accent:#3157d5; --accent2:#0f766e; --soft:#eef3ff; --warn:#fff7e8;
+    --shadow:0 10px 30px rgba(24,39,75,.06);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.62 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  a { color:var(--accent); }
+  .hero {
+    padding:64px 24px 46px; color:white;
+    background:linear-gradient(135deg,#172554 0%,#253b80 55%,#0f766e 140%);
+  }
+  .wrap { width:min(1180px, calc(100% - 32px)); margin:auto; }
+  .kicker { font-size:12px; letter-spacing:.14em; font-weight:800; opacity:.78; text-transform:uppercase; }
+  h1 { font-size:clamp(32px,5vw,58px); line-height:1.05; margin:12px 0 16px; max-width:1000px; letter-spacing:-.035em; }
+  .hero p { font-size:18px; max-width:900px; opacity:.88; margin:0; }
+  .hero .badges { display:flex; flex-wrap:wrap; gap:9px; margin-top:24px; }
+  .hero .badges span { border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); padding:7px 11px; border-radius:999px; font-size:12px; }
+  main { padding:34px 0 70px; }
+  .nav {
+    position:sticky; top:0; z-index:20; background:rgba(245,247,251,.94); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap { display:flex; gap:18px; align-items:center; padding:12px 0; overflow:auto; }
+  .nav a { white-space:nowrap; text-decoration:none; font-weight:700; color:#344054; font-size:13px; }
+  .section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin:38px 0 18px; }
+  .section-head h2 { font-size:30px; margin:0; letter-spacing:-.02em; }
+  .section-head p { color:var(--muted); margin:0; max-width:620px; }
+  .paper { background:var(--paper); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:30px; }
+  .instruction-section + .instruction-section { border-top:1px solid var(--line); margin-top:28px; padding-top:22px; }
+  .instruction-section h2 { font-size:21px; margin:0 0 10px; }
+  .instruction-section p { margin:8px 0; }
+  .callout { margin:15px 0; padding:14px 16px; background:var(--soft); border-left:4px solid var(--accent); border-radius:8px; }
+  .callout.warning { background:var(--warn); border-left-color:#d97706; }
+  .template { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 20px; background:#fafbfc; border:1px solid var(--line); border-radius:12px; padding:16px; }
+  .checkgrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 24px; }
+  .controls { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:18px 0 16px; }
+  .search {
+    flex:1 1 420px; padding:13px 15px; border:1px solid #ccd4e0; border-radius:12px;
+    background:white; font:inherit; outline:none;
+  }
+  .search:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(49,87,213,.10); }
+  .counter { color:var(--muted); font-size:13px; }
+  .seed-card { background:white; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); margin:12px 0; overflow:hidden; }
+  .seed-card[hidden] { display:none; }
+  .seed-card summary { cursor:pointer; list-style:none; display:flex; align-items:flex-start; gap:15px; padding:20px 22px; }
+  .seed-card summary::-webkit-details-marker { display:none; }
+  .seed-card[open] summary { border-bottom:1px solid var(--line); background:#fbfcff; }
+  .seed-num { flex:0 0 42px; height:42px; border-radius:12px; display:grid; place-items:center; background:var(--soft); color:var(--accent); font-weight:900; }
+  .summary-main { min-width:0; flex:1; }
+  .seed-id { color:var(--accent2); font-size:11px; letter-spacing:.12em; font-weight:900; }
+  .seed-card h3 { margin:2px 0 8px; font-size:20px; line-height:1.25; }
+  .meta { display:flex; gap:6px; flex-wrap:wrap; }
+  .pill { border:1px solid #dbe2ea; background:#f8fafc; padding:3px 8px; border-radius:999px; font-size:11px; color:#475467; }
+  .chevron { color:#98a2b3; font-size:24px; line-height:1; }
+  .seed-card[open] .chevron { transform:rotate(180deg); }
+  .seed-body { padding:22px; }
+  .source-box { padding:16px 18px; background:linear-gradient(180deg,#f8fbff,#f7fbfa); border:1px solid #dce8eb; border-radius:13px; margin-bottom:18px; }
+  .source-title { font-weight:800; margin:4px 0 4px; }
+  .source-box p { color:#475467; margin:4px 0 8px; }
+  .source-link { display:inline-block; font-weight:800; text-decoration:none; }
+  .eyebrow { font-size:10px; color:#667085; letter-spacing:.13em; font-weight:900; }
+  .space { margin-top:15px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:18px; }
+  blockquote { margin:7px 0 0; padding:15px 17px; border-left:4px solid var(--accent); background:#f8faff; border-radius:0 10px 10px 0; font-size:16px; }
+  ul, ol { padding-left:22px; }
+  li { margin:5px 0; }
+  .trace { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:20px; border-top:1px dashed #d8dee8; padding-top:17px; }
+  .trace span { padding:6px 9px; border-radius:8px; background:#f2f4f7; font-size:12px; font-weight:750; color:#475467; }
+  .trace b { color:#98a2b3; }
+  .foot { margin-top:26px; color:var(--muted); font-size:12px; }
+  .legend { background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px 17px; margin:14px 0 20px; }
+  .legend strong { color:#344054; }
+  @media (max-width:760px) {
+    .grid2,.template,.checkgrid { grid-template-columns:1fr; }
+    .paper { padding:20px; }
+    .seed-card summary { padding:17px; }
+    .seed-body { padding:17px; }
+    .hero { padding-top:46px; }
+  }
+  @media print {
+    .nav,.controls { display:none; }
+    body { background:white; }
+    .paper,.seed-card { box-shadow:none; }
+    .seed-card { break-inside:avoid; }
+    .seed-card:not([open]) .seed-body { display:block; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Agentic Finance Training • Seed Bank Design</div>
+    <h1>Global Markets Structuring &amp; Exotic Derivatives</h1>
+    <p>Seed-question instructions plus 20 worked examples grounded in real public structured-product filings. Each example shows the public source context, a reusable seed question, evidence requirements, and an abstract reasoning trace suitable for Mint-style data generation.</p>
+    <div class="badges">
+      <span>20 worked seeds</span><span>Equity exotics</span><span>FX</span><span>Rates / CMS</span><span>Commodities</span><span>Cross-asset</span><span>Public SEC anchors</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#instruction">Instructions</a>
+    <a href="#examples">20 examples</a>
+    <a href="#notes">Method notes</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="instruction">
+    <div class="section-head">
+      <div><div class="kicker" style="color:#3157d5">Part I</div><h2>Seed-writing instructions</h2></div>
+      <p>Designed to parallel the equity-research seed instruction while accounting for contractual path dependence, private OTC evidence, market-data conventions, and model-dependent valuation.</p>
+    </div>
+    <div class="paper">
+      <section class="instruction-section"><h2>1. Purpose</h2>
+    <p>Write realistic Global Markets structuring and exotic-derivatives research requests that a structurer, trader, quantitative analyst, salesperson, or markets analyst might genuinely need to solve.</p>
+    <p>These are <strong>seed tasks</strong>, not normally the final training examples. A downstream Mint-style generator should abstract away the original issuer, instrument, dates, and numerical values; preserve the reasoning structure; locate a new real evidence pack; construct and replay a hidden answer graph; and only then generate the final agentic question.</p>
+    <div class="callout"><strong>The contributor's most valuable output is the reusable reasoning pattern.</strong> The final example should remain useful after company/instrument names, dates, strikes, barriers, rates, and market levels are replaced.</div>
+    </section>
+<section class="instruction-section"><h2>2. What Makes a Good Seed</h2>
+    <ul>
+      <li><strong>Real work:</strong> contractual interpretation, fixing/settlement analysis, payoff reconstruction, path-dependent logic, market normalization, or cross-source comparison.</li>
+      <li><strong>Multiple evidence pieces:</strong> terms + market observations; several observation dates; multiple underlyings; benchmark methodology + fixing; or multiple payoff inputs.</li>
+      <li><strong>Meaningful reasoning chain:</strong> find/inspect terms → align market data → apply conventions → derive intermediate values → evaluate conditions → calculate/compare → answer.</li>
+      <li><strong>Unique and replayable:</strong> once the evidence and conventions are fixed, there should be one objectively defensible result.</li>
+      <li><strong>Reusable:</strong> removing names/dates/numbers should leave a useful workflow.</li>
+    </ul>
+    </section>
+<section class="instruction-section"><h2>3. Public Structured Securities vs. Private OTC</h2>
+    <p>Do <strong>not</strong> assume bespoke bilateral OTC confirmations are web-searchable. For private OTC tasks, the confirmation, term sheet, trade record, or internal product document should be supplied to the agent as an authorized private artifact. The agent may then retrieve historical fixings, curves, prices, or benchmark observations through approved market-data tools.</p>
+    <p>Registered structured notes are different: SEC 424B2 pricing supplements often expose detailed payoff terms publicly and are useful source anchors for public-data training.</p>
+    <div class="callout warning"><strong>Evidence-access pattern can differ by domain.</strong><br>
+      Equity research often starts with question → public research.<br>
+      Exotics often starts with question + private/public contract artifact → market-data research → payoff reasoning.
+    </div>
+    </section>
+<section class="instruction-section"><h2>4. Contractual vs. Model-Dependent Questions</h2>
+    <p>Prefer contractual or realized-outcome tasks. A question such as “Did the note autocall, and what was paid?” can be replayed from terms and historical observations.</p>
+    <p>Model-dependent questions such as “What is the fair value of this autocallable?” are acceptable only when the valuation date, pricing model, curves, volatility surface, correlation, dividends, calendars, conventions, and numerical tolerances are sufficiently fixed. Otherwise there is no unique ground truth.</p>
+    </section>
+<section class="instruction-section"><h2>5. Difficulty Should Come from Finance</h2>
+    <p>Useful difficulty includes date/fixing alignment, quote direction, barrier-monitoring frequency, worst-of selection, memory coupons, knock-in/knock-out state, non-call periods, day-count conventions, caps/floors, basket weights, step-down thresholds, and distinguishing preliminary from final terms.</p>
+    <p>Avoid artificial arithmetic or obscure wording merely to make a task longer.</p>
+    </section>
+<section class="instruction-section"><h2>6. Questions to Avoid</h2>
+    <ul>
+      <li>“Is this note attractive?” or “Which structure is better?” without a fixed objective.</li>
+      <li>Unspecified exotic pricing or hedging questions.</li>
+      <li>Tasks requiring private dealer marks or proprietary surfaces that the environment does not provide.</li>
+      <li>Continuous-barrier questions when only daily-close data is available.</li>
+      <li>Questions that expose the full search route or exact URLs in the user-facing task.</li>
+      <li>Tasks asking the model to predict a discretionary issuer call as though it were a mechanical condition.</li>
+    </ul>
+    </section>
+<section class="instruction-section"><h2>7. Submission Template</h2>
+    <div class="template">
+      <div><b>Seed ID:</b></div>
+      <div><b>Seed question:</b></div>
+      <div><b>Structurer / analyst intent:</b></div>
+      <div><b>Required evidence types:</b></div>
+      <div><b>Required reasoning / operations:</b></div>
+      <div><b>Expected answer type:</b></div>
+      <div><b>Why the answer is unique/verifiable:</b></div>
+      <div><b>Information cutoff, if applicable:</b></div>
+      <div><b>Required contractual conventions:</b></div>
+      <div><b>Required pricing/model assumptions, if applicable:</b></div>
+      <div><b>Market-data feasibility / availability:</b></div>
+      <div><b>Finance domain/topic:</b></div>
+      <div><b>Product/payoff family:</b></div>
+      <div><b>Estimated difficulty:</b></div>
+      <div><b>Reason for difficulty:</b></div>
+      <div><b>Potential source families:</b></div>
+      <div><b>Notes or known ambiguity:</b></div>
+    </div>
+    </section>
+<section class="instruction-section"><h2>8. Final Self-Check</h2>
+    <div class="checkgrid">
+      <label>☐ Realistic Global Markets / structuring request</label>
+      <label>☐ More than a trivial one-step lookup</label>
+      <label>☐ Required evidence is actually obtainable</label>
+      <label>☐ Answer is objectively verifiable</label>
+      <label>☐ Contractual conventions are sufficiently determinate</label>
+      <label>☐ Market-data frequency matches the payoff definition</label>
+      <label>☐ Model assumptions are fixed if valuation is model-dependent</label>
+      <label>☐ Removing names/dates/numbers leaves a reusable pattern</label>
+      <label>☐ Exact search route is not exposed</label>
+      <label>☐ Time-sensitive information has a cutoff</label>
+      <label>☐ Reasoning is financially valid, not artificially complex</label>
+      <label>☐ Adds a genuinely different reasoning structure</label>
+    </div>
+    </section>
+    </div>
+  </section>
+
+  <section id="examples">
+    <div class="section-head">
+      <div><div class="kicker" style="color:#3157d5">Part II</div><h2>20 worked seed examples</h2></div>
+      <p>These are examples of seed structures, not claims about the Mint-Agent training set. “Source anchor” means the public document demonstrates the contractual structure; a downstream generator should select a fully historical case when a verified outcome is required.</p>
+    </div>
+
+    <div class="legend">
+      <strong>How to read each card:</strong> the public filing is <em>context for the seed designer</em>. The final agentic question should normally hide the exact search route. For bespoke OTC versions, substitute an authorized private confirmation/term sheet for the public 424B2 artifact.
+    </div>
+
+    <div class="controls">
+      <input id="search" class="search" type="search" placeholder="Filter examples: FX, range accrual, autocall, CMS, barrier, basket…">
+      <div id="counter" class="counter">20 examples</div>
+    </div>
+
+    
+    <details class="seed-card" data-search="gm-01 worst-of auto-call: first call date, coupons, and total cash paid equity / structured notes worst-of contingent-income autocall using the contractual observation schedule and the historical closing prices of all three underlying stocks, determine which contingent quarterly coupons were earned, whether the securities were automatically redeemed before maturity, the first redemption date if applicable, and the total cash paid per $1,000 stated principal amount through termination." open>
+      <summary>
+        <div class="seed-num">01</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-01</div>
+          <h3>Worst-of Auto-Call: First Call Date, Coupons, and Total Cash Paid</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Worst-of contingent-income autocall</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Morgan Stanley — Contingent Income Auto-Callable Securities due May 1, 2024 (AAPL / AMZN / TSLA)</div>
+          <p>Public SEC pricing supplement. The note is linked to the worst performing of Apple, Amazon, and Tesla, has quarterly observation dates, a one-year initial non-call period, contingent coupons, automatic early redemption, and a downside threshold at maturity.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/895421/000183988221006071/ms1310_424b2-03920.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the contractual observation schedule and the historical closing prices of all three underlying stocks, determine which contingent quarterly coupons were earned, whether the securities were automatically redeemed before maturity, the first redemption date if applicable, and the total cash paid per $1,000 stated principal amount through termination.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Coupon count + yes/no + date + monetary value</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The observation dates, thresholds, closing prices, and contractual cash-flow rules uniquely determine the path.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Final pricing supplement and observation/redemption schedule</li><li>Initial prices and coupon/downside thresholds for all three stocks</li><li>Historical closing prices on every relevant observation date</li><li>Coupon amount and early-redemption payment terms</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Extract the non-call period, coupon condition, auto-call condition, thresholds, and payment schedule.</li><li>For each observation date, retrieve the closing price of every underlying and normalize each against its contractual initial price.</li><li>Test the coupon condition using the worst-performing/threshold logic.</li><li>Starting only when the note becomes callable, test the automatic-redemption condition chronologically.</li><li>Stop at the first qualifying call date; otherwise continue through the final observation date.</li><li>Aggregate coupons actually due and add the applicable redemption or maturity payment.</li><li>Return coupon count, first call date (if any), termination state, and total cash paid.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-02 memory coupon catch-up and auto-call equity / structured notes single-stock autocall with memory interest using the note&#x27;s review-date schedule and historical amd closes, reconstruct the contingent-interest cash flows through the specified cutoff, identify any missed coupons that were later recovered under the memory feature, and determine whether and when the note was automatically called.">
+      <summary>
+        <div class="seed-num">02</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-02</div>
+          <h3>Memory Coupon Catch-Up and Auto-Call</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Single-stock autocall with memory interest</span><span class="pill">Hard</span><span class="pill">Source anchor — future-dated observations</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Auto Callable Contingent Interest Notes linked to AMD due July 13, 2027</div>
+          <p>Public SEC pricing supplement. The note pays monthly contingent interest when AMD is at or above 50% of initial value, carries forward previously unpaid coupons, and becomes automatically callable from the third review date when AMD is at or above its initial value.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000191870426000634/form424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the note&#x27;s review-date schedule and historical AMD closes, reconstruct the contingent-interest cash flows through the specified cutoff, identify any missed coupons that were later recovered under the memory feature, and determine whether and when the note was automatically called.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Cash-flow schedule + yes/no + date + total payment</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The memory balance is mechanically determined by the sequence of review-date closes and the fixed contract rules.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial AMD value and 50% interest barrier</li><li>Monthly contingent-interest amount</li><li>Review dates and earliest callable review date</li><li>Historical AMD closing prices on each review date</li><li>Memory-interest and automatic-call terms</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Extract the interest barrier, monthly coupon, memory rule, call threshold, and call-eligibility start date.</li><li>Walk review dates in chronological order.</li><li>At each date, test whether the interest barrier is met; if not, add that coupon to an unpaid-coupon balance.</li><li>When the barrier is next met, pay the current coupon plus any accumulated unpaid coupons and reset the balance.</li><li>On callable dates, separately test whether the closing price is at or above the initial value.</li><li>If the call condition is met, add principal plus current/memory coupons and terminate the path.</li><li>Report the missed-coupon periods, catch-up payment(s), and call outcome.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-03 monthly worst-of coupon path after a non-call period equity / structured notes four-stock worst-of monthly autocall reconstruct the monthly coupon history of the four-stock worst-of autocallable and determine the first date after the contractual non-call period on which all underlying stocks satisfied the call condition. quantify total coupon income and the redemption payment.">
+      <summary>
+        <div class="seed-num">03</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-03</div>
+          <h3>Monthly Worst-of Coupon Path After a Non-Call Period</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Four-stock worst-of monthly autocall</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Morgan Stanley — Contingent Income Auto-Callable Securities due May 1, 2024 (AMZN / TSLA / NFLX / ZM)</div>
+          <p>Public SEC pricing supplement. Four-stock worst-of structure, monthly contingent coupon, one-year initial non-call period, then monthly automatic early-redemption tests.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/895421/000183988221006255/ms1378_424b2-04081.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Reconstruct the monthly coupon history of the four-stock worst-of autocallable and determine the first date after the contractual non-call period on which all underlying stocks satisfied the call condition. Quantify total coupon income and the redemption payment.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>First qualifying date + coupon total + redemption amount</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The result follows from a finite chronological set of contractual tests.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial prices and downside/coupon thresholds</li><li>Monthly observation schedule and non-call period</li><li>Historical closes for all four underlyings on every observation date</li><li>Coupon and redemption terms</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Identify the four underlyings, thresholds, monthly coupon condition, and date from which calling is permitted.</li><li>For every observation date, compute each stock&#x27;s percentage of initial price.</li><li>Use the minimum normalized performance to test the worst-of coupon condition.</li><li>Do not test auto-call during the contractual non-call period.</li><li>After the non-call period, test whether every underlying meets its call threshold and select the first qualifying date.</li><li>Sum coupons paid before termination and add the redemption cash flow.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-04 step-up early redemption schedule on a jump security equity / structured notes auto-callable jump security determine the earliest automatic-redemption date, if any, for the airbnb jump security and calculate the contractual redemption amount and realized simple return per $1,000 principal. if no early redemption occurred, determine the maturity payoff branch and amount.">
+      <summary>
+        <div class="seed-num">04</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-04</div>
+          <h3>Step-Up Early Redemption Schedule on a Jump Security</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Auto-callable jump security</span><span class="pill">Medium</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Morgan Stanley — Jump Securities with Auto-Callable Feature linked to Airbnb due Nov. 29, 2024</div>
+          <p>Public SEC pricing supplement. After a six-month non-call period, the security redeems automatically if Airbnb closes at or above its initial price, with an early-redemption amount that increases over time; maturity has separate branches including a 75% downside threshold.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/895421/000183988221017671/ms3211_424b2-10294.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Determine the earliest automatic-redemption date, if any, for the Airbnb jump security and calculate the contractual redemption amount and realized simple return per $1,000 principal. If no early redemption occurred, determine the maturity payoff branch and amount.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Date + monetary value + percentage return</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Both the first-hit condition and date-specific payout schedule are fixed.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial share price and downside threshold</li><li>Determination dates and six-month non-call period</li><li>Date-specific early-redemption amounts</li><li>Historical Airbnb closing prices</li><li>Maturity payoff schedule</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Extract the first date on which the security becomes callable and the date-specific redemption schedule.</li><li>Compare each eligible determination-date close with the initial share price.</li><li>Select the first date satisfying the automatic-redemption condition.</li><li>Map that date to the contractual redemption amount and calculate simple return versus $1,000.</li><li>If no call occurs, compare final share price with initial price and downside threshold and apply the relevant maturity branch.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-05 daily knock-in monitoring plus contingent coupons equity / barrier daily-close knock-in barrier note using the note&#x27;s daily-close knock-in definition and contingent-interest observation schedule, determine whether a knock-in event occurred, which coupons were paid, and the resulting redemption amount at termination.">
+      <summary>
+        <div class="seed-num">05</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-05</div>
+          <h3>Daily Knock-In Monitoring Plus Contingent Coupons</h3>
+          <div class="meta"><span class="pill">Equity / Barrier</span><span class="pill">Daily-close knock-in barrier note</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">TD — Callable Contingent Interest Barrier Notes with Daily Close Monitoring Knock-In (NDX / RTY / SPX), due July 14, 2025</div>
+          <p>Public SEC pricing supplement. Contingent interest depends on observation-date levels, while principal protection depends on whether any underlying experiences a daily closing knock-in during the monitoring period.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/947263/000114036124001634/ef20018545_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the note&#x27;s daily-close knock-in definition and contingent-interest observation schedule, determine whether a knock-in event occurred, which coupons were paid, and the resulting redemption amount at termination.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Knock-in yes/no + coupon schedule + monetary redemption</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The daily path and final contractual branch determine a single outcome.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial values, coupon barriers, and knock-in barriers</li><li>Full contractual daily-monitoring interval</li><li>Daily closes for all reference assets during the monitoring interval</li><li>Coupon observation-date closes</li><li>Call and maturity payoff terms</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Separate the coupon test from the knock-in test; they use different observation frequencies.</li><li>Scan daily closes for every underlying over the knock-in monitoring interval and flag whether any close breaches its barrier.</li><li>Independently test coupon eligibility on each coupon observation date.</li><li>Evaluate any callable condition if applicable.</li><li>At termination, combine final performance with the knock-in flag to select the correct redemption branch.</li><li>Calculate coupons and principal cash flow.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-06 one-shot auto-call versus buffered leveraged maturity payoff equity / structured notes auto-callable buffered return-enhanced note determine whether the note was automatically called on its call observation date. if not, identify the lesser-performing index at maturity and calculate the payment per $1,000 under the leveraged-upside or buffered-downside branch.">
+      <summary>
+        <div class="seed-num">06</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-06</div>
+          <h3>One-Shot Auto-Call Versus Buffered Leveraged Maturity Payoff</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Auto-callable buffered return-enhanced note</span><span class="pill">Hard</span><span class="pill">Source anchor — future-dated observations</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Auto Callable Buffered Return Enhanced Notes linked to the lesser performing of RTY and SPX due June 15, 2029</div>
+          <p>Public SEC pricing supplement. The note has a specified automatic-call date and, if not called, gives 1.25x exposure to appreciation of the lesser-performing index at maturity with buffered downside.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000191870426016697/form424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Determine whether the note was automatically called on its call observation date. If not, identify the lesser-performing index at maturity and calculate the payment per $1,000 under the leveraged-upside or buffered-downside branch.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Yes/no + underlying identifier + monetary value</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Only one call test and a deterministic lesser-of payoff tree are involved.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial values and call values for RTY and SPX</li><li>Call observation date and historical index closes</li><li>Final valuation date and final index levels</li><li>Upside leverage factor, buffer, and downside formula</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Test both indices against their call values on the designated call date.</li><li>If both satisfy the call test, apply the call premium/payment and terminate.</li><li>Otherwise compute final return for each index and select the lesser-performing one.</li><li>If the lesser performer appreciates, apply the upside leverage rule.</li><li>If it declines, test the buffer and apply the relevant downside formula.</li><li>Return call status, selected underlying, and payoff.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-07 date-specific call thresholds in review notes equity / structured notes multi-index review notes using the date-specific call values and historical closes of the three indices, identify the first review date on which all indices satisfy the applicable call thresholds and calculate the corresponding payment per $1,000 principal.">
+      <summary>
+        <div class="seed-num">07</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-07</div>
+          <h3>Date-Specific Call Thresholds in Review Notes</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Multi-index review notes</span><span class="pill">Hard</span><span class="pill">Source anchor — future-dated observations</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Review Notes linked to the least performing of NDX / RTY / SPX due April 25, 2030</div>
+          <p>Public SEC pricing supplement. Automatic call can occur on review dates when every index is at or above the call value applicable to that specific review date; the earliest possible call is in 2027.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000191870426010624/form424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the date-specific call values and historical closes of the three indices, identify the first review date on which all indices satisfy the applicable call thresholds and calculate the corresponding payment per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>First review date + monetary payment</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The challenge is correct date-specific threshold alignment rather than a single static barrier.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial index levels</li><li>Review-date schedule</li><li>Call value applicable to each review date</li><li>Historical closes for all three indices</li><li>Date-specific call premium/payment schedule</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Build a table of review dates and the contractual call threshold for each index on each date.</li><li>Retrieve all three closing levels for every review date.</li><li>Normalize or directly compare each close with its date-specific call value.</li><li>Evaluate dates chronologically and select the first date on which all three tests are true.</li><li>Apply the payment schedule corresponding to that date.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-08 quarterly range-accrual coupon from daily gold etf closes commodity / range accrual gld range-accrual note for the specified quarterly coupon observation period, calculate the number and fraction of eligible business days on which gld closed within the contractual range and determine the contingent coupon payment per $1,000 principal.">
+      <summary>
+        <div class="seed-num">08</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-08</div>
+          <h3>Quarterly Range-Accrual Coupon from Daily Gold ETF Closes</h3>
+          <div class="meta"><span class="pill">Commodity / Range Accrual</span><span class="pill">GLD range-accrual note</span><span class="pill">Hard</span><span class="pill">Source anchor</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Range Accrual Notes linked to SPDR Gold Trust due Sept. 1, 2027</div>
+          <p>Public SEC pricing supplement. Quarterly contingent coupon depends on the number of business days during the coupon observation period on which GLD closes between a lower and upper barrier.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000121390024073185/ea0212661-01_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>For the specified quarterly coupon observation period, calculate the number and fraction of eligible business days on which GLD closed within the contractual range and determine the contingent coupon payment per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Day count + accrual fraction + monetary coupon</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Every observation day is classified mechanically as in-range or out-of-range.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Lower and upper barrier prices</li><li>Coupon observation-period dates</li><li>Definition of eligible business/trading days</li><li>Daily GLD closes for the full period</li><li>Coupon rate and accrual formula</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Determine the exact accrual window and eligible observation-day calendar.</li><li>Retrieve the GLD close for every eligible day.</li><li>Test lower-bound and upper-bound conditions for each day.</li><li>Count qualifying days and divide by the contractual denominator.</li><li>Apply the coupon rate and principal amount using the specified day-count/accrual formula.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-09 range-accrual coupons plus buffered maturity payoff commodity / hybrid capped buffered return-enhanced range accrual reconstruct the contingent-interest payments over the note&#x27;s life and calculate the maturity payment under the contractual final-level branch. report total cash received per $1,000 principal.">
+      <summary>
+        <div class="seed-num">09</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-09</div>
+          <h3>Range-Accrual Coupons Plus Buffered Maturity Payoff</h3>
+          <div class="meta"><span class="pill">Commodity / Hybrid</span><span class="pill">Capped buffered return-enhanced range accrual</span><span class="pill">Hard</span><span class="pill">Source anchor — future-dated observations</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Capped Buffered Return Enhanced Range Accrual Notes linked to SPDR Gold Trust due March 14, 2028</div>
+          <p>Public SEC pricing supplement. The product combines daily range-accrual interest with a separate piecewise maturity payoff driven by the final GLD level, buffer threshold, upside leverage, and downside leverage.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000121390026027546/ea0281534-01_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Reconstruct the contingent-interest payments over the note&#x27;s life and calculate the maturity payment under the contractual final-level branch. Report total cash received per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Coupon total + maturity value + total cash</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The task composes two independent deterministic mechanisms: daily accrual and final payoff.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Accrual range and daily determination schedule for each quarter</li><li>Daily GLD closes for all accrual periods</li><li>Contingent interest rate</li><li>Initial/final values, buffer threshold, maximum fund price</li><li>Upside/downside leverage and maturity payoff formulas</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>For every coupon period, count qualifying daily closes and calculate the contingent coupon.</li><li>Aggregate all coupons through maturity.</li><li>Retrieve the final GLD value and compare it with the maximum fund price and buffer threshold.</li><li>Select the correct maturity-payoff branch.</li><li>Apply upside leverage, par repayment, or buffered downside leverage as required.</li><li>Add maturity payment and coupons to obtain total cash received.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-10 dual-directional payoff branch selection equity / exotic payoff dual directional trigger plus using the official russell 2000 final level on the valuation date, determine which of the three contractual payoff regions applies and calculate the payment at maturity and return per $1,000 principal.">
+      <summary>
+        <div class="seed-num">10</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-10</div>
+          <h3>Dual-Directional Payoff Branch Selection</h3>
+          <div class="meta"><span class="pill">Equity / Exotic Payoff</span><span class="pill">Dual Directional Trigger PLUS</span><span class="pill">Medium</span><span class="pill">Source anchor</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">HSBC — Dual Directional Trigger PLUS linked to Russell 2000, due May 5, 2027</div>
+          <p>Public SEC pricing supplement. If RTY finishes at or above initial level, upside is leveraged 200% subject to a maximum payment; if it declines by no more than 15%, the note delivers a positive return equal to the absolute decline; below the trigger, the investor is exposed 1-for-1 to the index decline.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/83246/000110465926009857/tm264785d64_424b2.pdf" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the official Russell 2000 final level on the valuation date, determine which of the three contractual payoff regions applies and calculate the payment at maturity and return per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Payoff branch + monetary value + percentage return</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The final level falls into exactly one mutually exclusive payoff region.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial RTY level and 85% trigger level</li><li>Final valuation-date RTY level</li><li>200% leverage factor</li><li>Maximum payment</li><li>Three-branch maturity formula</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Calculate the index percentage change from initial to final level.</li><li>Determine whether final level is at/above initial, between trigger and initial, or below trigger.</li><li>Apply 200% upside subject to cap in the positive branch.</li><li>Apply the absolute-value positive return in the moderate-down branch.</li><li>Apply the performance factor in the below-trigger branch.</li><li>Calculate dollar payment and total return.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-11 capped 2x upside with a 10% downside buffer equity / structured notes capped leveraged index return note using the russell 2000 starting and ending values, calculate the index return, determine the applicable payoff branch, and compute the redemption amount and note return. quantify the difference from a direct index investment over the same period.">
+      <summary>
+        <div class="seed-num">11</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-11</div>
+          <h3>Capped 2x Upside with a 10% Downside Buffer</h3>
+          <div class="meta"><span class="pill">Equity / Structured Notes</span><span class="pill">Capped Leveraged Index Return Note</span><span class="pill">Medium</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">CIBC — Capped Leveraged Index Return Notes linked to Russell 2000, due June 26, 2026</div>
+          <p>Public SEC term sheet. Approximately two-year note with 2-to-1 upside exposure capped at 23.90%, a 10% downside threshold/buffer, and 1-to-1 downside exposure beyond the buffer.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/1045520/000110465924076768/tm2416207d56_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the Russell 2000 starting and ending values, calculate the index return, determine the applicable payoff branch, and compute the redemption amount and note return. Quantify the difference from a direct index investment over the same period.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Index return + redemption amount + relative performance</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The terms define a deterministic piecewise transformation of the index return.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Starting and ending RTY values</li><li>2x participation rate</li><li>23.90% cap</li><li>10% threshold/buffer</li><li>Principal amount and downside formula</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Compute the index percentage change.</li><li>If positive, multiply by 2 and apply the contractual cap.</li><li>If negative but within the 10% protected region, return principal.</li><li>If below threshold, apply the specified downside exposure.</li><li>Compute the note return and subtract the direct index return.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-12 eight-index global basket reconstruction cross-asset / global equity capped leveraged global equity basket note reconstruct the final value and return of the global equity index basket from the component starting and ending levels and contractual weights, then calculate the note&#x27;s redemption amount and identify the three largest contributors to basket performance.">
+      <summary>
+        <div class="seed-num">12</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-12</div>
+          <h3>Eight-Index Global Basket Reconstruction</h3>
+          <div class="meta"><span class="pill">Cross-Asset / Global Equity</span><span class="pill">Capped leveraged global equity basket note</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">TD — Capped Leveraged Index Return Notes linked to a Global Equity Index Basket, due July 31, 2026</div>
+          <p>Public SEC term sheet. The basket contains eight equity indices across the U.S., Europe, Japan, Switzerland, Australia, and China, with 2-to-1 upside exposure subject to a 26.90% cap.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/947263/000114036124034704/ef20033163_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Reconstruct the final value and return of the global equity index basket from the component starting and ending levels and contractual weights, then calculate the note&#x27;s redemption amount and identify the three largest contributors to basket performance.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Basket return + ranked contributors + monetary redemption</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Weights, component levels, and payoff parameters fix the result.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Eight component indices and basket weights</li><li>Starting value of each component</li><li>Ending value of each component</li><li>Basket aggregation methodology</li><li>2x participation rate and 26.90% cap</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Calculate each index&#x27;s normalized return over the measurement period.</li><li>Multiply each component return by its contractual basket weight.</li><li>Sum weighted contributions to obtain the basket return.</li><li>Rank component contributions by signed impact.</li><li>Apply the note&#x27;s leveraged/capped payoff function.</li><li>Report basket return, redemption amount, and top contributors.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-13 commodity index leveraged return with buffer commodity capped leveraged commodity-index note using the s&amp;p gsci excess return index starting and ending values, determine the note&#x27;s maturity payment and compare its return with the index&#x27;s realized return, explicitly identifying whether the cap or downside threshold was binding.">
+      <summary>
+        <div class="seed-num">13</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-13</div>
+          <h3>Commodity Index Leveraged Return with Buffer</h3>
+          <div class="meta"><span class="pill">Commodity</span><span class="pill">Capped leveraged commodity-index note</span><span class="pill">Medium</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">CIBC — Capped Leveraged Index Return Notes linked to S&amp;P GSCI Excess Return, due May 29, 2026</div>
+          <p>Public SEC term sheet. Two-year note linked to the S&amp;P GSCI Excess Return Index with 2-to-1 upside, a 41% capped return, and a 10% downside threshold.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/1045520/000110465924063370/tm2413179d31_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the S&amp;P GSCI Excess Return Index starting and ending values, determine the note&#x27;s maturity payment and compare its return with the index&#x27;s realized return, explicitly identifying whether the cap or downside threshold was binding.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Branch + note return + index return + difference</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The note is a fixed piecewise function of a single historical index return.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Starting and ending index levels</li><li>Participation factor</li><li>Maximum/capped return</li><li>Threshold/buffer</li><li>Maturity payoff terms</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Compute the commodity index return.</li><li>Map it to the positive, protected-negative, or loss branch.</li><li>For positive performance, apply 2x participation and then the cap.</li><li>For losses, apply the threshold treatment.</li><li>Compare note return with underlying index return and identify the binding contractual feature.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-14 fx basket with mixed quote conventions and unequal weights fx / basket buffered enhanced participation currency basket note using the contractual initial and final fx fixings, reconstruct each currency return with the correct quote-direction formula, calculate the weighted final basket level and basket return, and determine the payment per $1,000 principal.">
+      <summary>
+        <div class="seed-num">14</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-14</div>
+          <h3>FX Basket with Mixed Quote Conventions and Unequal Weights</h3>
+          <div class="meta"><span class="pill">FX / Basket</span><span class="pill">Buffered enhanced participation currency basket note</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Buffered Enhanced Participation Currency Basket-Linked Notes due Feb. 15, 2018</div>
+          <p>Public SEC pricing supplement. Unequally weighted EUR/USD, USD/JPY, GBP/USD, USD/CHF, and AUD/USD basket. Currency-return formulas differ depending on quote direction; the payoff includes a 5% upside threshold, upside participation, a 10% buffer, and leveraged downside below the buffer.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000114036115030532/form424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the contractual initial and final FX fixings, reconstruct each currency return with the correct quote-direction formula, calculate the weighted final basket level and basket return, and determine the payment per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Component returns + basket return + monetary payoff</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The main challenge is correct FX quote normalization; after that the basket and payoff are deterministic.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Five currency pairs and contractual weights</li><li>Initial and final fixings</li><li>Pair-specific return formulas for direct versus inverse quote conventions</li><li>5% upside threshold and participation rate</li><li>10% buffer and buffer rate</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Classify each FX pair by the contract&#x27;s quote convention.</li><li>Apply the correct return formula to each pair; do not naively use one formula for all pairs.</li><li>Convert component returns into weighted basket contributions.</li><li>Sum contributions to get final basket level and basket return.</li><li>Compare basket return with +5% and -10% thresholds.</li><li>Apply the corresponding upside, par, or downside formula.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-15 regime-switching coupon from try/usd fx / rates currency-linked coupon-bearing note for each annual interest determination date, determine whether the note pays the 1.00% or 8.70% coupon based on the contractual try/usd quote convention, calculate the dollar interest per unit, and compute cumulative interest through maturity.">
+      <summary>
+        <div class="seed-num">15</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-15</div>
+          <h3>Regime-Switching Coupon from TRY/USD</h3>
+          <div class="meta"><span class="pill">FX / Rates</span><span class="pill">Currency-linked coupon-bearing note</span><span class="pill">Medium</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Bank of America — Currency-Linked Coupon-Bearing Notes linked to TRY/USD, due June 30, 2016</div>
+          <p>Public SEC pricing supplement. Annual coupon is 1.00% if TRY has depreciated versus USD from the initial fixing to the determination date, and 8.70% if TRY is unchanged or has appreciated. The contract defines the exchange-rate direction explicitly.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/70858/000119312511174412/d424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>For each annual interest determination date, determine whether the note pays the 1.00% or 8.70% coupon based on the contractual TRY/USD quote convention, calculate the dollar interest per unit, and compute cumulative interest through maturity.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Year-by-year coupon regime + cumulative interest</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Each determination date maps mechanically to one of two coupon states.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial exchange rate</li><li>Five interest determination dates</li><li>Historical contractual FX fixings</li><li>1.00% minimum and 8.70% maximum coupon regimes</li><li>Principal amount and 30/360 convention</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Confirm how the contract quotes TRY/USD and what an increase/decrease means economically.</li><li>For each determination date, compare the fixing with the initial exchange rate.</li><li>Map the direction to the 1.00% or 8.70% coupon regime.</li><li>Apply the day-count/principal convention to compute interest.</li><li>Aggregate annual interest amounts.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-16 highly leveraged usd/chf principal-at-risk payoff fx / exotic payoff principal-at-risk currency-linked security using the contractual usd/chf valuation-date fixing, determine the payment at maturity and total return, carefully applying the inverse-rate expression, leverage factor, maximum payment, and minimum-payment floor.">
+      <summary>
+        <div class="seed-num">16</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-16</div>
+          <h3>Highly Leveraged USD/CHF Principal-at-Risk Payoff</h3>
+          <div class="meta"><span class="pill">FX / Exotic Payoff</span><span class="pill">Principal-at-risk currency-linked security</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Citigroup — Principal-at-Risk Currency Linked Securities linked to USD/CHF, due April 20, 2026</div>
+          <p>Public SEC pricing supplement. Strike is 0.7940, barrier 0.7545, leveraged exchange factor 15.16640507, maximum payment $1,209.20534, and minimum payment $209.20534. Below strike, the payoff uses an inverse-rate expression.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/831001/000095010326000757/dp240244_424b2-26nir005849d.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the contractual USD/CHF valuation-date fixing, determine the payment at maturity and total return, carefully applying the inverse-rate expression, leverage factor, maximum payment, and minimum-payment floor.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Monetary payment + total return</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The contract supplies all nonlinear payoff parameters and the valuation uses one fixing.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Final USD/CHF fixing</li><li>Strike and barrier exchange rate</li><li>Leveraged exchange factor</li><li>Maximum and minimum payments</li><li>Exact below-strike payoff formula</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Compare the final exchange rate with the strike.</li><li>If at/above strike, select the maximum-payment branch.</li><li>If below strike, calculate (1/final FX) minus (1/strike).</li><li>Multiply by the leveraged exchange factor and $1,000, then subtract from maximum payment.</li><li>Apply the contractual minimum-payment floor.</li><li>Convert final payment into total return.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-17 fx autocall with a 4% buffer fx / autocall autocallable buffered currency-linked note using the final contractual terms and historical usd/chf fixings, determine whether the note is called on either observation date and calculate the resulting payment. if neither call occurs, calculate the maturity payment under the 4% buffered payoff.">
+      <summary>
+        <div class="seed-num">17</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-17</div>
+          <h3>FX Autocall with a 4% Buffer</h3>
+          <div class="meta"><span class="pill">FX / Autocall</span><span class="pill">Autocallable buffered currency-linked note</span><span class="pill">Hard</span><span class="pill">Source anchor — preliminary/future-dated</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">JPMorgan — Autocallable Buffered Currency-Linked Notes linked to USD/CHF due 2029</div>
+          <p>Public preliminary SEC pricing supplement. Two call observation dates; auto-call if USD/CHF is at least 96% of initial exchange rate. If not called, maturity has a premium branch above the 4% buffer and leveraged downside below it.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/19617/000121390026086588/ea0301014-01_424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the final contractual terms and historical USD/CHF fixings, determine whether the note is called on either observation date and calculate the resulting payment. If neither call occurs, calculate the maturity payment under the 4% buffered payoff.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Call state/date or maturity branch + monetary value</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>The payoff is a chronological two-call tree followed by a deterministic maturity branch.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Final initial exchange rate and 96% call/buffer level</li><li>Two call observation dates and fixings</li><li>Date-specific call premium amounts</li><li>Final valuation-date fixing</li><li>Maturity premium, 4% buffer, and 1.0417 buffer rate</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Verify final rather than preliminary terms before solving.</li><li>Evaluate first call date: compare fixing to 96% of initial and apply first premium if triggered.</li><li>If not triggered, evaluate second call date similarly.</li><li>If still outstanding, calculate final currency return.</li><li>If return is at least -4%, pay principal plus maturity premium.</li><li>If below -4%, apply the buffered-downside formula and buffer rate.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-18 emerging-market fx basket step-up payoff fx / emerging markets currency-linked step-up basket note using the contractual initial and final exchange rates for cny, inr, and rub versus eur, reconstruct the exchange rate measure ending value and calculate the redemption amount under the downside, step-up, or 1-for-1 upside branch.">
+      <summary>
+        <div class="seed-num">18</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-18</div>
+          <h3>Emerging-Market FX Basket Step-Up Payoff</h3>
+          <div class="meta"><span class="pill">FX / Emerging Markets</span><span class="pill">Currency-linked step-up basket note</span><span class="pill">Hard</span><span class="pill">Historical candidate</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Bank of America — Currency-Linked Step Up Notes linked to CNY / INR / RUB versus EUR, due July 29, 2016</div>
+          <p>Public SEC term sheet. Approximately equally weighted CNY, INR, and RUB versus EUR. Starting basket value 100, step-up value 121.25, step-up payment 21.25%, and minimum redemption $9 on $10 principal.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/70858/000119312514282451/d766207d424b2.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>Using the contractual initial and final exchange rates for CNY, INR, and RUB versus EUR, reconstruct the Exchange Rate Measure ending value and calculate the redemption amount under the downside, step-up, or 1-for-1 upside branch.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Basket ending value + payoff branch + monetary redemption</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Three mutually exclusive payoff regions are determined by a single reconstructed basket value.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Initial exchange rates for CNY, INR, and RUB</li><li>Final exchange rates on calculation day</li><li>Basket construction method</li><li>Starting value 100 and step-up value 121.25</li><li>Step-up payment and minimum redemption</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Use the contractual exchange-rate definition to calculate each currency&#x27;s contribution to the basket.</li><li>Aggregate the approximately equal-weighted components into the ending Exchange Rate Measure.</li><li>Compare ending value with 100 and 121.25.</li><li>If below 100, calculate downside redemption and apply the $9 floor.</li><li>If between 100 and 121.25, apply the fixed step-up payment.</li><li>If above 121.25, apply 1-for-1 basket upside.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-19 cms steepener coupon with floor and cap rates / cms callable cms slope steepener for the specified historical interest determination date, retrieve the contractual 30y and 2y cms fixings, calculate the applicable coupon rate after the 0.50% strike, 4x multiplier, 0% floor, and 10% cap, and determine the interest payment per $1,000 principal.">
+      <summary>
+        <div class="seed-num">19</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-19</div>
+          <h3>CMS Steepener Coupon with Floor and Cap</h3>
+          <div class="meta"><span class="pill">Rates / CMS</span><span class="pill">Callable CMS slope steepener</span><span class="pill">Hard</span><span class="pill">Historical coupon reconstruction</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Deutsche Bank — 20-Year CMS Slope Steepener Notes due Aug. 28, 2034</div>
+          <p>Public SEC pricing supplement. After year one, quarterly rate = 4 × (30Y CMS − 2Y CMS − 0.50%), floored at 0% and capped at 10%; 30/360 day count. Issuer has discretionary call dates, so a seed should not ask the model to predict whether the issuer &#x27;should&#x27; call.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/1159508/000095010314005976/dp48979_424b2-2029.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>For the specified historical interest determination date, retrieve the contractual 30Y and 2Y CMS fixings, calculate the applicable coupon rate after the 0.50% strike, 4x multiplier, 0% floor, and 10% cap, and determine the interest payment per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Spread + coupon rate + monetary interest payment</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Once the two CMS fixings are fixed, the formula is fully deterministic.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Applicable historical 30Y CMS and 2Y CMS fixings</li><li>4.0 multiplier</li><li>0.50% fixed percentage amount</li><li>0% floor and 10% cap</li><li>30/360 convention and $1,000 principal</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Retrieve both CMS rates for the same contractual determination date and fixing convention.</li><li>Calculate the curve spread: 30Y CMS minus 2Y CMS.</li><li>Subtract 0.50%, multiply by 4.</li><li>Apply the 0% floor and 10% cap.</li><li>Convert the annual coupon rate to the quarter&#x27;s dollar interest using 30/360.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+    <details class="seed-card" data-search="gm-20 dual-condition daily range accrual: cms curve and equity index rates + equity / range accrual cms curve and russell 2000 range-accrual note for a specified historical monthly interest period, determine the number of accrual days on which both the cms-curve and russell 2000 conditions were satisfied and calculate the applicable annualized coupon rate and dollar interest payment per $1,000 principal.">
+      <summary>
+        <div class="seed-num">20</div>
+        <div class="summary-main">
+          <div class="seed-id">GM-20</div>
+          <h3>Dual-Condition Daily Range Accrual: CMS Curve and Equity Index</h3>
+          <div class="meta"><span class="pill">Rates + Equity / Range Accrual</span><span class="pill">CMS curve and Russell 2000 range-accrual note</span><span class="pill">Hard</span><span class="pill">Historical coupon reconstruction</span></div>
+        </div>
+        <div class="chevron">⌄</div>
+      </summary>
+      <div class="seed-body">
+        <section class="source-box">
+          <div class="eyebrow">REAL PUBLIC SOURCE ANCHOR</div>
+          <div class="source-title">Morgan Stanley — CMS Curve and Russell 2000 Index Linked Range Accrual Notes due May 31, 2031</div>
+          <p>Public SEC pricing supplement. After the initial fixed period, interest accrues at 8.50% per annum only for calendar days on which both 30Y CMS ≥ 2Y CMS and Russell 2000 ≥ 615. Monthly rate is 8.50% × N/ACT.</p>
+          <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/895421/000095010311001822/dp22543_424b2-ps791.htm" target="_blank" rel="noopener noreferrer">Open public source ↗</a>
+        </section>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">SEED QUESTION</div>
+            <blockquote>For a specified historical monthly interest period, determine the number of accrual days on which both the CMS-curve and Russell 2000 conditions were satisfied and calculate the applicable annualized coupon rate and dollar interest payment per $1,000 principal.</blockquote>
+          </section>
+          <section>
+            <div class="eyebrow">EXPECTED ANSWER</div>
+            <p><strong>Accrual-day count + coupon rate + monetary interest</strong></p>
+            <div class="eyebrow space">WHY UNIQUE / VERIFIABLE</div>
+            <p>Each day has a binary two-condition classification and the coupon formula is fixed.</p>
+          </section>
+        </div>
+
+        <div class="grid2">
+          <section>
+            <div class="eyebrow">REQUIRED EVIDENCE</div>
+            <ul><li>Monthly interest period and calendar-day definition</li><li>Daily 30Y CMS and 2Y CMS observations</li><li>Daily Russell 2000 closing levels</li><li>CMS condition 30Y CMS ≥ 2Y CMS</li><li>Russell 2000 threshold 615</li><li>8.50% base rate and Actual/Actual convention</li></ul>
+          </section>
+          <section>
+            <div class="eyebrow">PROPOSED REASONING TRACE</div>
+            <ol><li>Build the complete contractual calendar for the monthly interest period.</li><li>For each calendar day, determine the applicable CMS and equity observations under the contract&#x27;s carry/holiday conventions.</li><li>Test condition A: 30Y CMS ≥ 2Y CMS.</li><li>Test condition B: Russell 2000 ≥ 615.</li><li>Count a day only when both conditions are true.</li><li>Compute N/ACT, multiply by 8.50% to obtain the annualized period rate, then calculate the dollar interest payment.</li></ol>
+          </section>
+        </div>
+
+        <div class="trace">
+          <span>contract / terms</span><b>→</b><span>market evidence</span><b>→</b><span>normalization</span><b>→</b><span>condition / derivation</span><b>→</b><span>payoff / answer</span>
+        </div>
+      </div>
+    </details>
+    
+  </section>
+
+  <section id="notes" class="foot paper">
+    <h2 style="font-size:18px;margin-top:0">Method notes</h2>
+    <p><strong>Public-data scope.</strong> The examples deliberately use SEC-filed registered structured securities because detailed economics can be public. Bespoke bilateral OTC confirmations are often private and should be supplied as authorized artifacts rather than assumed discoverable on the open web.</p>
+    <p><strong>Reasoning trace.</strong> The listed traces are task specifications / required operations, not hidden model chain-of-thought. They are intended to be converted into structured seed abstractions and evidence DAGs.</p>
+    <p><strong>Historical verification.</strong> Some recent filings have future observation or maturity dates and are marked as source anchors. For training-example construction, choose a historical instance with all required market observations available before generating the final question.</p>
+    <p><strong>Source provenance.</strong> Each worked example links to the public SEC source used to anchor the product structure. Market observations should be obtained from the fixing source required by the contract, an official exchange/benchmark source, or a licensed dataset available to the training environment.</p>
+    <p><strong>Reference:</strong> Mint paper: <a href="https://arxiv.org/abs/2608.16386" target="_blank" rel="noopener noreferrer">arXiv:2608.16386</a>.</p>
+  </section>
+</main>
+
+<script>
+  const input = document.getElementById('search');
+  const cards = [...document.querySelectorAll('.seed-card')];
+  const counter = document.getElementById('counter');
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    cards.forEach(card => {
+      const ok = !q || card.dataset.search.includes(q);
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    counter.textContent = `${shown} example${shown === 1 ? '' : 's'}`;
+  });
+</script>
+</body>
+</html>
