@@ -1,0 +1,294 @@
+# 金融决策判断题样例（10题）
+
+生成日期：2026-08-27
+
+机器可读版本：[sample_decision_qa_10_2026-08-27.json](./sample_decision_qa_10_2026-08-27.json)
+
+## 覆盖概览
+
+| 判断类型 | 题数 |
+| --- | ---: |
+| trader | 4 |
+| policy | 1 |
+| event | 3 |
+| correlation | 2 |
+
+| # | 主题 | 类型 | 金标 | as_of |
+| ---: | --- | --- | --- | --- |
+| 1 | 美国货币政策时点 | policy | 持稳 | 2025-07-25 |
+| 2 | 盈亏平衡通胀交易 | trader | 买入盈亏平衡通胀 | material_internal |
+| 3 | 收益率曲线组合结构 | trader | 杠铃组合 | 2025-07-21 |
+| 4 | SOFR利率互换方向 | trader | 收固定 | 2025-07-21 |
+| 5 | 机构MBS提前偿还与久期 | event | 会发生 | 2025-07-29 |
+| 6 | 农产品库存消费比与价格 | correlation | 负相关 | material_internal |
+| 7 | 黄金与美元的历史跨资产关系 | correlation | 负相关 | 2025-08-07 |
+| 8 | 集中违约风险与评级利差 | event | 会发生 | material_internal |
+| 9 | A股与国债相对价值 | trader | 超配债券 | 2025-08-07 |
+| 10 | 关税、劳动力与美国消费增长 | event | 会发生 | 2025-07-25 |
+
+## 1. 美国货币政策时点
+
+`id: sample_policy_us_fed_2025_01` · `decision_type: policy` · `as_of: 2025-07-25`
+
+**题目**
+
+截至2025-07-25，按材料的基准展望，美联储在2025年余下时间应归类为哪条政策路径？（加息 / 持稳 / 降息）
+
+**金标：** `持稳`
+
+**来源原文**
+
+> `Q&A Resources/08_海外市场/摩根士丹利美国固收培训/第二弹/摩根士丹利-培训材料-美国固收-Intro to US Economy.pdf`，第2页，US Outlook: Key Themes："Hawkish today, dovish tomorrow. Weaker activity should outweigh any near-term impulse to inflation, leading to further Fed rate cuts. But we expect those cuts do not come until 2026."
+
+**金标证据**
+
+同页预测表中，Fed Funds Target（目标区间中点）在1Q25A、2Q25E、3Q25E、4Q25E均为4.375；正文同时明确："we expect those cuts do not come until 2026."
+
+**推理示范**
+
+材料虽判断经济走弱最终会带来降息，但把首次进一步降息明确放在2026年；因此2025年余下时间的封闭分类是持稳。
+
+**易错误读**
+
+只看到“leading to further Fed rate cuts”便选择降息，忽略紧接着的时间限定“do not come until 2026”。
+
+## 2. 盈亏平衡通胀交易
+
+`id: sample_trader_inflation_breakeven_02` · `decision_type: trader` · `as_of: material_internal`
+
+**题目**
+
+若投资者判断未来通胀会高于市场当前隐含水平，应买入还是卖出盈亏平衡通胀？（买入盈亏平衡通胀 / 卖出盈亏平衡通胀）
+
+**金标：** `买入盈亏平衡通胀`
+
+**来源原文**
+
+> `Q&A Resources/08_海外市场/摩根士丹利美国固收培训/第一弹/摩根士丹利-培训材料-美国固收-Intro to inflation markets.pdf`，第14页，Trading Breakevens："An investor should buy breakevens if they think inflation will be higher than the market expects and vice versa"
+
+**金标证据**
+
+材料原句："An investor should buy breakevens if they think inflation will be higher than the market expects and vice versa"
+
+**推理示范**
+
+题设判断高于市场隐含通胀，恰好落入材料给出的买入条件，因此选择买入盈亏平衡通胀。
+
+**易错误读**
+
+把“通胀上升可能推高名义收益率、压低名义债价格”误套到breakeven交易上，从而错误选择卖出。
+
+## 3. 收益率曲线组合结构
+
+`id: sample_trader_curve_barbell_03` · `decision_type: trader` · `as_of: 2025-07-21`
+
+**题目**
+
+在现金流和久期等价的前提下，若预期收益率曲线将高度波动，应选择杠铃组合还是子弹组合？（杠铃组合 / 子弹组合）
+
+**金标：** `杠铃组合`
+
+**来源原文**
+
+> `Q&A Resources/08_海外市场/摩根士丹利美国固收培训/第一弹/摩根士丹利-培训材料-美国固收-Intro to US rates.pdf`，第18页，Bullets vs. Barbells："Barbell portfolios generally exhibit higher convexity and lower rolldown versus bullet portfolios (because the convexity increases faster as duration increases)." "As a corollary of the above – barbell portfolios are expected to outperform bullet portfolios under a highly volatile yield curve environment"
+
+**金标证据**
+
+材料原句："As a corollary of the above – barbell portfolios are expected to outperform bullet portfolios under a highly volatile yield curve environment"
+
+**推理示范**
+
+题面已控制现金流和久期，剩余关键差异是凸性与rolldown；高波动放大杠铃组合的凸性收益，所以选杠铃组合。
+
+**易错误读**
+
+只关注杠铃组合的rolldown较低便选择子弹组合，忽略题设的高波动环境使凸性成为主导因素。
+
+## 4. SOFR利率互换方向
+
+`id: sample_trader_sofr_swap_direction_04` · `decision_type: trader` · `as_of: 2025-07-21`
+
+**题目**
+
+若投资者预期SOFR利率将下降，在固定利率收款方与固定利率付款方之间应选择哪一方？（收固定 / 付固定）
+
+**金标：** `收固定`
+
+**来源原文**
+
+> `Q&A Resources/08_海外市场/摩根士丹利美国固收培训/第一弹/摩根士丹利-培训材料-美国固收-Intro to Interest Rate Derivatives.pdf`，第8页，SOFR swap："After settlement, value of swap changes daily as the forward curve for SOFR shifts." "Receiver wants rates to fall, payer wants rates to increase."
+
+**金标证据**
+
+材料原句："Receiver wants rates to fall, payer wants rates to increase."
+
+**推理示范**
+
+固定利率收款方支付浮动SOFR；利率下降时其浮动支出相对减少、互换价值上升，因此选择收固定。
+
+**易错误读**
+
+误以为“利率下降就应接收更低的浮动利率”，混淆互换两条腿，因而错误选择付固定。
+
+## 5. 机构MBS提前偿还与久期
+
+`id: sample_event_mbs_extension_05` · `decision_type: event` · `as_of: 2025-07-29`
+
+**题目**
+
+当利率上行、再融资成本变高时，机构MBS会不会出现久期延长？（会发生 / 不会发生）
+
+**金标：** `会发生`
+
+**来源原文**
+
+> `Q&A Resources/08_海外市场/摩根士丹利美国固收培训/第二弹/摩根士丹利-培训材料-美国固收-Intro to MBS.pdf`，第11页，Prepays / Negative convexity："Extension risk: Rates sell off, it becomes more costly to refinance, people prepay slower, and duration increases"
+
+**金标证据**
+
+材料原句："Extension risk: Rates sell off, it becomes more costly to refinance, people prepay slower, and duration increases"
+
+**推理示范**
+
+利率上行提高再融资成本，借款人提前还款变慢，本金回收推迟，MBS有效久期随之增加，所以会发生久期延长。
+
+**易错误读**
+
+把普通无提前偿还权债券的静态久期直觉直接套用到MBS，忽略借款人行为会随利率变化。
+
+## 6. 农产品库存消费比与价格
+
+`id: sample_correlation_agri_inventory_price_06` · `decision_type: correlation` · `as_of: material_internal`
+
+**题目**
+
+按材料的农产品研究框架，库存消费比与中长期商品价格是正相关还是负相关？
+
+**金标：** `负相关`
+
+**来源原文**
+
+> `Q&A Resources/07_跨境与大宗商品/中金FICC研究培训/9-2大宗商品分析框架.pdf`，第6页："库存消费比是判断中长期价格走势重要的依据，二者呈现负相关"；同页CBOT玉米年度均价与全球（除中国）库销比图标注"相关系数= -0.64"。
+
+**金标证据**
+
+材料原句："库存消费比是判断中长期价格走势重要的依据，二者呈现负相关"。
+
+**推理示范**
+
+库存消费比越高，意味着相对于消费的可用供给越充足，稀缺性下降；材料也直接给出负相关结论。
+
+**易错误读**
+
+把库存增加机械理解为需求旺盛的结果，忽略指标分母已经包含消费，从而误判为正相关。
+
+## 7. 黄金与美元的历史跨资产关系
+
+`id: sample_correlation_gold_dollar_07` · `decision_type: correlation` · `as_of: 2025-08-07`
+
+**题目**
+
+仅按材料概括的历史规律，而不把近几年失效阶段外推为新规律，黄金价格与美元指数是正相关还是负相关？
+
+**金标：** `负相关`
+
+**来源原文**
+
+> `Q&A Resources/01_宏观经济与大类资产/华西宏观固收培训_2025.8/【华西证券】大类资产框架-20250807.pdf`，第24页，黄金框架变化："从历史规律来看，黄金价格和实际利率、美元指数负相关。不过最近几年，这些规律被打破。"
+
+**金标证据**
+
+材料对历史规律的原句判断是："黄金价格和实际利率、美元指数负相关"。
+
+**推理示范**
+
+题目限定的是材料所述历史关系；材料明确将黄金价格与美元指数归为负相关，近年失效是边界条件，不会把历史金标改成正相关。
+
+**易错误读**
+
+看到“最近几年，这些规律被打破”便反向选择正相关；失效只表示关系不稳定，并不等于已形成稳定正相关。
+
+## 8. 集中违约风险与评级利差
+
+`id: sample_event_credit_spread_widening_08` · `decision_type: event` · `as_of: material_internal`
+
+**题目**
+
+当违约风险集中到来时，评级间利差会不会明显扩大？（会发生 / 不会发生）
+
+**金标：** `会发生`
+
+**来源原文**
+
+> `Q&A Resources/03_信用债_城投与金融债/中金FICC研究培训/3信用债市场及其分析框架.pdf`，第38页，影响因素一：违约风险及投资者对违约风险的预期："所以当违约风险集中到来时，风险溢价会明显提升、评级间利差会明显扩大。而且风险溢价的波动幅度可能远大于实际违约率的波幅。"
+
+**金标证据**
+
+材料原句："当违约风险集中到来时，风险溢价会明显提升、评级间利差会明显扩大。"
+
+**推理示范**
+
+集中违约具有系统性和传染性，投资者要求超出预期损失的额外补偿，风险溢价上升并拉大评级间利差。
+
+**易错误读**
+
+因实际违约率本身变动可能不大就判断利差不会扩大，忽略材料指出风险溢价波动可远大于实际违约率波幅。
+
+## 9. A股与国债相对价值
+
+`id: sample_trader_china_equity_bond_erp_09` · `decision_type: trader` · `as_of: 2025-08-07`
+
+**题目**
+
+截至2025-08-07，在材料所用ERP相对价值框架内，股债性价比降至负一倍标准差且股票性价比明显降低时，应超配哪类资产？（超配股票 / 超配债券）
+
+**金标：** `超配债券`
+
+**来源原文**
+
+> `Q&A Resources/01_宏观经济与大类资产/华西宏观固收培训_2025.8/【华西证券】大类资产框架-20250807.pdf`，第17页，股债性价比降低至-1倍标准差水平："ERP=1/万得全A指数市盈率 – 10Y国债收益率，反映股债性价比，越高代表股票性价比越高，越低代表债券性价比越高。"同页："股债性价比已下降至-1倍标准差水平，股票性价比已明显降低"。
+
+**金标证据**
+
+材料定义"越低代表债券性价比越高"，并确认当时ERP已降至负一倍标准差、股票性价比明显降低。
+
+**推理示范**
+
+按题目限定的单一ERP框架，指标处于低位意味着债券相对性价比更高，因此在股票与债券二选一时超配债券。
+
+**易错误读**
+
+把负一倍标准差理解成股票已经超卖、应逆向买入，忽略该指标的方向定义明确是数值越低越有利于债券。
+
+## 10. 关税、劳动力与美国消费增长
+
+`id: sample_event_us_consumption_slowdown_10` · `decision_type: event` · `as_of: 2025-07-25`
+
+**题目**
+
+截至2025-07-25，按材料展望，在关税向终端价格传导且移民与就业减少的条件下，2025年美国实际消费者支出增速相对2024年会不会放缓？（会发生 / 不会发生）
+
+**金标：** `会发生`
+
+**来源原文**
+
+> `Q&A Resources/08_海外市场/摩根士丹利美国固收培训/第二弹/摩根士丹利-培训材料-美国固收-Intro to US Economy.pdf`，第11页，Consumption："On net, this suggests deterioration in real personal disposable income growth and we expect real consumer spending growth to slow from 3.1% (Q4/Q4) in 2024 to 0.6% in 2025 and 0.7% in 2026."
+
+**金标证据**
+
+材料原句明确预测实际消费者支出增速"to slow from 3.1% (Q4/Q4) in 2024 to 0.6% in 2025"。
+
+**推理示范**
+
+关税侵蚀实际购买力，移民和就业减少拖累劳动收入；材料据此明确预测2025年实际消费增速低于2024年，所以会放缓。
+
+**易错误读**
+
+只看到材料称资产市场没有形成负财富效应，便判断消费不会放缓，忽略关税与劳动收入两条更直接的拖累渠道。
+
+## 跳过原因
+
+- 未出“当前黄金与美元是否仍稳定负相关”的题：材料明确提示近几年历史规律被打破，若不限定历史区间便没有唯一方向。
+- 未出“中美国债利差扩大后人民币必然升值或贬值”的题：所选外汇材料相关页主要给出图表，缺少可核对的样本窗口与不带条件的唯一结论。
+- 未出具体债券是否构成违约的题：框架材料没有提供完整募集说明书、宽限期、交叉违约条款和事件时间线。
+- 未出依赖尚未提供的未来价格、会议结果或外部数据库才能判定的题。
