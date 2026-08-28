@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>20 Conceptual Finance Reasoning Questions</title>
+<style>
+:root{--bg:#f4f6fa;--paper:#fff;--ink:#182235;--muted:#667085;--line:#e1e6ee;--blue:#3155c6;--teal:#087a72;--soft:#eef3ff;--green:#17694f;--greenbg:#edf9f4;--amber:#70420c;--amberbg:#fff5e2;--shadow:0 9px 28px rgba(30,44,75,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.62 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.hero{padding:60px 24px 44px;color:#fff;background:linear-gradient(135deg,#15214a,#2c458f 58%,#087a72 140%)}.wrap{width:min(1190px,calc(100% - 32px));margin:auto}.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;opacity:.74}
+h1{font-size:clamp(35px,5vw,57px);line-height:1.03;letter-spacing:-.038em;margin:10px 0 15px;max-width:1080px}.hero p{font-size:18px;max-width:990px;opacity:.88;margin:0}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}.badges span{font-size:12px;padding:6px 10px;border:1px solid rgba(255,255,255,.23);border-radius:999px;background:rgba(255,255,255,.07)}
+main{padding:31px 0 72px}.intro{background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);padding:24px}.intro h2{font-size:23px;margin:0 0 8px}.intro p{margin:7px 0;color:#475467}.rule{margin-top:15px;padding:14px 16px;background:#f0faf7;border-left:4px solid var(--teal);border-radius:8px;font-weight:800}
+.controls{position:sticky;top:0;z-index:10;background:rgba(244,246,250,.95);backdrop-filter:blur(9px);padding:12px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}input,select{font:inherit;padding:12px 13px;border:1px solid #ccd4df;border-radius:11px;background:#fff;outline:none}input{flex:1 1 430px}select{flex:0 1 300px}#count{font-size:13px;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin:12px 0}.card[hidden]{display:none}summary{cursor:pointer;list-style:none;display:flex;gap:15px;align-items:flex-start;padding:19px 21px}summary::-webkit-details-marker{display:none}.card[open] summary{background:#fafbff;border-bottom:1px solid var(--line)}.num{width:42px;height:42px;flex:0 0 42px;background:var(--soft);color:var(--blue);border-radius:12px;display:grid;place-items:center;font-weight:900}.sum{flex:1;min-width:0}.sid{font-size:10px;color:var(--teal);font-weight:900;letter-spacing:.14em}h3{font-size:20px;line-height:1.27;margin:2px 0 8px}.chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{font-size:11px;color:#475467;background:#f8fafc;border:1px solid #dbe1e9;border-radius:999px;padding:3px 8px}.chev{font-size:23px;color:#98a2b3}.card[open] .chev{transform:rotate(180deg)}
+.body{padding:21px}.eyebrow{font-size:10px;color:#667085;font-weight:900;letter-spacing:.14em}.question{padding:16px 18px;background:#f8faff;border:1px solid #dce4f3;border-radius:12px}.question p{font-size:16px;margin:6px 0}.gold{margin-top:15px;padding:14px 17px;background:var(--greenbg);border-left:4px solid var(--green);border-radius:9px}.gold p{margin:5px 0;color:#164d3b;font-size:16px}.grid{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;margin-top:19px}ol{padding-left:23px}li{margin:5px 0}.contra{padding:12px 14px;background:var(--amberbg);border-radius:9px;color:var(--amber)}.gap{margin-top:16px}.note{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px;color:#475467;font-size:13px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}.body{padding:17px}summary{padding:16px}}@media print{.controls{display:none}body{background:#fff}.card{box-shadow:none;break-inside:avoid}.card:not([open]) .body{display:block}}
+</style></head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="kicker">Finance Training • Conceptual Reasoning Seed Bank</div>
+<h1>20 Finance Questions Focused on Understanding, Not Arithmetic</h1>
+<p>These questions complement the calculation-heavy reasoning bank. Each scenario contains all necessary facts, requires little or no arithmetic, and tests whether the model understands the controlling financial mechanism well enough to reach one verifiable conclusion.</p>
+<div class="badges"><span>MBS</span><span>Rates</span><span>Credit</span><span>FX</span><span>Options</span><span>Commodities</span><span>Macro</span><span>Accounting</span><span>Cross-asset</span><span>Corporate finance</span></div>
+</div></header>
+<main class="wrap">
+<section class="intro">
+<h2>Design principle</h2>
+<p>This set follows the conceptual style already present in your uploaded finance examples: the relevant market facts are stated directly, and the learner must identify the correct economic mechanism, causal chain, exposure, or contractual implication. The questions deliberately avoid turning every problem into a numerical exercise. fileciteturn2file0</p>
+<div class="rule">scenario facts → identify the controlling financial mechanism → rule out the tempting wrong mechanism → derive one categorical or directional conclusion</div>
+<p>The gold answer, reasoning steps, contra and verification note are authoring/evaluator-side fields and should normally be hidden from the model during evaluation.</p>
+</section>
+<div class="controls">
+<input id="q" type="search" placeholder="Search: MBS, callable, CDS, CTD, FX, gamma, GDP, convexity…">
+<select id="domain"><option value="">All domains</option><option value="commodities">Commodities</option><option value="corporate finance">Corporate Finance</option><option value="credit">Credit</option><option value="credit / cds">Credit / CDS</option><option value="credit / capital structure">Credit / Capital Structure</option><option value="credit / relative value">Credit / Relative Value</option><option value="equity / credit">Equity / Credit</option><option value="fx">FX</option><option value="fx / fixed income">FX / Fixed Income</option><option value="mbs">MBS</option><option value="mbs / rates">MBS / Rates</option><option value="macro">Macro</option><option value="macro / money markets">Macro / Money Markets</option><option value="options / volatility">Options / Volatility</option><option value="rates / bonds">Rates / Bonds</option><option value="rates / relative value">Rates / Relative Value</option><option value="rates / swaps">Rates / Swaps</option><option value="treasury futures">Treasury Futures</option></select>
+<span id="count">20 questions</span>
+</div>
+<section>
+<details class="card" data-domain="mbs / rates" data-search="cr-01 mbs extension after mortgage rates rise mbs / rates a fixed-rate agency mbs portfolio is initially duration-hedged with pay-fixed swaps. mortgage rates then rise sharply and refinancing activity falls, while turnover, defaults, curve shape and swap hedge dv01 per unit notional are unchanged. should the desk increase or decrease its pay-fixed swap hedge, and why? increase the pay-fixed swap hedge." open>
+  <summary>
+    <div class="num">01</div>
+    <div class="sum">
+      <div class="sid">CR-01</div>
+      <h3>MBS Extension after Mortgage Rates Rise</h3>
+      <div class="chips"><span>MBS / Rates</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A fixed-rate agency MBS portfolio is initially duration-hedged with pay-fixed swaps. Mortgage rates then rise sharply and refinancing activity falls, while turnover, defaults, curve shape and swap hedge DV01 per unit notional are unchanged. Should the desk increase or decrease its pay-fixed swap hedge, and why?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Increase the pay-fixed swap hedge.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Higher mortgage rates reduce borrowers&#x27; refinancing incentive.</li><li>Slower refinancing means principal is expected to remain outstanding for longer.</li><li>The MBS therefore extends: expected life and positive DV01 increase.</li><li>The original negative-DV01 pay-fixed swap hedge is now too small.</li><li>To restore neutrality, the desk needs more negative DV01, so it should pay more fixed.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Reducing the hedge because the MBS price has already fallen. Price level and remaining duration exposure are different concepts.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>Under the stated assumptions, slower refinancing unambiguously increases extension risk and positive DV01, so the hedge direction is unique.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Hedge direction + qualitative explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="rates / bonds" data-search="cr-02 callable bond under a pure volatility shock rates / bonds two otherwise identical bonds differ only because bond c is callable by the issuer at par, while bond n is noncallable. implied interest-rate volatility rises materially, but the yield curve, expected rate path, issuer credit spread and liquidity are unchanged. which bond should underperform, and why? bond c, the callable bond, should underperform." >
+  <summary>
+    <div class="num">02</div>
+    <div class="sum">
+      <div class="sid">CR-02</div>
+      <h3>Callable Bond under a Pure Volatility Shock</h3>
+      <div class="chips"><span>Rates / Bonds</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>Two otherwise identical bonds differ only because Bond C is callable by the issuer at par, while Bond N is noncallable. Implied interest-rate volatility rises materially, but the yield curve, expected rate path, issuer credit spread and liquidity are unchanged. Which bond should underperform, and why?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Bond C, the callable bond, should underperform.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>A callable bond can be viewed as a noncallable bond minus an issuer call option.</li><li>The investor in the callable bond is effectively short that embedded option.</li><li>Higher implied rate volatility increases the value of the issuer&#x27;s call option.</li><li>That larger embedded-option value reduces the callable bond&#x27;s value relative to the otherwise identical noncallable bond.</li><li>Therefore Bond C underperforms Bond N.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Saying both bonds should be unchanged because the yield curve did not move. Option value depends on volatility as well as the current curve.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The embedded-option decomposition makes the sign of the relative-value move deterministic under an isolated volatility shock.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Bond identifier + mechanism</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="credit" data-search="cr-03 cds widening and credit quality credit a company&#x27;s cds spread widens sharply while the risk-free curve and assumed recovery rate are unchanged. what does this imply about the market-implied credit view of the company? the market-implied credit view has deteriorated: investors require more compensation for default/credit risk." >
+  <summary>
+    <div class="num">03</div>
+    <div class="sum">
+      <div class="sid">CR-03</div>
+      <h3>CDS Widening and Credit Quality</h3>
+      <div class="chips"><span>Credit</span><span>Medium</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A company&#x27;s CDS spread widens sharply while the risk-free curve and assumed recovery rate are unchanged. What does this imply about the market-implied credit view of the company?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>The market-implied credit view has deteriorated: investors require more compensation for default/credit risk.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>CDS spread is compensation for taking the reference entity&#x27;s credit risk, subject to the assumed recovery framework.</li><li>The risk-free curve is unchanged, so the widening is not being attributed to a risk-free-rate move.</li><li>The recovery assumption is also unchanged.</li><li>A wider CDS spread therefore reflects a higher market price of credit/default risk under the stated assumptions.</li><li>That is consistent with deterioration in market-implied credit quality.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Attributing the wider spread to lower risk-free rates even though the question explicitly holds the risk-free curve unchanged.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>With rates and recovery fixed, the only stated changing component is the market price of credit risk.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Credit-quality direction + explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="treasury futures" data-search="cr-04 treasury futures ctd switch and overhedging treasury futures a treasury cash portfolio is hedged with short futures. the portfolio dv01 and number of futures contracts are unchanged, but the cheapest-to-deliver security switches to a bond with materially higher conversion-factor-adjusted dv01 per futures contract. is the portfolio now overhedged or underhedged, and what should the desk do? the portfolio is overhedged; the desk should buy back some short futures." >
+  <summary>
+    <div class="num">04</div>
+    <div class="sum">
+      <div class="sid">CR-04</div>
+      <h3>Treasury Futures CTD Switch and Overhedging</h3>
+      <div class="chips"><span>Treasury Futures</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A Treasury cash portfolio is hedged with short futures. The portfolio DV01 and number of futures contracts are unchanged, but the cheapest-to-deliver security switches to a bond with materially higher conversion-factor-adjusted DV01 per futures contract. Is the portfolio now overhedged or underhedged, and what should the desk do?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>The portfolio is overhedged; the desk should buy back some short futures.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>The effective DV01 of a Treasury futures contract depends on the CTD and its conversion factor.</li><li>The new CTD gives each futures contract more DV01 magnitude than before.</li><li>The number of short contracts is unchanged, so the hedge now supplies more negative DV01.</li><li>The cash portfolio&#x27;s positive DV01 is unchanged.</li><li>Therefore the position is overhedged and the desk should reduce the short futures position.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming the futures contract&#x27;s risk is fixed because its notional is standardized.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>More negative hedge DV01 against unchanged positive cash DV01 necessarily produces overhedging.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Over/underhedged classification + trade direction</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="commodities" data-search="cr-05 temporary commodity scarcity and the futures curve commodities a mine outage is expected to last three months. inventories are already low, but production is expected to return to normal well before a one-year futures contract enters delivery. which part of the futures curve should be most directly affected by the temporary physical shortage, nearby or deferred contracts, and why? nearby contracts should be more directly affected." >
+  <summary>
+    <div class="num">05</div>
+    <div class="sum">
+      <div class="sid">CR-05</div>
+      <h3>Temporary Commodity Scarcity and the Futures Curve</h3>
+      <div class="chips"><span>Commodities</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A mine outage is expected to last three months. Inventories are already low, but production is expected to return to normal well before a one-year futures contract enters delivery. Which part of the futures curve should be most directly affected by the temporary physical shortage, nearby or deferred contracts, and why?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Nearby contracts should be more directly affected.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>The shortage removes supply available for immediate consumption.</li><li>Low inventories increase the value of having physical material available now.</li><li>That raises the convenience value of nearby supply.</li><li>The one-year contract delivers after production is expected to normalize.</li><li>Therefore the scarcity effect should be concentrated more heavily in nearby than deferred prices.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming a temporary supply shock must lift every maturity equally.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The stated restoration date precedes deferred delivery, so the timing of the shortage uniquely points to the nearby part of the curve.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Nearby/deferred classification + physical-market explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="fx / fixed income" data-search="cr-06 rolling fx hedge versus maturity-matched hedge fx / fixed income a usd investor owns a one-year eur zero-coupon bond with a known eur maturity payment. investor m sells the entire maturity amount one year forward at inception. investor r instead rolls one-month eur/usd forwards. after inception, short-dated usd funding basis repeatedly becomes more expensive for a party selling eur for usd. which investor remains exposed to the change in hedge carry? investor r, the rolling-hedge investor." >
+  <summary>
+    <div class="num">06</div>
+    <div class="sum">
+      <div class="sid">CR-06</div>
+      <h3>Rolling FX Hedge versus Maturity-Matched Hedge</h3>
+      <div class="chips"><span>FX / Fixed Income</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A USD investor owns a one-year EUR zero-coupon bond with a known EUR maturity payment. Investor M sells the entire maturity amount one year forward at inception. Investor R instead rolls one-month EUR/USD forwards. After inception, short-dated USD funding basis repeatedly becomes more expensive for a party selling EUR for USD. Which investor remains exposed to the change in hedge carry?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Investor R, the rolling-hedge investor.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Investor M locks the exchange rate for the known maturity cash flow at inception.</li><li>Investor M therefore does not need to reprice the hedge every month.</li><li>Investor R removes spot FX exposure only one short period at a time.</li><li>Each new roll is executed at the prevailing forward points and basis.</li><li>Therefore Investor R remains exposed to changes in hedge carry and cross-currency basis.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Saying both investors are equally protected because both are &#x27;fully FX hedged.&#x27; Spot-risk hedging and locking hedge carry are not the same thing.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>Only the rolling strategy requires repeated future transactions at future forward points.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Investor identifier + hedge-mechanics explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="options / volatility" data-search="cr-07 gamma p&amp;l near versus far from the strike options / volatility two paths for the same underlying have the same terminal value and the same unweighted realized variance. path a spends most of its time near the strike of a long at-the-money straddle. path b spends most of its time far away from the strike. assume the straddle is delta-hedged frequently, gamma is higher near the strike, and theta, vega, funding and transaction costs are ignored. which path should generate more gross gamma p&amp;l? path a should generate more gross gamma p&amp;l." >
+  <summary>
+    <div class="num">07</div>
+    <div class="sum">
+      <div class="sid">CR-07</div>
+      <h3>Gamma P&amp;L Near versus Far from the Strike</h3>
+      <div class="chips"><span>Options / Volatility</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>Two paths for the same underlying have the same terminal value and the same unweighted realized variance. Path A spends most of its time near the strike of a long at-the-money straddle. Path B spends most of its time far away from the strike. Assume the straddle is delta-hedged frequently, gamma is higher near the strike, and theta, vega, funding and transaction costs are ignored. Which path should generate more gross gamma P&amp;L?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Path A should generate more gross gamma P&amp;L.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Delta-hedged convexity P&amp;L is locally proportional to gamma times the squared underlying move.</li><li>The paths have equal unweighted realized variance, so the difference comes from the gamma weights.</li><li>Gamma is higher near the strike.</li><li>Path A realizes more of its squared moves where gamma is high.</li><li>Therefore Path A has higher gamma-weighted realized variance and more gross gamma P&amp;L.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming equal realized variance and terminal value force equal straddle P&amp;L.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>Given higher gamma near strike and identical unweighted variance, the path spending more time near strike must receive higher gamma weights.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Path identifier + gamma-weighting explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="credit / cds" data-search="cr-08 credit event versus settlement mechanics credit / cds a trader owns a bond and equal-notional cds protection with physical settlement only. a credit event is confirmed. before settlement, the bond is legally extinguished and the trader cannot source another eligible deliverable obligation. does confirmation of the credit event alone guarantee that the bond loss is fully hedged? no." >
+  <summary>
+    <div class="num">08</div>
+    <div class="sum">
+      <div class="sid">CR-08</div>
+      <h3>Credit Event versus Settlement Mechanics</h3>
+      <div class="chips"><span>Credit / CDS</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A trader owns a bond and equal-notional CDS protection with physical settlement only. A Credit Event is confirmed. Before settlement, the bond is legally extinguished and the trader cannot source another eligible deliverable obligation. Does confirmation of the Credit Event alone guarantee that the bond loss is fully hedged?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>No.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>A Credit Event establishes that the CDS can enter the settlement process.</li><li>The contract still requires the protection buyer to satisfy the settlement mechanics.</li><li>Under physical settlement, the buyer must deliver an eligible obligation.</li><li>The owned bond no longer exists and no substitute deliverable is available.</li><li>Therefore the trader cannot complete the required delivery and cannot assume the bond loss is fully hedged.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Treating &#x27;Credit Event confirmed&#x27; as equivalent to &#x27;par payment guaranteed.&#x27;</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The settlement method explicitly requires a deliverable obligation, which is unavailable under the stated facts.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Yes/no + contractual explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="macro" data-search="cr-09 headline gdp versus underlying private demand macro economy a reports faster headline gdp growth than economy b, but most of a&#x27;s growth comes from inventory accumulation. economy b has slower headline gdp growth but much stronger private domestic final demand and inventory liquidation. which economy has stronger underlying private demand? economy b." >
+  <summary>
+    <div class="num">09</div>
+    <div class="sum">
+      <div class="sid">CR-09</div>
+      <h3>Headline GDP versus Underlying Private Demand</h3>
+      <div class="chips"><span>Macro</span><span>Medium</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>Economy A reports faster headline GDP growth than Economy B, but most of A&#x27;s growth comes from inventory accumulation. Economy B has slower headline GDP growth but much stronger private domestic final demand and inventory liquidation. Which economy has stronger underlying private demand?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Economy B.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>The question asks specifically about private domestic final demand, not headline GDP.</li><li>Inventory accumulation raises measured GDP even when goods have not yet been sold to final private purchasers.</li><li>Inventory liquidation can reduce headline GDP even while final private demand is strong.</li><li>Economy B has stronger private final demand by construction.</li><li>Therefore Economy B has stronger underlying private demand despite slower headline GDP.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Ranking the economies by headline GDP growth alone.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The target measure is explicitly defined as private final demand, and the scenario states B is stronger on that measure.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Economy identifier + macro-accounting explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="equity / credit" data-search="cr-10 working-capital quality of earnings equity / credit two companies report identical revenue and ebitda growth. company a&#x27;s receivables and inventory grow roughly in line with sales. company b&#x27;s receivables grow much faster than sales, inventory builds despite flat unit volumes, and payables do not increase. there are no acquisitions, factoring programs or accounting-policy differences. which company has weaker cash-conversion quality? company b." >
+  <summary>
+    <div class="num">10</div>
+    <div class="sum">
+      <div class="sid">CR-10</div>
+      <h3>Working-Capital Quality of Earnings</h3>
+      <div class="chips"><span>Equity / Credit</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>Two companies report identical revenue and EBITDA growth. Company A&#x27;s receivables and inventory grow roughly in line with sales. Company B&#x27;s receivables grow much faster than sales, inventory builds despite flat unit volumes, and payables do not increase. There are no acquisitions, factoring programs or accounting-policy differences. Which company has weaker cash-conversion quality?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Company B.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Revenue and EBITDA are accrual measures and do not by themselves show cash collection.</li><li>Receivables growing faster than sales means more reported revenue remains uncollected.</li><li>Inventory building despite flat unit volumes consumes cash before sales occur.</li><li>With no offsetting increase in payables, Company B absorbs more operating cash in working capital.</li><li>Therefore Company B has weaker cash conversion despite identical reported growth.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming equal EBITDA growth implies equal debt-service capacity or operating cash generation.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>Every stated working-capital signal in Company B points toward greater cash absorption, with no offsetting financing from suppliers.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Company identifier + cash-conversion explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="rates / swaps" data-search="cr-11 pay-fixed swap after market rates rise rates / swaps a trader enters a par interest-rate swap that pays fixed and receives sofr. immediately afterward, market fixed swap rates rise, while all other valuation inputs are unchanged. does the trader&#x27;s existing swap gain or lose value? it gains value." >
+  <summary>
+    <div class="num">11</div>
+    <div class="sum">
+      <div class="sid">CR-11</div>
+      <h3>Pay-Fixed Swap after Market Rates Rise</h3>
+      <div class="chips"><span>Rates / Swaps</span><span>Medium</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A trader enters a par interest-rate swap that pays fixed and receives SOFR. Immediately afterward, market fixed swap rates rise, while all other valuation inputs are unchanged. Does the trader&#x27;s existing swap gain or lose value?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>It gains value.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>The trader is locked into paying the original fixed rate.</li><li>After the market move, new payer swaps would require paying a higher fixed rate.</li><li>The trader&#x27;s existing lower fixed payment is therefore favorable relative to current market terms.</li><li>The receive-floating leg adjusts with prevailing floating rates.</li><li>Thus the existing pay-fixed swap has positive mark-to-market.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Thinking that &#x27;pay fixed&#x27; means losing whenever rates rise.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>A payer swap has negative duration; higher market fixed rates increase its value under the stated assumptions.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Gain/loss + swap-direction explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="rates / bonds" data-search="cr-12 positive convexity with matched duration rates / bonds bond a and bond b have the same price and modified duration, but bond a has materially higher positive convexity. under equal-sized parallel yield shocks up and down, which bond should have the better relative price outcome? bond a should have the better relative price outcome in both directions." >
+  <summary>
+    <div class="num">12</div>
+    <div class="sum">
+      <div class="sid">CR-12</div>
+      <h3>Positive Convexity with Matched Duration</h3>
+      <div class="chips"><span>Rates / Bonds</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>Bond A and Bond B have the same price and modified duration, but Bond A has materially higher positive convexity. Under equal-sized parallel yield shocks up and down, which bond should have the better relative price outcome?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Bond A should have the better relative price outcome in both directions.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Equal modified duration means the two bonds have the same first-order sensitivity to a small yield move.</li><li>Higher positive convexity adds a larger positive second-order term.</li><li>When yields fall, that increases Bond A&#x27;s price gain relative to Bond B.</li><li>When yields rise, it offsets part of Bond A&#x27;s duration-driven loss relative to Bond B.</li><li>Therefore Bond A performs better in both equal-sized directions.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Believing convexity only helps when yields fall.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The convexity term is proportional to the square of the yield change, so it is positive for either sign of the shock.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Bond identifier + second-order risk explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="options / volatility" data-search="cr-13 vega-neutral does not mean surface-neutral options / volatility a portfolio is long long-dated vega and short an equal amount of short-dated vega, so aggregate vega is initially zero. long-dated implied volatility rises materially while short-dated implied volatility is unchanged. is the portfolio protected by its initial vega neutrality? no." >
+  <summary>
+    <div class="num">13</div>
+    <div class="sum">
+      <div class="sid">CR-13</div>
+      <h3>Vega-Neutral Does Not Mean Surface-Neutral</h3>
+      <div class="chips"><span>Options / Volatility</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A portfolio is long long-dated vega and short an equal amount of short-dated vega, so aggregate vega is initially zero. Long-dated implied volatility rises materially while short-dated implied volatility is unchanged. Is the portfolio protected by its initial vega neutrality?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>No.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Aggregate vega neutrality only means the signed vegas sum to zero at the initial surface.</li><li>A parallel volatility move of equal size at both maturities would approximately offset first-order vega P&amp;L.</li><li>The actual shock is not parallel: only long-dated volatility rises.</li><li>The long long-dated vega leg gains while the short-dated leg has little or no offsetting vega P&amp;L.</li><li>Therefore the portfolio is exposed to volatility-term-structure twists despite zero aggregate vega.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Treating a single aggregate Greek as protection against every shape change in the underlying risk surface.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>Only the long-dated leg experiences the stated volatility move.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Yes/no + factor-exposure explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="credit / capital structure" data-search="cr-14 structural subordination at holdco credit / capital structure a holding company owns an operating subsidiary. the holdco has unsecured debt, but the opco has not guaranteed it. the opco enters insolvency with insufficient assets to satisfy all opco creditors. do holdco creditors rank alongside opco creditors against the opco&#x27;s assets? no." >
+  <summary>
+    <div class="num">14</div>
+    <div class="sum">
+      <div class="sid">CR-14</div>
+      <h3>Structural Subordination at HoldCo</h3>
+      <div class="chips"><span>Credit / Capital Structure</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A holding company owns an operating subsidiary. The HoldCo has unsecured debt, but the OpCo has not guaranteed it. The OpCo enters insolvency with insufficient assets to satisfy all OpCo creditors. Do HoldCo creditors rank alongside OpCo creditors against the OpCo&#x27;s assets?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>No.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Debt claims are legal-entity specific unless guarantees or other contractual support connect them.</li><li>OpCo creditors have direct claims against OpCo assets.</li><li>HoldCo creditors have claims against HoldCo.</li><li>HoldCo&#x27;s economic access to OpCo value is through its equity ownership after OpCo-level liabilities are satisfied.</li><li>Without a guarantee, HoldCo creditors do not rank pari passu with OpCo creditors against subsidiary assets.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming common ownership places all creditors in one combined waterfall.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The question explicitly states there is no OpCo guarantee of HoldCo debt.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Yes/no + structural-subordination explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="credit / relative value" data-search="cr-15 negative bond-cds basis package credit / relative value define bond-cds basis as cds spread minus bond spread. the basis is negative. a trader buys the bond and also buys cds protection on the same issuer and comparable maturity. relative to owning the bond alone, does the package add or reduce direct issuer default exposure? it reduces direct issuer default exposure." >
+  <summary>
+    <div class="num">15</div>
+    <div class="sum">
+      <div class="sid">CR-15</div>
+      <h3>Negative Bond-CDS Basis Package</h3>
+      <div class="chips"><span>Credit / Relative Value</span><span>Medium-Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>Define bond-CDS basis as CDS spread minus bond spread. The basis is negative. A trader buys the bond and also buys CDS protection on the same issuer and comparable maturity. Relative to owning the bond alone, does the package add or reduce direct issuer default exposure?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>It reduces direct issuer default exposure.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Owning the bond is long the issuer&#x27;s credit risk.</li><li>Buying CDS protection pays off when the issuer experiences a qualifying credit event, subject to settlement terms.</li><li>The CDS therefore offsets part of the bond&#x27;s default/credit exposure rather than adding to it.</li><li>The negative basis describes relative pricing between cash and synthetic credit; it does not change the hedge direction.</li><li>Therefore the package reduces direct issuer default exposure versus the naked bond.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Thinking negative basis means the trader should also sell CDS protection, which would increase rather than hedge credit exposure.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The protection buyer&#x27;s credit-event exposure is opposite to the bondholder&#x27;s direct default exposure.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Increase/reduce exposure + explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="fx" data-search="cr-16 fx forward direction from interest-rate differentials fx eur/usd is quoted as usd per eur. the eur interest rate for a given maturity is higher than the usd interest rate, and covered interest parity holds. should the eur forward trade above or below the spot eur/usd rate? below spot: eur should trade at a forward discount versus usd under this quote convention." >
+  <summary>
+    <div class="num">16</div>
+    <div class="sum">
+      <div class="sid">CR-16</div>
+      <h3>FX Forward Direction from Interest-Rate Differentials</h3>
+      <div class="chips"><span>FX</span><span>Medium</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>EUR/USD is quoted as USD per EUR. The EUR interest rate for a given maturity is higher than the USD interest rate, and covered interest parity holds. Should the EUR forward trade above or below the spot EUR/USD rate?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Below spot: EUR should trade at a forward discount versus USD under this quote convention.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>EUR/USD is quoted as USD per EUR.</li><li>Under covered interest parity, the forward is proportional to (1 + USD rate) / (1 + EUR rate).</li><li>The EUR rate is higher than the USD rate, so the denominator is larger than the numerator.</li><li>Therefore the forward factor is less than one.</li><li>The forward EUR/USD rate is below spot.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming the higher-yielding currency must trade at a forward premium because it offers a higher cash interest rate.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The sign follows directly from the stated CIP quote convention.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Above/below spot + parity explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="mbs" data-search="cr-17 premium mbs and faster prepayments mbs an investor buys an agency mbs at a premium price above par. holding all else constant, unexpectedly faster principal prepayments occur. are the faster prepayments favorable or unfavorable to the investor, and why? unfavorable." >
+  <summary>
+    <div class="num">17</div>
+    <div class="sum">
+      <div class="sid">CR-17</div>
+      <h3>Premium MBS and Faster Prepayments</h3>
+      <div class="chips"><span>MBS</span><span>Medium</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>An investor buys an agency MBS at a premium price above par. Holding all else constant, unexpectedly faster principal prepayments occur. Are the faster prepayments favorable or unfavorable to the investor, and why?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Unfavorable.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>The investor paid more than par for the MBS principal.</li><li>Prepaid principal is returned at par.</li><li>Faster prepayments therefore return principal sooner at a value below the investor&#x27;s purchase price per unit of principal.</li><li>That accelerates the realization of the premium&#x27;s pull-to-par loss.</li><li>Therefore faster-than-expected prepayments are unfavorable to a premium MBS holder, all else equal.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming receiving cash sooner is automatically beneficial.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>Purchase price is explicitly above par while prepaid principal returns at par.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Favorable/unfavorable + pull-to-par explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="corporate finance" data-search="cr-18 roic above wacc and value creation corporate finance a company can repeatedly reinvest incremental capital at an expected after-tax roic that is sustainably above its wacc. holding the assumptions fixed, does that reinvestment create or destroy enterprise value? it creates enterprise value." >
+  <summary>
+    <div class="num">18</div>
+    <div class="sum">
+      <div class="sid">CR-18</div>
+      <h3>ROIC Above WACC and Value Creation</h3>
+      <div class="chips"><span>Corporate Finance</span><span>Medium</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A company can repeatedly reinvest incremental capital at an expected after-tax ROIC that is sustainably above its WACC. Holding the assumptions fixed, does that reinvestment create or destroy enterprise value?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>It creates enterprise value.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>WACC is the opportunity cost of capital for the investment.</li><li>ROIC measures the operating return earned on the incremental capital.</li><li>If expected ROIC is above WACC, the present value of expected returns exceeds the required return on the capital committed.</li><li>That corresponds to positive economic profit and positive NPV on incremental investment under the stated assumptions.</li><li>Therefore reinvestment creates value.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Treating all growth or capital expenditure as value-neutral or value-destructive simply because it consumes cash upfront.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The question explicitly states a persistent positive ROIC-WACC spread.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Create/destroy value + finance explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="macro / money markets" data-search="cr-19 tga drawdown versus qt macro / money markets during a week, the federal reserve&#x27;s securities holdings decline through quantitative tightening, which drains reserves. at the same time, the u.s. treasury spends down the treasury general account by an even larger amount, with the spending settling into private bank deposits. on rrp and currency are unchanged. can aggregate bank reserves rise over the week despite qt? yes." >
+  <summary>
+    <div class="num">19</div>
+    <div class="sum">
+      <div class="sid">CR-19</div>
+      <h3>TGA Drawdown versus QT</h3>
+      <div class="chips"><span>Macro / Money Markets</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>During a week, the Federal Reserve&#x27;s securities holdings decline through quantitative tightening, which drains reserves. At the same time, the U.S. Treasury spends down the Treasury General Account by an even larger amount, with the spending settling into private bank deposits. ON RRP and currency are unchanged. Can aggregate bank reserves rise over the week despite QT?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Yes.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>QT runoff reduces Federal Reserve assets and, under the stated setup, drains bank reserves.</li><li>A TGA drawdown shifts a Federal Reserve liability from the Treasury&#x27;s account into the banking system as Treasury payments settle.</li><li>That increases bank reserves.</li><li>The question states that the TGA drawdown is larger than the QT drain.</li><li>The positive TGA effect therefore more than offsets QT, so aggregate reserves can rise.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Assuming reserves must fall whenever the Federal Reserve is shrinking its securities portfolio.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The signs of the two balance-sheet flows are opposite, and the positive flow is explicitly larger.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Yes/no + balance-sheet explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+
+<details class="card" data-domain="rates / relative value" data-search="cr-20 dv01-neutral curve trade under a twist rates / relative value a 2s10s curve trade is constructed to have zero total parallel dv01. the 2-year yield subsequently falls while the 10-year yield rises. can the trade still generate a large p&amp;l even though its initial total dv01 was zero? yes." >
+  <summary>
+    <div class="num">20</div>
+    <div class="sum">
+      <div class="sid">CR-20</div>
+      <h3>DV01-Neutral Curve Trade under a Twist</h3>
+      <div class="chips"><span>Rates / Relative Value</span><span>Hard</span></div>
+    </div>
+    <div class="chev">⌄</div>
+  </summary>
+  <div class="body">
+    <section class="question">
+      <div class="eyebrow">CONCEPTUAL REASONING QUESTION</div>
+      <p>A 2s10s curve trade is constructed to have zero total parallel DV01. The 2-year yield subsequently falls while the 10-year yield rises. Can the trade still generate a large P&amp;L even though its initial total DV01 was zero?</p>
+    </section>
+    <section class="gold">
+      <div class="eyebrow">GOLD / GROUND-TRUTH ANSWER</div>
+      <p><strong>Yes.</strong></p>
+    </section>
+    <div class="grid">
+      <section>
+        <div class="eyebrow">EXPECTED STEP-BY-STEP REASONING</div>
+        <ol><li>Parallel DV01 neutrality means the first-order P&amp;L approximately offsets for a parallel shift in which all relevant yields move together by the same amount.</li><li>The actual move is non-parallel: the 2-year and 10-year yields move in opposite directions.</li><li>Each leg therefore experiences a different key-rate shock.</li><li>The leg-level P&amp;Ls need not offset and can instead reinforce one another depending on position direction.</li><li>Therefore a DV01-neutral curve trade can generate substantial P&amp;L under a curve twist.</li></ol>
+      </section>
+      <section>
+        <div class="eyebrow">PLAUSIBLE WRONG REASONING / CONTRA</div>
+        <p class="contra">Treating zero total DV01 as equivalent to zero exposure to all yield-curve movements.</p>
+        <div class="eyebrow gap">WHY THE ANSWER IS VERIFIABLE</div>
+        <p>The scenario is explicitly non-parallel, outside the hedge condition guaranteed by total DV01 neutrality.</p>
+        <div class="eyebrow gap">EXPECTED ANSWER TYPE</div>
+        <p><b>Yes/no + curve-risk explanation</b></p>
+      </section>
+    </div>
+  </div>
+</details>
+</section>
+<section class="note"><strong>Ground-truth policy:</strong> every answer is determined by the stated scenario assumptions and a stable financial relationship. No institutional forecast, discretionary pricing model, or subjective “best trade” judgment is used as the answer key.</section>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')],q=document.getElementById('q'),domain=document.getElementById('domain'),count=document.getElementById('count');
+function f(){const s=q.value.trim().toLowerCase(),d=domain.value;let n=0;cards.forEach(c=>{const ok=(!s||c.dataset.search.includes(s))&&(!d||c.dataset.domain===d);c.hidden=!ok;if(ok)n++;});count.textContent=`${n} question${n===1?'':'s'}`;}
+q.addEventListener('input',f);domain.addEventListener('change',f);
+</script>
+</body></html>
