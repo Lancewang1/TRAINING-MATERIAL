@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFA Books 1–4 · Single-choice QA</title><style>
+:root{--ink:#17202a;--muted:#607080;--line:#dce3e8;--blue:#1769aa;--bg:#f5f7f9;--green:#176b45;--gold:#fff5cf}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1050px;margin:0 auto;padding:36px 20px 70px}header{background:#102a43;color:#fff;padding:30px;border-radius:18px;margin-bottom:20px}h1{margin:0 0 6px;font-size:clamp(28px,4vw,44px);line-height:1.1}header p{margin:0;color:#d9e8f5}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.tab{border:1px solid var(--line);background:#fff;color:var(--blue);border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer}.tab span{display:inline-block;background:#e9f1f7;border-radius:99px;padding:0 7px;margin-left:4px;font-size:12px}.tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}.tab.active span{background:#fff;color:var(--blue)}.tab-panel{display:none}.tab-panel.active{display:block}.item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin:16px 0}.eyebrow{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}h2{font-size:22px;line-height:1.3;margin:8px 0 20px}.item section{margin:18px 0}h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}p{white-space:pre-wrap;margin:0}ol{margin:0;padding-left:28px}li{padding:5px 8px;margin:3px 0}li.gold{background:var(--gold);border-radius:6px;font-weight:700}.gold{border-left:4px solid var(--green);padding:10px 14px;background:#eef8f1}.gold h3{color:var(--green)}details{border-top:1px solid var(--line);padding-top:12px;margin-top:16px}summary{cursor:pointer;color:var(--blue);font-weight:700}blockquote{border-left:3px solid var(--line);padding-left:14px;color:#405261;white-space:pre-wrap;margin:8px 0}.muted{color:var(--muted);font-weight:400}@media(max-width:650px){main{padding:20px 12px 50px}.item{padding:18px}}
+</style></head><body><main><header><h1>CFA Books 1–4</h1><p>80 source-grounded single-choice questions · one tab per book</p></header><nav class="tabs" aria-label="Books"><button class="tab active" data-tab="book-0">Book 1 <span>20</span></button><button class="tab " data-tab="book-1">Book 2 <span>20</span></button><button class="tab " data-tab="book-2">Book 3 <span>20</span></button><button class="tab " data-tab="book-3">Book 4 <span>20</span></button></nav><section id="book-0" class="tab-panel active"><h2>Book 1 <span class="muted">· 20 questions</span></h2><article class="item">
+      <div class="eyebrow">Q1 · trader · c0013_o00_r1q01</div>
+      <h2>Which action should the manager take for the multi-period return report?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is reporting the return of an investment held across multiple periods. The report must compound the rates of return rather than estimate the average share cost of periodic fixed-money purchases. The manager must select one return measure while excluding measures whose stated use is different.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hold the investment and use the geometric mean to compound returns</li><li class="">hold the investment and use the harmonic mean to compound returns</li><li class="">hold the investment and use the arithmetic mean to compound returns</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold the investment and use the geometric mean to compound returns</p></section>
+      <details><summary>Sample COT</summary><p>The reporting objective is to compound rates of return over multiple periods. The source assigns this use to the geometric mean. The harmonic mean is assigned to average share cost from periodic fixed-money purchases, not to compounding returns. The arithmetic mean includes all values, including outliers, but is not the specified compounding measure. Therefore, the correct action is hold the investment and use the geometric mean to compound returns.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the desk were instead calculating average share cost from periodic purchases made in a fixed money amount.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Geometric mean. Compound the rate of returns over multiple periods.</blockquote>
+        <p class="muted">Pages: 18</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q2 · trader · c0013_o00_r1q02</div>
+      <h2>Which action should the risk manager take?</h2>
+      <section><h3>Setup</h3><p>A risk manager is preparing an average-return statistic from a dataset containing unusual observations that may distort the reported average. The desk&#x27;s constraint is to decrease the effect of those outliers rather than include their full influence. The manager must choose between a conventional all-observation average and methods specifically intended to reduce outlier impact.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">underweight the outliers by using a trimmed or winsorized mean</li><li class="">hold the outliers at full influence by using an arithmetic mean</li><li class="">compound the returns by using a geometric mean</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>underweight the outliers by using a trimmed or winsorized mean</p></section>
+      <details><summary>Sample COT</summary><p>The dataset contains unusual observations, which the source calls outliers. The desk wants to decrease their effect, and the source identifies trimmed and winsorized means for that purpose. An arithmetic mean includes all values, including outliers, so it does not satisfy the stated constraint. A geometric mean is used to compound returns over multiple periods, which is a different objective. Therefore, the correct action is underweight the outliers by using a trimmed or winsorized mean.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the desk&#x27;s requirement changed to include all observations, including the outliers, without reducing their effect.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Trimmed or winsorized mean. Decrease the effect of outliers.</blockquote>
+        <p class="muted">Pages: 18</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q3 · event · c0017_o00_r1q03</div>
+      <h2>Will the desk value the portfolio immediately preceding the significant addition or withdrawal?</h2>
+      <section><h3>Setup</h3><p>A performance desk is about to measure a portfolio immediately before a significant addition or withdrawal. The desk must decide whether to use the portfolio value from just before that cash-flow event or a value taken later in the same evaluation period. This timing choice is constrained by the stated first step of the measurement procedure.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen: value the portfolio immediately preceding the significant addition or withdrawal</li><li class="">will not happen: wait until after the significant addition or withdrawal to value the portfolio</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen: value the portfolio immediately preceding the significant addition or withdrawal</p></section>
+      <details><summary>Sample COT</summary><p>The desk is at a point immediately before a significant addition or withdrawal, so the prescribed valuation timing applies. The first step requires valuing the portfolio immediately preceding significant additions or withdrawals. Valuing only after the cash flow would fail to follow that specified timing. Therefore, will happen: value the portfolio immediately preceding the significant addition or withdrawal.</p></details>
+      <details><summary>Falsifier</summary><p>If there were no significant addition or withdrawal at the decision point, the source&#x27;s specified pre-event valuation trigger would be absent.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Value the portfolio immediately preceding significant additions or withdrawals.</blockquote>
+        <p class="muted">Pages: 21</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q4 · event · c0024_o00_r1q02</div>
+      <h2>Will the exact real return be 4.9%?</h2>
+      <section><h3>Setup</h3><p>An investment committee is evaluating a one-year investment with a 7% nominal return while consumer prices rise by 2%. The committee wants purchasing-power performance rather than the rough subtraction estimate. It must choose whether the exact real return is 4.9%.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>Real return adjusts nominal return for inflation. The exact calculation uses the inflation adjustment, 1.07 divided by 1.02 minus 1. The source gives this result as 0.049, or 4.9%. Therefore the exact real return is 4.9%. The correct decision is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>If either the nominal return or the inflation rate differed from 7% or 2%, the stated 4.9% result could flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The investor’s exact real return is slightly lower: 1.07 / 1.02
+– 1 = 0.049 = 4.9%.</blockquote>
+        <p class="muted">Pages: 25</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q5 · event · c0024_o00_r1q04</div>
+      <h2>Will the return after deducting the tax liability be the after-tax nominal return?</h2>
+      <section><h3>Setup</h3><p>A tax-aware investor is comparing two return figures for a portfolio. The first is measured before the tax liability is paid, and the second is measured after that liability is deducted. The investor must decide whether the latter is the source’s after-tax nominal return measure.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>Pretax nominal return is measured before taxes are paid. After-tax nominal return is defined after the tax liability is deducted. The source also notes that different income and gain components may be taxed at different rates, but that does not change the measure’s defining deduction. The correct decision is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>If the tax liability had not been deducted, the result would remain pretax nominal return rather than after-tax nominal return.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>After-tax nominal return refers to the return after the tax liability is
+deducted.</blockquote>
+        <p class="muted">Pages: 25</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q6 · trader · c0031_o00_r1q00</div>
+      <h2>Which calculator should you buy?</h2>
+      <section><h3>Setup</h3><p>You are preparing a time-value-of-money worksheet and do not currently own an exam-approved calculator. The exam permits only the Texas Instruments TI BA II Plus (including Professional) and the HP 12C (including Platinum). You need to choose the purchase that is directly recommended by the source rather than relying on an unapproved device.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Buy the TI BA II Plus</li><li class="">Buy the HP 12C</li><li class="">Buy neither and solve without a calculator</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Buy the TI BA II Plus</p></section>
+      <details><summary>Sample COT</summary><p>The exam permits only the TI BA II Plus and HP 12C families, so an unapproved calculator is not a valid choice. The source specifically says that someone without a calculator should purchase a TI BA II Plus. Therefore the purchase decision is the TI BA II Plus rather than the HP 12C or no calculator. The gold is Buy the TI BA II Plus.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the source instead recommended the HP 12C for a person who did not already own a calculator.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>If you do not already own a calculator, purchase a TI BA II Plus!</blockquote>
+        <p class="muted">Pages: 29</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q7 · event · c0042_o00_r1q00</div>
+      <h2>Will the bond’s yield to maturity increase?</h2>
+      <section><h3>Setup</h3><p>A fixed-income desk is re-marking the 10-year, $1,000 par value, 10% annual-pay bond after its price falls from $1,134.20 to $1,085.00. The cash-flow inputs remain N = 10, PMT = 100, and FV = 1,000. The desk must decide whether the bond’s yield-to-maturity mark should move higher or lower under this repricing constraint.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The bond’s price decreases from $1,134.20 to $1,085.00 while its contractual cash-flow inputs are unchanged. The source states that price and yield move inversely. Therefore, a lower price implies a higher yield to maturity, and the example calculates 8.6934%, up from 8%. The correct desk state is that the yield-to-maturity increase will happen.</p></details>
+      <details><summary>Falsifier</summary><p>A source-supported result showing that the lower-priced bond had a lower yield to maturity would flip the gold.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The bond’s yield to maturity increased to 8.69%.</blockquote>
+        <p class="muted">Pages: 36</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q8 · event · c0042_o00_r1q02</div>
+      <h2>Will the implied growth rate increase?</h2>
+      <section><h3>Setup</h3><p>An equity portfolio manager is revising the growth assumption implied by a stock valuation model. The required rate of return is held fixed, while the current share price rises and the expected dividend remains unchanged. Because the model uses the observed share price to derive the dividend yield, the manager must decide whether the implied growth rate rises or falls.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>A higher share price with the expected dividend unchanged lowers the dividend yield because the yield is the expected dividend divided by current price. The source states that implied growth equals required rate of return minus dividend yield. With required return fixed, subtracting the lower dividend yield produces a higher implied growth rate. Therefore, the implied growth-rate increase will happen.</p></details>
+      <details><summary>Falsifier</summary><p>If the required rate of return increased by enough to offset or exceed the dividend-yield decline, the gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>That is, the implied growth rate is the required rate of return minus the dividend yield.</blockquote>
+        <p class="muted">Pages: 37</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q9 · trader · c0059_o00_r1q00</div>
+      <h2>Which dispersion measure should the desk use for the worst-to-best spread?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is comparing five investment managers with annualized returns of 30%, 12%, 25%, 20%, and 23%. The desk’s immediate risk question is the full worst-to-best spread across managers, rather than the typical deviation from the mean. Because the decision is about the two extremes, the manager must select the dispersion measure that captures that spread.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hedge with range not MAD</li><li class="">hedge with MAD not range</li><li class="">hold</li><li class="">hedge with sample variance not range</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hedge with range not MAD</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is dispersion across manager returns, measured from the lowest outcome to the highest outcome. The relevant friction is that the desk wants the extreme spread, not the average absolute deviation from the mean. The range uses the maximum return minus the minimum return, which is 30% − 12% = 18%. Therefore, the desk should hedge with range not MAD.</p></details>
+      <details><summary>Falsifier</summary><p>If the desk instead required the average absolute deviation from the mean, the range choice would flip to MAD.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>range = 30 − 12 = 18%</blockquote>
+        <p class="muted">Pages: 47</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q10 · correlation · c0066_o00_r1q00</div>
+      <h2>How should the desk classify the relationship between X and Y?</h2>
+      <section><h3>Setup</h3><p>A PM is comparing two random variables across datasets whose measurement units may differ. The desk needs a unit-free measure rather than a raw covariance because covariance depends on the units of the variables. The observed correlation is 1.0, so the desk must classify the relationship under a linear-risk constraint.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">X vs Y is positively related</li><li class="">X vs Y is negatively related</li><li class="">X vs Y has no linear relationship</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>X vs Y is positively related</p></section>
+      <details><summary>Sample COT</summary><p>The desk needs a unit-free measure because covariance depends on the units of the variables. Correlation is the standardized measure of the linear relationship and has no units. A correlation of 1.0 is perfect positive correlation. Therefore, X vs Y is positively related.</p></details>
+      <details><summary>Falsifier</summary><p>The observed correlation would have to be −1.0 or 0 rather than 1.0 to flip the classification.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>If ρXY = 1.0, the random variables have perfect positive correlation.</blockquote>
+        <p class="muted">Pages: 56</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q11 · correlation · c0066_o00_r1q01</div>
+      <h2>How should the desk classify the relationship between X and Y?</h2>
+      <section><h3>Setup</h3><p>A risk manager is assessing whether movements in one variable should be expected to move the other in the same direction. The desk uses correlation rather than covariance because covariance’s value depends on the units of the variables. The measured correlation is −1.0, imposing an exact-opposite linear relationship.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">X vs Y is positively related</li><li class="gold">X vs Y is negatively related</li><li class="">X vs Y has no linear relationship</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>X vs Y is negatively related</p></section>
+      <details><summary>Sample COT</summary><p>Covariance is difficult to compare directly because its value depends on the variables’ units. Correlation removes units and measures the strength of the linear relationship. A correlation of −1.0 means a movement in one variable results in an exact opposite proportional movement in the other relative to its mean. Therefore, X vs Y is negatively related.</p></details>
+      <details><summary>Falsifier</summary><p>The measured correlation would have to change from −1.0 to 1.0 or 0 to flip the classification.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>If ρXY = −1.0, the random variables have perfect negative correlation.</blockquote>
+        <p class="muted">Pages: 56</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q12 · correlation · c0067_o00_r1q00</div>
+      <h2>How should the return relationship between Stock A and Stock B be classified?</h2>
+      <section><h3>Setup</h3><p>You are a risk manager reviewing the return relationship between Stock A and Stock B before approving a joint risk report. Stock A has return variance 0.0028, Stock B has return variance 0.0124, and their return covariance is 0.0058. The report must classify the observed linear association, while avoiding an unsupported causal interpretation.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Stock A vs Stock B is positively related</li><li class="">Stock A vs Stock B is negatively related</li><li class="">Stock A vs Stock B has no linear relationship</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Stock A vs Stock B is positively related</p></section>
+      <details><summary>Sample COT</summary><p>Both variances are positive, so converting them to standard deviations gives a positive denominator for the correlation calculation. The covariance is also positive, so the correlation has a positive sign. Using the stated inputs gives a value close to +1, indicating a very strong positive linear relationship. The classification is an association only; correlation does not establish which variable causes the other. Therefore, Stock A vs Stock B is positively related.</p></details>
+      <details><summary>Falsifier</summary><p>A recalculation showing a negative covariance, rather than the stated positive covariance of 0.0058, would flip the classification to a negative relationship.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The variance of returns on Stock A is 0.0028, the variance of returns on Stock B is
+0.0124, and their covariance of returns is 0.0058. Calculate and interpret the
+correlation of the returns for Stocks A and B.</blockquote>
+        <p class="muted">Pages: 56</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q13 · correlation · c0067_o00_r1q01</div>
+      <h2>What relationship label should you use for the two return series?</h2>
+      <section><h3>Setup</h3><p>You are a portfolio manager deciding whether a strong co-movement between two return series can be used as evidence that one series drives the other. The measured correlation is close to +1. A risk committee will accept the relationship as an association, but it will reject a causal claim unless separately investigated or supported by theory and additional tests.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">A vs B is positively related</li><li class="">A vs B is negatively related</li><li class="">A vs B is unrelated</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>A vs B is positively related</p></section>
+      <details><summary>Sample COT</summary><p>A correlation close to +1 indicates that the linear relationship is positive and very strong. The committee&#x27;s constraint rules out treating correlation alone as proof of causation. That constraint changes the interpretation from a causal claim to a positive association, but it does not change the sign of the observed relationship. Therefore, A vs B is positively related.</p></details>
+      <details><summary>Falsifier</summary><p>If the measured correlation were close to -1 instead of close to +1, the relationship label would flip to negative.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The fact that this value is close to +1 indicates that the linear relationship is not only
+positive, but also is very strong.</blockquote>
+        <p class="muted">Pages: 56</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q14 · correlation · c0067_o00_r1q02</div>
+      <h2>What relationship label is supported by the reported correlation before that investigation is completed?</h2>
+      <section><h3>Setup</h3><p>You are a risk manager assessing whether a reported positive correlation is stable enough to carry into a risk summary. The analyst reports that removing extreme observations significantly reduces the calculated correlation. Before relying on the estimate, you must account for the source&#x27;s requirement to investigate whether those observations contain information or are merely noise.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">A vs B is positively related</li><li class="">A vs B is negatively related</li><li class="">A vs B has no reported association</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>A vs B is positively related</p></section>
+      <details><summary>Sample COT</summary><p>The reported statistic is a correlation, so its sign describes the observed association in the data. The source states that removing outliers can significantly reduce the calculated correlation. That is a reason for further inquiry into information versus noise, not a direct conversion of the reported positive correlation into a negative one. Thus the desk can label the observed relationship as positive while withholding a stronger robustness or causal conclusion. Therefore, A vs B is positively related.</p></details>
+      <details><summary>Falsifier</summary><p>If the reported correlation itself were negative before the outlier analysis, the relationship label would flip to negative.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>If removing the outliers significantly reduces the
+calculated correlation, further inquiry is necessary into whether the outliers provide
+information or are caused by noise (randomness) in the data used.</blockquote>
+        <p class="muted">Pages: 57</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q15 · correlation · c0067_o00_r1q04</div>
+      <h2>Which relationship label should be used for the reported value?</h2>
+      <section><h3>Setup</h3><p>You are a risk manager reviewing a reported correlation of +0.25 between two return variables before deciding how to describe their co-movement. The report must not call the relationship strong merely because the sign is positive. It must also avoid claiming that a change in one variable usually causes a change in the other.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">A vs B is positively related</li><li class="">A vs B is negatively related</li><li class="">A vs B has a strong linear relationship</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>A vs B is positively related</p></section>
+      <details><summary>Sample COT</summary><p>The reported correlation has a positive sign, so observations above one variable&#x27;s mean tend to be associated with the other being above its mean as well. A value of +0.25 does not support describing the relationship as strong; the source&#x27;s strong example is a value close to +1. The source also cautions that correlation does not imply causation. Therefore, A vs B is positively related.</p></details>
+      <details><summary>Falsifier</summary><p>If the reported correlation were -0.25 rather than +0.25, the relationship label would flip to negative.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The correlation between two variables is +0.25. The most appropriate way to interpret this value is
+to say:</blockquote>
+        <p class="muted">Pages: 57</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q16 · trader · c0068_o00_r1q04</div>
+      <h2>What should the PM do based solely on this correlation?</h2>
+      <section><h3>Setup</h3><p>A PM observes an association between two variables and is considering initiating a trade solely because the variables move together. The desk’s constraint is that the trade requires evidence that changes in one variable cause changes in the other. The source warns that association alone does not establish that causal link.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hold</li><li class="">buy</li><li class="">sell</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is an observed association between the variables. The friction is that the desk requires causation, while correlation alone does not establish causation. The source states that correlation does not imply that changes in one variable cause changes in the other. A trade based solely on that unproven causal link is therefore not determined by the source. The gold is hold.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the desk had independently established causation rather than relying solely on correlation.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Correlation does not imply that changes in one variable cause changes in the other.</blockquote>
+        <p class="muted">Pages: 59</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q17 · trader · c0087_o00_r1q00</div>
+      <h2>Which portfolio should the desk overweight?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager must choose which of two portfolios to overweight for a mandate with a fixed target return RT. The desk evaluates both portfolios using Roy’s safety-first framework rather than looking only at expected return. Portfolio P has a greater safety-first ratio than Portfolio Q. The target return constraint is unchanged during the rebalance.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Overweight Portfolio P</li><li class="">Overweight Portfolio Q</li><li class="">Hold both portfolios at their current weights</li><li class="">Underweight both portfolios</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Overweight Portfolio P</p></section>
+      <details><summary>Sample COT</summary><p>The fixed target return means the comparison is made against the same shortfall threshold. The safety-first ratio is the relevant metric for this decision. The source states that greater safety-first ratios are preferred and indicate a smaller shortfall probability. Therefore P is preferred to Q, so the gold is Overweight Portfolio P.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if Portfolio Q, rather than Portfolio P, had the greater safety-first ratio.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Greater safety-first ratios are preferred and indicate a smaller shortfall probability.</blockquote>
+        <p class="muted">Pages: 74</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q18 · trader · c0087_o00_r1q01</div>
+      <h2>Which portfolio should the desk overweight?</h2>
+      <section><h3>Setup</h3><p>A risk manager is selecting between two portfolios for a mandate whose objective is to minimize the probability of falling below a specified return over a given period. Portfolio P has the lower shortfall probability than Portfolio Q when both are assessed against that same specified value. The desk must make one relative allocation decision and cannot treat both portfolios as equally preferred. The decision is governed by Roy’s safety-first criterion.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Overweight Portfolio P</li><li class="">Overweight Portfolio Q</li><li class="">Hold both portfolios at their current weights</li><li class="">Underweight both portfolios</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Overweight Portfolio P</p></section>
+      <details><summary>Sample COT</summary><p>Shortfall risk is defined relative to a specific value over a given period, so the common threshold makes the portfolios comparable. P has the lower probability of falling below that threshold. Roy’s safety-first criterion states that the optimal portfolio minimizes shortfall risk. Therefore the desk should overweight P, so the gold is Overweight Portfolio P.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if Portfolio Q had the lower shortfall probability against the same specified value and period.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Roy’s safety-first criterion states that the optimal portfolio minimizes shortfall risk.</blockquote>
+        <p class="muted">Pages: 74</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q19 · event · c0089_o00_r1q05</div>
+      <h2>Will the desk randomly generate both stock prices and interest rates for the option simulation?</h2>
+      <section><h3>Setup</h3><p>A desk is valuing a stock option that can be exercised only on a particular date. It identifies the stock price as the main risk factor and interest rates as another factor that could affect valuation. The desk must choose whether to generate both factors before valuing each simulated option outcome.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The source identifies the stock price as the main risk factor and interest rates as a factor that could also affect the option&#x27;s valuation. Its stated simulation procedure specifies probability distributions for both factors and then randomly generates values for both. Each generated pair is used to value the option. Therefore, the desk will randomly generate both stock prices and interest rates: will happen.</p></details>
+      <details><summary>Falsifier</summary><p>Interest rates would not be treated as a risk factor that could affect the option&#x27;s valuation.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Randomly generate values for both stock prices and interest rates.</blockquote>
+        <p class="muted">Pages: 77</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q20 · trader · c0090_o00_r1q02</div>
+      <h2>Which method should the desk use for the valuation?</h2>
+      <section><h3>Setup</h3><p>A valuation desk must value a complex security and is choosing between Monte Carlo simulation and bootstrap resampling. The desk is not told to restrict risk-factor inputs to observed outcomes. It must choose the method that the source identifies for valuing complex securities, while recognizing that model assumptions remain a constraint.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hedge with Monte Carlo simulation not bootstrap resampling</li><li class="">hedge with bootstrap resampling not Monte Carlo simulation</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hedge with Monte Carlo simulation not bootstrap resampling</p></section>
+      <details><summary>Sample COT</summary><p>The desk&#x27;s objective is valuation of a complex security, so the relevant economic direction is toward a method explicitly used for that valuation task. The source lists valuing complex securities as an application of Monte Carlo simulation. Bootstrap resampling is described as a way to generate simulation inputs from an observed sample, not as the stated application for complex-security valuation. Therefore, the desk should hedge with Monte Carlo simulation not bootstrap resampling.</p></details>
+      <details><summary>Falsifier</summary><p>The decision would flip if the desk&#x27;s governing constraint were instead that all simulation inputs must come from observed historical outcomes.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Value complex securities.</blockquote>
+        <p class="muted">Pages: 77</p>
+      </details>
+    </article></section><section id="book-1" class="tab-panel "><h2>Book 2 <span class="muted">· 20 questions</span></h2><article class="item">
+      <div class="eyebrow">Q1 · trader · c0001_o00_r1q01</div>
+      <h2>Which cash-flow statement method should the desk prepare?</h2>
+      <section><h3>Setup</h3><p>You are choosing the statement format for a cash-flow review. The mandate is to prepare the cash flow statement from income-statement and balance-sheet data and to show the underlying cash flows rather than only the indirect reconciliation. You must choose between the two preparation approaches named in the source.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">direct method</li><li class="">indirect method</li><li class="">prepare neither method</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>direct method</p></section>
+      <details><summary>Sample COT</summary><p>The source identifies both direct and indirect cash-flow statements as preparation methods. It also separately requires conversion of cash flows from the indirect to the direct method. Since the setup requires the underlying cash flows rather than only the indirect reconciliation, the direct method is the uniquely matching choice. The desk should prepare the direct method.</p></details>
+      <details><summary>Falsifier</summary><p>If the mandate instead required only the indirect reconciliation and did not require conversion to the direct presentation, the gold would flip to indirect method.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>demonstrate the conversion of cash flows from the indirect to direct method.</blockquote>
+        <p class="muted">Pages: 8</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q2 · event · c0008_o00_r1q00</div>
+      <h2>Will the footnotes be audited along with the primary financial statements?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is reviewing a company whose reported estimates have material uncertainty and is deciding whether to use the notes as part of the audited information set. The primary statements summarize the information, while the notes provide further details about the estimates. The manager must choose whether the footnotes are audited together with the primary financial statements before relying on them in the review.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The primary statements summarize the reported information, so the manager needs the notes for further detail on the estimates. The notes address the amount, timing, and uncertainty of those estimates. The source states that the footnotes are audited along with the primary financial statements. Therefore, the selected audit status is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>A source statement that footnotes are not audited with the primary financial statements would flip the answer to will not happen.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>They are audited along with the primary financial statements.</blockquote>
+        <p class="muted">Pages: 15</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q3 · event · c0010_o00_r1q01</div>
+      <h2>Will the new transaction necessarily fall neatly into the existing financial reporting standards?</h2>
+      <section><h3>Setup</h3><p>An analyst is assessing a new financial-market product before incorporating its transaction into a valuation model. The product generates a type of transaction that may not fit neatly into existing reporting standards. The analyst must decide whether the transaction will automatically fit the current standards or whether a framework-based assessment is required first.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">will happen</li><li class="gold">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will not happen</p></section>
+      <details><summary>Sample COT</summary><p>The economic issue is a potential mismatch between the new transaction and existing reporting rules. The source specifically says that new products and innovations can generate new types of transactions. It also states that these transactions might not fall neatly into existing standards. Therefore, automatic fit cannot be assumed. The correct answer is will not happen.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the source stated that the new product’s transaction was already covered neatly by the existing financial reporting standards.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>These might not fall neatly into the existing financial reporting standards.</blockquote>
+        <p class="muted">Pages: 19</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q4 · trader · c0017_o00_r1q02</div>
+      <h2>Should revenue from the cloud-based software arrangement be recognized at the outset or over the life of the contract?</h2>
+      <section><h3>Setup</h3><p>Customers will access the supplier&#x27;s software without taking physical possession of it. The arrangement is cloud-based access rather than delivery of the software itself. At close, the desk must choose whether to recognize the related revenue immediately or over the service period.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">Recognize revenue at the outset</li><li class="gold">Recognize revenue over the life of the contract</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Recognize revenue over the life of the contract</p></section>
+      <details><summary>Sample COT</summary><p>Customers do not take physical possession of the software. The source classifies this cloud-based access arrangement as a service rather than a transfer of the software. A service is delivered over the relevant contract period, so immediate recognition would conflict with the stated treatment. The revenue should therefore be recognized over the life of the contract. The gold is Recognize revenue over the life of the contract.</p></details>
+      <details><summary>Falsifier</summary><p>If customers took physical possession of the software and the arrangement otherwise met the source&#x27;s outset-license criteria, the gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>If customers access the software without taking physical possession of the software
+(i.e., cloud-based access), the contract is for a service, and revenue should be
+recognized over the life of the contract.</blockquote>
+        <p class="muted">Pages: 28</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q5 · trader · c0017_o00_r1q04</div>
+      <h2>Should the supplier record revenue before shipping or defer it?</h2>
+      <section><h3>Setup</h3><p>A customer has paid ahead of delivery under a bill-and-hold arrangement and requested that the goods be held. The goods are identified as belonging to the customer, but they are not yet complete and ready for transfer. The desk must choose the revenue treatment while the performance obligation remains incomplete.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">Record revenue before shipping</li><li class="gold">Defer revenue until shipping</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Defer revenue until shipping</p></section>
+      <details><summary>Sample COT</summary><p>Payment ahead of delivery would typically result in deferred revenue. Pre-shipping recognition is only permitted when the supplier can demonstrate that its performance obligations are complete and the customer has control of the good. The goods here are not complete and ready for transfer, so the stated bill-and-hold criteria are not satisfied. The supplier should therefore defer revenue until shipping. The gold is Defer revenue until shipping.</p></details>
+      <details><summary>Falsifier</summary><p>If the goods became complete and ready for transfer while also satisfying the other stated bill-and-hold criteria, the gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>the goods are complete and ready for transfer to the
+customer, and the goods cannot be redirected to another customer.</blockquote>
+        <p class="muted">Pages: 29</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q6 · policy · c0017_o00_r1q05</div>
+      <h2>Should the supplier disclose assets and liabilities related to contracts, including balances and changes?</h2>
+      <section><h3>Setup</h3><p>A supplier is preparing its reporting package under the converged standards. The reporting team has contract balances that changed during the period and must decide whether to include those balances and changes in the required disclosures. The team is considering omitting them because the underlying revenue recognition entries are already recorded.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Disclose them</li><li class="">Do not disclose them</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Disclose them</p></section>
+      <details><summary>Sample COT</summary><p>The contract balances and their changes are information about assets and liabilities related to customer contracts. The source expressly lists those assets and liabilities, including balances and changes, among the required disclosures. Recording the revenue entries does not remove the separate disclosure requirement. The reporting team should therefore include the contract-related balances and changes. The gold is Disclose them.</p></details>
+      <details><summary>Falsifier</summary><p>If the reporting framework did not require disclosure of assets and liabilities related to contracts, including balances and changes, the gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Assets and liabilities related to contracts, including balances and changes</blockquote>
+        <p class="muted">Pages: 29</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q7 · trader · c0051_o00_r1q02</div>
+      <h2>What increase in income should the desk use for the convertible-debt conversion adjustment?</h2>
+      <section><h3>Setup</h3><p>You are checking the numerator adjustment for YYY Corp.’s convertible-debt dilution analysis. YYY issued 2,000 bonds with $1,000 par value and a 5% coupon. The tax rate is 30%, and the hypothetical conversion removes the related interest expense. You must select the after-tax income adjustment rather than the pretax coupon or an unadjusted amount.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">$70,000</li><li class="">$100,000</li><li class="">$30,000</li><li class="">$2,000</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>$70,000</p></section>
+      <details><summary>Sample COT</summary><p>The annual pretax interest expense is 2,000 multiplied by $1,000 and 5%, or $100,000. Because conversion removes that expense, income rises by the after-tax amount, not by the full pretax interest. Applying the 30% tax rate leaves 70% of $100,000, which is $70,000. The correct numerator adjustment is $70,000.</p></details>
+      <details><summary>Falsifier</summary><p>If the source inputs implied a different tax rate or coupon interest amount, the $70,000 after-tax adjustment would change.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>increase in income = [(2,000)($1,000)(0.05)] (1 − 0.30) = $70,000</blockquote>
+        <p class="muted">Pages: 47</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q8 · trader · c0058_o00_r1q00</div>
+      <h2>Should the company recognize the full transaction price immediately, or recognize revenue as performance obligations are satisfied?</h2>
+      <section><h3>Setup</h3><p>You are reviewing a company whose contract contains several promised customer deliverables. The accounting team is deciding when to recognize revenue, but the customer has not yet received all promised deliverables. The desk must choose the recognition approach that respects the reported performance obligation constraint.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">Recognize the full transaction price immediately</li><li class="gold">Recognize revenue when (or as) the entity satisfies a performance obligation</li><li class="">Defer all revenue until the contract is fully terminated</li><li class="">Recognize revenue only when cash is collected</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Recognize revenue when (or as) the entity satisfies a performance obligation</p></section>
+      <details><summary>Sample COT</summary><p>Revenue should not be recognized merely because a contract exists, since the process separately identifies performance obligations and the transaction price. The economic trigger is satisfaction of the obligation to the customer. The constraint is that revenue recognition follows performance, including progress toward completion where relevant. Therefore, the company should recognize revenue when or as it satisfies a performance obligation. Recognize revenue when (or as) the entity satisfies a performance obligation.</p></details>
+      <details><summary>Falsifier</summary><p>The company would have to show that the relevant performance obligation had already been satisfied before the recognition decision for the gold to flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Step 5: Recognize revenue when (or as) the entity satisfies a performance obligation.</blockquote>
+        <p class="muted">Pages: 51</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q9 · trader · c0067_o00_r1q02</div>
+      <h2>Should the administrative cost be capitalized or expensed?</h2>
+      <section><h3>Setup</h3><p>You are deciding how to treat a cost incurred by Lowe in connection with its development project. The cost is administrative rather than materials, direct labor, or production overhead. The company reports under IFRS, but the cost’s classification is the key constraint for the accounting decision.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Expense it as incurred</li><li class="">Capitalize it as part of development costs</li><li class="">Capitalize it only if the project has a working prototype</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Expense it as incurred</p></section>
+      <details><summary>Sample COT</summary><p>The cost is classified as administrative, which distinguishes it from the materials, direct labor, and production overhead listed for capitalization. The source states that administrative costs are expensed as incurred. The project’s working prototype does not override that specific treatment for administrative costs. The correct decision is Expense it as incurred.</p></details>
+      <details><summary>Falsifier</summary><p>If the cost were instead materials, direct labor, or production overhead included in the source’s capitalizable development-cost calculation, the treatment would flip to capitalization.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Administrative costs are expensed as incurred.</blockquote>
+        <p class="muted">Pages: 58</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q10 · trader · c0083_o00_r1q02</div>
+      <h2>What action should the risk manager take?</h2>
+      <section><h3>Setup</h3><p>A risk manager is reviewing a company whose regular operations do not generate enough cash to sustain the business. The manager must account for operating cash generation rather than relying only on reported net income. The desk must decide whether to retain or reduce the exposure.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="gold">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>sell</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is negative because regular operations are not generating enough cash to sustain the business. The source identifies this operating-cash question as part of assessing liquidity and financial flexibility. The relevant friction is that net income is not the same as cash generated because of accrual accounting. Therefore the risk manager should reduce the exposure and sell.</p></details>
+      <details><summary>Falsifier</summary><p>If regular operations generated enough cash to sustain the business, the source&#x27;s stated liquidity concern would be removed.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Whether regular operations generate enough cash to sustain the business</blockquote>
+        <p class="muted">Pages: 68</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q11 · trader · c0083_o00_r1q03</div>
+      <h2>What position should the PM take?</h2>
+      <section><h3>Setup</h3><p>A credit PM is assessing whether an issuer can generate enough cash to pay existing debts as they mature. The cash flow statement is the desk&#x27;s source for operating, investing, and financing cash movements. If the issuer does generate enough cash for those maturities, the PM must choose whether to add, reduce, or maintain exposure.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="">sell</li><li class="gold">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is supportive because the issuer generates enough cash to pay existing debts as they mature. The source presents this as a solvency assessment made with the cash flow statement. The relevant friction is that many financing and investing cash flows do not affect the income statement when the transactions occur, so net income alone is insufficient. With the stated debt-service condition satisfied, the PM should hold.</p></details>
+      <details><summary>Falsifier</summary><p>If the issuer did not generate enough cash to pay debts as they matured, the solvency signal would turn negative.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Whether the firm generates enough cash to pay off existing debts as they mature</blockquote>
+        <p class="muted">Pages: 68</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q12 · trader · c0083_o00_r1q04</div>
+      <h2>What action should the risk manager take?</h2>
+      <section><h3>Setup</h3><p>A risk manager is evaluating whether an issuer can meet unexpected obligations. The manager is using the cash flow statement to assess liquidity, solvency, and financial flexibility rather than treating accounting earnings as equivalent to cash. The issuer can meet those unexpected obligations, so the desk must choose an exposure action.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="">sell</li><li class="gold">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is supportive because the firm can meet unexpected obligations. The source identifies this ability as a cash-flow-based financial-flexibility assessment. The relevant friction is that accrual accounting means net income is not the same as cash generated by the company. Given the stated ability to meet the obligations, the risk manager should hold.</p></details>
+      <details><summary>Falsifier</summary><p>If the firm could not meet unexpected obligations, the source&#x27;s positive financial-flexibility condition would no longer apply.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Whether the firm can meet unexpected obligations</blockquote>
+        <p class="muted">Pages: 68</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q13 · trader · c0083_o00_r1q05</div>
+      <h2>What position should the committee take?</h2>
+      <section><h3>Setup</h3><p>An investment committee is considering an issuer that has enough cash flexibility to take advantage of new business opportunities as they arise. The committee must use the cash flow statement&#x27;s assessment of financial flexibility rather than infer cash capacity from the income statement alone. It must decide whether to increase, reduce, or maintain the equity position.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">buy</li><li class="">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>buy</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is positive because the firm can take advantage of new business opportunities as they arise. The source includes this capability in its assessment of financial flexibility. The relevant friction is that the income statement is accrual-based and does not capture all financing and investing cash flows at the time of the transactions. Therefore the committee should increase exposure and buy.</p></details>
+      <details><summary>Falsifier</summary><p>If the firm could not take advantage of new business opportunities as they arose, the stated positive financial-flexibility signal would be absent.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Whether the firm can take advantage of new business opportunities as they arise</blockquote>
+        <p class="muted">Pages: 68</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q14 · trader · c0091_o00_r1q05</div>
+      <h2>Which construction approach should the desk use?</h2>
+      <section><h3>Setup</h3><p>A treasury desk is constructing CFO from the income statement and comparative balance sheets for 20X7 and 20X6. The balance sheet contains several accrual-related assets and liabilities, including accounts receivable, inventory, accounts payable, taxes payable, and deferred tax liability. The desk must choose the construction sequence that captures the accruals process rather than treating net income as cash flow.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hold a line-by-line build that adjusts each income-statement line for related balance-sheet changes</li><li class="">buy net income unchanged as CFO and ignore balance-sheet changes</li><li class="">sell every income-statement line with a related balance-sheet account</li><li class="">hedge only the final cash balance and not the accrual adjustments</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold a line-by-line build that adjusts each income-statement line for related balance-sheet changes</p></section>
+      <details><summary>Sample COT</summary><p>Accrual accounting creates differences between income-statement recognition and cash movement. The source directs the analyst to begin at the top of the income statement and adjust each line for the related balance-sheet asset and liability changes. This approach also accommodates the specific supplier, depreciation, investing, and tax treatments stated in the source. The desk should hold a line-by-line build that adjusts each income-statement line for related balance-sheet changes.</p></details>
+      <details><summary>Falsifier</summary><p>A source instruction that CFO should instead equal unchanged net income would flip the decision.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Start at the top of the income statement and adjust each line for the change in balance sheet asset and liabilities that arise due to the accruals process.</blockquote>
+        <p class="muted">Pages: 73</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q15 · event · c0099_o00_r1q01</div>
+      <h2>What gross cost of disposed PP&amp;E should the model use?</h2>
+      <section><h3>Setup</h3><p>You are checking the gross PP&amp;E roll-forward before approving the 20X7 cash-flow model. Beginning PP&amp;E is $60,000, acquisitions are $25,000, and ending gross PP&amp;E is $69,000. Because the roll-forward must account for disposals at their original gross recorded cost, determine the disposal amount to use in the model.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">$9,000</li><li class="gold">$16,000</li><li class="">$25,000</li><li class="">$76,000</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>$16,000</p></section>
+      <details><summary>Sample COT</summary><p>The source gives the reconciliation as beginning PP&amp;E plus acquisitions minus ending gross PP&amp;E equals disposals gross cost. Substituting the reported figures gives $60,000 + $25,000 − $69,000. The resulting gross cost of the disposed assets is $16,000. Therefore the model should use $16,000: $16,000.</p></details>
+      <details><summary>Falsifier</summary><p>A revised gross PP&amp;E roll-forward with a different beginning balance, acquisition amount, or ending gross PP&amp;E would flip the gold if it produced a different arithmetic result.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>disposals gross cost = $60,000 + $25,000 − $69,000 = $16,000</blockquote>
+        <p class="muted">Pages: 82</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q16 · trader · c0111_o00_r1q02</div>
+      <h2>What action should the manager take if the proposed change is based on treating the bond issuance as operating cash flow?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is assessing a company after it issued bonds and is deciding whether to treat the proceeds as operating cash flow. The manager needs the cash-flow classification before changing the position. The source classifies bond issuance by activity. The decision is limited to the classification-driven trade response.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="">sell</li><li class="gold">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>Issuing bonds is classified as a financing activity, not an operating activity. Thus the proposed operating-cash-flow treatment is inconsistent with the source. Because the trade thesis depends on that incorrect classification, the manager should not act on it. The correct action is hold.</p></details>
+      <details><summary>Falsifier</summary><p>If the source classified the bond issuance as an operating activity, the classification constraint would disappear and hold would no longer be the determined action.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Issuing bonds is classified as a financing activity.</blockquote>
+        <p class="muted">Pages: 94</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q17 · trader · c0111_o00_r1q03</div>
+      <h2>What should the manager do if the proposed trade relies on classifying the land-sale proceeds as operating cash flow?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is reviewing proceeds from a land sale before changing the position. The manager is considering whether to count those proceeds as operating cash flow because they increase cash. The source assigns the activity to a specific cash-flow category. The manager must decide whether to act on the operating classification.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="">sell</li><li class="gold">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>The sale of land is classified as an investing activity. Therefore the increase in cash does not make the proceeds operating cash flow under the source’s classification. The proposed trade based on operating treatment is not supported. The correct action is hold.</p></details>
+      <details><summary>Falsifier</summary><p>If the transaction were not a sale of land but instead a source-supported operating receipt, the investing-activity constraint would be removed and hold would no longer follow.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The sale of land is classified as an investing activity.</blockquote>
+        <p class="muted">Pages: 94</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q18 · event · c0130_o00_r1q02</div>
+      <h2>Will a subsequent recovery in value permit a write-up?</h2>
+      <section><h3>Setup</h3><p>You are reviewing a U.S. GAAP inventory position after a prior write-down. Inventory value has subsequently recovered, and the accounting team is considering restoring the carrying amount. The team must decide whether the recovery permits a write-up under the applicable inventory rules.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">will happen</li><li class="gold">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will not happen</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is a recovery in inventory value after an earlier decline. The relevant friction is the U.S. GAAP restriction on reversing the inventory write-down through a write-up. The source states that no write-up is allowed after a subsequent recovery in value. It also says this applies under both lower of cost or NRV and lower of cost or market. Therefore, the write-up will not happen. The gold is will not happen.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip only if the governing accounting basis were not U.S. GAAP or if the source’s stated no-write-up rule did not apply.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>If there is a subsequent recovery in value, no write-up is allowed under U.S. GAAP.</blockquote>
+        <p class="muted">Pages: 104</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q19 · event · c0130_o00_r1q03</div>
+      <h2>Will the reduced market value become the new cost basis?</h2>
+      <section><h3>Setup</h3><p>You are checking the carrying amount after an inventory write-down. The inventory’s market value has fallen below its prior cost, so the loss has been recognized. The accounting team must determine which amount becomes the reference cost for subsequent reporting.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is a fall in market value below the inventory’s prior cost. The write-down changes the carrying amount rather than leaving the old cost untouched. The source expressly states that after this write-down, the market value becomes the new cost basis. Thus the new-basis change will happen. The gold is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if there had been no decline in market value below cost and therefore no write-down event.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The market value becomes the new cost basis.</blockquote>
+        <p class="muted">Pages: 104</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q20 · trader · c0139_o00_r1q00</div>
+      <h2>What should you do first?</h2>
+      <section><h3>Setup</h3><p>You are an equity analyst comparing two firms in the same industry. Their inventory disclosures use different cost-flow methods, so reported inventory and earnings may not be directly comparable. The source says inventory disclosures are useful for adjusting financial statements to make them comparable with other firms in the industry. You must choose the first disclosure-driven action for the comparison.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Adjust the financial statements for comparability using the disclosed cost-flow methods</li><li class="">Ignore the cost-flow methods because only total carrying value matters</li><li class="">Use only the inventory pledged as collateral</li><li class="">Replace inventory with fair value less selling costs in every case</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Adjust the financial statements for comparability using the disclosed cost-flow methods</p></section>
+      <details><summary>Sample COT</summary><p>The economic issue is comparability: different cost-flow methods can affect reported inventory information. The relevant friction is that the firms use different methods, so an unadjusted comparison may not be like-for-like. The source specifically identifies inventory disclosures as useful for adjusting financial statements for industry comparability. Therefore the correct desk action is to adjust the financial statements using the disclosed cost-flow methods. Adjust the financial statements for comparability using the disclosed cost-flow methods.</p></details>
+      <details><summary>Falsifier</summary><p>The two firms use the same cost-flow method and no other inventory comparability issue is present.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Cost flow method (LIFO, FIFO, etc.) used</blockquote>
+        <p class="muted">Pages: 112</p>
+      </details>
+    </article></section><section id="book-2" class="tab-panel "><h2>Book 3 <span class="muted">· 20 questions</span></h2><article class="item">
+      <div class="eyebrow">Q1 · trader · c0031_o00_r1q03</div>
+      <h2>What should the PM do with the broad aggregate index relative to this sector-focused fund?</h2>
+      <section><h3>Setup</h3><p>A bond fund is deliberately concentrated in one sector, while the PM is considering a broad aggregate index as a benchmark. The PM&#x27;s benchmark policy requires sector exposure to match the fund rather than defaulting to the broadest available index. The broad index&#x27;s sector breadth is therefore a constraint on its use for this fund.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">overweight</li><li class="gold">underweight</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>underweight</p></section>
+      <details><summary>Sample COT</summary><p>The fund has a narrow sector focus. An aggregate index contains a broad selection of bonds and therefore is not constructed to mirror that narrow sector exposure. Because the benchmark should match sector focus, the aggregate index is a poor proxy for this fund. The gold is underweight.</p></details>
+      <details><summary>Falsifier</summary><p>The fund becomes broadly diversified across sectors in line with the aggregate index&#x27;s selection.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Indexes can have a narrower focus on geography, credit quality, sector, or maturity.</blockquote>
+        <p class="muted">Pages: 32</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q2 · event · c0033_o00_r1q05</div>
+      <h2>Will the aggregate fixed-income index have lower turnover than the equity index?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager compares an aggregate fixed-income index with an equity index before using index turnover as a trading-friction assumption. The manager must decide whether the fixed-income index has the lower turnover. The choice is between that relative state and its negation.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The comparison is between aggregate fixed-income indexes and equity indexes. The source’s comparison question asks which characteristic is most likely lower for aggregate fixed-income indexes. It identifies turnover rather than corporate-sector weight or number of constituents. The gold is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the source stated that aggregate fixed-income indexes instead had higher turnover than equity indexes.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Compared to equity indexes, aggregate fixed-income indexes are most likely to have a lower:
+A. turnover.
+B. weight in the corporate sector.
+C. number of constituents.</blockquote>
+        <p class="muted">Pages: 34</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q3 · trader · c0044_o00_r1q00</div>
+      <h2>What repo-funding positioning should the desk take?</h2>
+      <section><h3>Setup</h3><p>A funding desk must choose whether to overweight or underweight repo funding for short-term money-market needs. The proposed collateral has high credit quality, while the desk is comparing the repo rate with its funding alternatives. The desk wants the lower-cost repo configuration, all else equal.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">overweight</li><li class="">underweight</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>overweight</p></section>
+      <details><summary>Sample COT</summary><p>Higher collateral credit quality lowers the repo rate. A lower repo rate is the favorable funding direction for a desk seeking short-term funds. The constraint is the desk is comparing funding costs, not seeking a higher lending return. Therefore the desk should overweight repo funding. The gold is overweight.</p></details>
+      <details><summary>Falsifier</summary><p>If higher collateral credit quality instead raised the repo rate, the positioning would flip to underweight.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Lower, the higher the credit quality of the collateral security</blockquote>
+        <p class="muted">Pages: 42</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q4 · trader · c0044_o00_r1q03</div>
+      <h2>What repo-funding positioning should the desk take?</h2>
+      <section><h3>Setup</h3><p>A repo desk is evaluating collateral that is in high demand or low supply. It must choose whether to overweight or underweight repo funding when seeking short-term funds. The desk treats a lower repo rate as the favorable funding outcome, subject to the collateral condition in the source.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">overweight</li><li class="">underweight</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>overweight</p></section>
+      <details><summary>Sample COT</summary><p>The source states that the repo rate is lower when the collateral security is in high demand or low supply. A lower repo rate reduces the funding cost for the desk. The collateral-demand and supply condition is the relevant constraint on the decision. Therefore the desk should overweight repo funding. The gold is overweight.</p></details>
+      <details><summary>Falsifier</summary><p>If high collateral demand or low supply instead made the repo rate higher, the desk would underweight repo funding.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Lower, when the collateral security is in high demand or low supply</blockquote>
+        <p class="muted">Pages: 42</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q5 · trader · c0057_o00_r1q02</div>
+      <h2>What should the trader do?</h2>
+      <section><h3>Setup</h3><p>A cash investor is considering buying the same 5-year, 10% annual-pay bond. The market discount rate is 12%, and the investor’s constraint is that the purchase must be below the $100 par amount. The trader must choose whether to buy, sell, or hold.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">buy</li><li class="">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>buy</p></section>
+      <details><summary>Sample COT</summary><p>Discounting the five $10 coupons and the $100 principal at 12% gives a present value of $92.79. The bond therefore trades at a $7.21 discount to par because its 10% coupon is below the 12% yield. That price satisfies the investor’s below-par purchase constraint. The correct decision is buy.</p></details>
+      <details><summary>Falsifier</summary><p>If the market discount rate were 8%, the bond would be priced at $107.99 above par and would fail the below-par purchase constraint.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>N = 5; PMT = 10; FV = 100; I/Y = 12; CPT → PV = −92.79</blockquote>
+        <p class="muted">Pages: 53</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q6 · trader · c0078_o00_r1q00</div>
+      <h2>Which spread should you report, and at what level?</h2>
+      <section><h3>Setup</h3><p>You are classifying the spread on a 3-year, 9% annual-coupon corporate bond quoted at a 13.50% YTM. The corresponding 3-year Treasury YTM is 12.00%. Because the desk needs the spread relative to the Treasury yield rather than the full spot curve, select the spread measure to report.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">G-spread at 150 bp</li><li class="">I-spread at 150 bp</li><li class="">Z-spread at 150 bp</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>G-spread at 150 bp</p></section>
+      <details><summary>Sample COT</summary><p>The economic spread is the corporate bond’s yield minus the Treasury yield, so it is 13.50% − 12.00% = 1.50%. The inputs compare two YTMs, not each cash flow with the corresponding Treasury spot rate. That makes the requested measure a G-spread rather than an I-spread or Z-spread. The desk should report G-spread at 150 bp.</p></details>
+      <details><summary>Falsifier</summary><p>If the desk were required to discount each cash flow at the matching Treasury spot rate plus a fixed spread, the gold would switch to Z-spread rather than G-spread.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The G-spread is YTMbond − YTMTreasury = 13.50 − 12.00 = 1.50%.</blockquote>
+        <p class="muted">Pages: 68</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q7 · trader · c0080_o00_r1q01</div>
+      <h2>Which spread measure should the trader use?</h2>
+      <section><h3>Setup</h3><p>A credit trader is assessing a bond&#x27;s spread relative to the swap market rather than relative to a government bond or to the full benchmark yield curve. The trader must choose the spread measure that uses the relevant reference rate. The choice is constrained by the requested benchmark, not by a preference for a wider or narrower spread.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">G-spread</li><li class="gold">I-spread</li><li class="">Z-spread</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>I-spread</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is not a directional buy or sell signal; the decision is which benchmark spread matches the desk&#x27;s reference market. A G-spread uses an actual or interpolated government bond yield, so it does not match the swap-rate constraint. A Z-spread uses the shape of the benchmark yield curve, whereas an I-spread is quoted relative to swap rates. The gold is I-spread.</p></details>
+      <details><summary>Falsifier</summary><p>If the requested comparison were instead against an actual or interpolated government bond yield, G-spread would be the appropriate choice rather than I-spread.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>I-spreads are quoted relative to swap rates.</blockquote>
+        <p class="muted">Pages: 70</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q8 · trader · c0083_o00_r1q01</div>
+      <h2>What should the trader do?</h2>
+      <section><h3>Setup</h3><p>A money-market trader is choosing how to represent a 100-day bank CD quoted at a 1.5% annualized add-on yield on a 365-day basis. The trader must use the holding period yield rather than the quoted annualized rate to assess the cash return. The investment amount is $1,000 and the trader is deciding whether to buy the CD.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">buy</li><li class="">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>buy</p></section>
+      <details><summary>Sample COT</summary><p>The CD is quoted on an add-on basis, so its holding period yield is the quoted yield multiplied by days to maturity and divided by 365. That calculation is 1.5% × 100 / 365, or 0.41%. A $1,000 purchase pays $1,004.10 in 100 days, so the cash return is positive. Given the stated decision to invest when the computed return is positive, the trader should buy. The correct decision is buy.</p></details>
+      <details><summary>Falsifier</summary><p>If the calculated payment at maturity were no greater than the $1,000 purchase amount, the decision would flip to hold.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The purchase of a $1,000 CD would provide a payment of $1,004.10 in 100 days.</blockquote>
+        <p class="muted">Pages: 73</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q9 · event · c0084_o00_r1q01</div>
+      <h2>Which maturity payment should the desk book?</h2>
+      <section><h3>Setup</h3><p>A desk is booking a $1 million negotiable CD with 120 days to maturity. The CD is quoted at a 1.4% add-on yield on a 365-day basis, so interest is added to principal rather than deducted from face value. The settlement team must choose the payment amount at maturity from the permitted booking values.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">$1,004,603</li><li class="">$1,001,400</li><li class="">$1,004,200</li><li class="">$1,000,000</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>$1,004,603</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign of an add-on quote is positive interest added to the $1 million principal. The holding-period add-on is 1.4% × 120 / 365, or 0.4603%. The 365-day basis is the relevant convention, so the desk must not use a 360-day accrual. Applying the add-on to principal gives $1,000,000 × (1 + 0.004603) = $1,004,603. The desk should book $1,004,603.</p></details>
+      <details><summary>Falsifier</summary><p>A stated convention other than the source&#x27;s 365-day basis, or a source-supported maturity calculation yielding a different add-on amount, would flip the booking choice.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>At maturity, the CD will pay $1 million × (1 + 0.004603) = $1,004,603.</blockquote>
+        <p class="muted">Pages: 73</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q10 · trader · c0094_o00_r1q00</div>
+      <h2>What should the desk do with this relative-value trade?</h2>
+      <section><h3>Setup</h3><p>A rates desk sees a 2-year spot rate of 8.0% and a 3-year spot rate of 12.0%. It is considering a relative-value trade between the 3-year spot borrowing and the 2-year spot borrowing plus a 1-year forward loan beginning in two years. The desk must respect the no-arbitrage relation between successive 1-period borrowing and multiperiod spot borrowing.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy the relative-value trade</li><li class="">sell the relative-value trade</li><li class="gold">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>The 3-year spot accumulation is (1.12)^3. The 2-year spot accumulation is (1.08)^2, so the implied 1-year forward rate two years from now is about 20.45%. The source states that these accumulated costs must be equal, so the forward is not a basis for an arbitrage trade against the spot curve. The desk should therefore avoid taking either directional relative-value position. The correct decision is hold.</p></details>
+      <details><summary>Falsifier</summary><p>A market forward rate different from the no-arbitrage rate implied by the two spot rates would flip the decision to a buy or sell relative-value trade.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>This is so that the 1-year forward rate two years from now is:</blockquote>
+        <p class="muted">Pages: 80</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q11 · trader · c0094_o00_r1q01</div>
+      <h2>What should the desk do with the 1-year spot versus 2-year spot relative-value trade?</h2>
+      <section><h3>Setup</h3><p>A rates desk is comparing 1-year borrowing at the current 1-year spot rate with 2-year borrowing at the current 2-year spot rate. The relevant rates are 4.0% for one year and 8.0% for two years. Because the desk cannot violate the cost-equality relation between successive 1-period rates and multiperiod spot rates, it must decide whether to trade the curve relationship.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy the relative-value trade</li><li class="">sell the relative-value trade</li><li class="gold">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hold</p></section>
+      <details><summary>Sample COT</summary><p>Two years of borrowing at the 2-year spot rate must have the same cost as one year at the 1-year spot rate followed by one year at the implied forward rate. The implied second-year forward rate is close to 12% and the exact framework enforces the equality. Therefore the spot and forward legs do not create a source-supported arbitrage by themselves. The desk should not buy or sell the relative-value trade. The correct decision is hold.</p></details>
+      <details><summary>Falsifier</summary><p>A quoted forward rate that breaks the stated accumulation equality would flip the decision away from hold.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>(1 + S2)2 = (1 + S1)(1 + 1y1y) for two periods, and</blockquote>
+        <p class="muted">Pages: 80</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q12 · trader · c0096_o00_r1q01</div>
+      <h2>Which rate should you use as the market discount rate for the single future payment?</h2>
+      <section><h3>Setup</h3><p>You are valuing a single payment scheduled for a future date and must select the market discount rate for the valuation. The desk also has a forward rate available, but that rate describes a future periodic borrowing or lending interval rather than the discount rate for one payment. The constraint is to use the rate matched to the single future cash flow. Choose the rate type for the valuation.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">spot rate</li><li class="">simple yield</li><li class="">forward rate</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>spot rate</p></section>
+      <details><summary>Sample COT</summary><p>The economic task is discounting one payment at one future maturity. The source identifies a market rate of discount for a single future payment as a spot rate. A forward rate is associated with a future periodic rate, so it does not match this single-payment discounting task. A simple yield is not the source&#x27;s specified answer for this market discount. The correct rate choice is spot rate.</p></details>
+      <details><summary>Falsifier</summary><p>If the source instead identified the market discount rate for a single future payment as a forward rate, the gold would flip to forward rate.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>A market rate of discount for a single payment to be made in the future is a:</blockquote>
+        <p class="muted">Pages: 83</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q13 · trader · c0096_o00_r1q02</div>
+      <h2>Which yield curve is least likely to consist of observed yields in the market?</h2>
+      <section><h3>Setup</h3><p>You are preparing a market-data report and must label the curve that is least likely to be made up of directly observed market yields. The candidate curves are a forward yield curve, a par bond yield curve, and a coupon bond yield curve. The friction is that some curves are constructed from other rates rather than directly observed as bond yields. Select one curve for the report.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">Forward yield curve</li><li class="">Par bond yield curve</li><li class="">Coupon bond yield curve</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Forward yield curve</p></section>
+      <details><summary>Sample COT</summary><p>The desk must distinguish directly observed yield information from a curve constructed from rate relationships. The source&#x27;s quiz asks which of the three candidate curves is least likely to consist of observed market yields. The forward yield curve is the unique choice identified by that comparison. The par bond and coupon bond yield curves are therefore not the selected answer in this decision. The correct choice is Forward yield curve.</p></details>
+      <details><summary>Falsifier</summary><p>If the source ranked either the par bond yield curve or the coupon bond yield curve as less likely to consist of observed market yields than the forward curve, the gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Which of the following yield curves is least likely to consist of observed yields in the market?</blockquote>
+        <p class="muted">Pages: 83</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q14 · trader · c0096_o00_r1q04</div>
+      <h2>Which value should you assign to the bond?</h2>
+      <section><h3>Setup</h3><p>You are pricing a 4-year, 10% annual-pay bond with $1,000 par value. The current 1-year spot rate is 5.5%, followed by one-year forward rates of 7.63%, 12.18%, and 15.5% for the next three years. The constraint is to discount each annual cash flow using the compounded path implied by the current spot and successive forward rates. Select the closest value from the desk&#x27;s candidates.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">$870</li><li class="">$996</li><li class="gold">$1,009</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>$1,009</p></section>
+      <details><summary>Sample COT</summary><p>The bond has positive annual coupons and a principal repayment, so its value is the discounted value of four positive cash flows. The successive forward rates generate the discount factors for years two through four when combined with the current one-year spot rate. Discounting the 10% coupons and the final principal through that path gives a value closest to $1,009. The other two candidates are farther from the implied present value. The correct valuation is $1,009.</p></details>
+      <details><summary>Falsifier</summary><p>If applying the stated spot and forward rates to the bond cash flows produced a value closer to $870 or $996, the gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Given the following spot and forward rates:
+Current 1-year spot rate is 5.5%.</blockquote>
+        <p class="muted">Pages: 83</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q15 · trader · c0097_o00_r1q04</div>
+      <h2>Which curve should the desk use: hedge with spot rates not par yields or use par yields not spot rates?</h2>
+      <section><h3>Setup</h3><p>A bond desk is valuing a bond whose cash flows occur at multiple future maturities. It can use a spot curve or a par curve, but it must avoid applying one hypothetical par-bond coupon rate as though it were the discount rate for every cash flow. The economic constraint is that each individual cash flow has its own applicable maturity rate. The desk must choose the curve construction for no-arbitrage valuation.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hedge with spot rates not par yields</li><li class="">hedge with par yields not spot rates</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hedge with spot rates not par yields</p></section>
+      <details><summary>Sample COT</summary><p>The bond has multiple future cash flows, so the desk needs rates applying to individual payment dates. The source states that spot rates are market discount rates for single future payments and that a bond&#x27;s no-arbitrage price is calculated using no-arbitrage spot rates. Par yields instead describe hypothetical bonds trading at par and can be interpreted as weighted averages of spot rates. The no-arbitrage valuation choice is therefore spot rates rather than par yields. The answer is hedge with spot rates not par yields.</p></details>
+      <details><summary>Falsifier</summary><p>The desk is no longer performing no-arbitrage bond valuation and is instead specifically selecting the coupon rate of a hypothetical bond that trades at par.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The no-arbitrage price of a bond is calculated using no-arbitrage spot rates as follows:</blockquote>
+        <p class="muted">Pages: 84</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q16 · trader · c0104_o00_r1q02</div>
+      <h2>Which risk should the desk hedge rather than the other?</h2>
+      <section><h3>Setup</h3><p>A risk manager is setting the dominant hedge objective for a bond position with a short investment horizon. The position will be sold before maturity, so changes in the prevailing market YTM can affect the exit price. Coupon payments will not earn reinvestment income before the planned sale.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">hedge with price risk, not reinvestment risk</li><li class="">hedge with reinvestment risk, not price risk</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hedge with price risk, not reinvestment risk</p></section>
+      <details><summary>Sample COT</summary><p>Because the position is intended to be sold before maturity, its exit value is exposed to price changes caused by the prevailing YTM. The short horizon also leaves little or no time for coupon payments to generate reinvestment income. The source summarizes this ordering as price risk greater than reinvestment risk for a short investment horizon. Therefore the desk should hedge with price risk, not reinvestment risk.</p></details>
+      <details><summary>Falsifier</summary><p>The position is changed to a long investment horizon for which reinvestment risk exceeds price risk.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Short investment horizon: price risk &gt; reinvestment risk</blockquote>
+        <p class="muted">Pages: 91</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q17 · trader · c0104_o00_r1q03</div>
+      <h2>Which risk should the desk hedge for the long-horizon position rather than the other?</h2>
+      <section><h3>Setup</h3><p>A risk manager is comparing a bond position intended for a long investment horizon with one intended for a short horizon. The long-horizon position is not being evaluated primarily as a near-term sale. The desk must choose which risk deserves the dominant hedge allocation for the long-horizon position.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">hedge with price risk, not reinvestment risk</li><li class="gold">hedge with reinvestment risk, not price risk</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hedge with reinvestment risk, not price risk</p></section>
+      <details><summary>Sample COT</summary><p>A long investment horizon reduces the importance of an immediate sale price relative to the accumulation of coupon cash flows. The source states that for a bond held to maturity there is no price risk as defined when the investor does not intend to sell. It also states that the long-horizon ordering is reinvestment risk greater than price risk. Therefore the desk should hedge with reinvestment risk, not price risk.</p></details>
+      <details><summary>Falsifier</summary><p>The investment horizon is shortened so that the desk intends to sell before maturity.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Long investment horizon: reinvestment risk &gt; price risk</blockquote>
+        <p class="muted">Pages: 91</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q18 · event · c0109_o00_r1q05</div>
+      <h2>Will the annualized Macaulay duration be 1.90 years?</h2>
+      <section><h3>Setup</h3><p>A fixed-income desk is checking a bond’s annualized Macaulay duration. The weighted-average time calculation produces 3.806, and the source states that the payments are semiannual, requiring the result to be divided by two. The desk must select the resulting duration state.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The weighted-average time from the cash-flow weights is 3.806. The source then annualizes the Macaulay duration by dividing 3.806 by two. That calculation gives 1.903, which the source reports as 1.90 years. The correct state is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>If the weighted-average time were not 3.806 or the source did not require division by two, the 1.90-year result would not follow.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Then, the annualized Macaulay duration is 3.806 / 2 = 1.90 years.</blockquote>
+        <p class="muted">Pages: 95</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q19 · trader · c0115_o00_r1q00</div>
+      <h2>What should the desk do to avoid the source-implied mark-to-market loss?</h2>
+      <section><h3>Setup</h3><p>A rates desk is long the $2 million par value bond described in the example, with a ModDur of 7.42 and a full price of 101.32. The desk expects the bond&#x27;s YTM to increase by 25 basis points and can either sell before the move or hold the position. The relevant constraint is the position&#x27;s mark-to-market sensitivity to the YTM change, measured using money duration.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>sell</p></section>
+      <details><summary>Sample COT</summary><p>The bond&#x27;s money duration is calculated as ModDur times the full value of the bond, giving $15,035,888 for the whole position. A 25 basis point increase in YTM therefore implies a value change of $15,035,888 × 0.0025, or $37,589.72. The source states that the bond value decreases by this amount when YTM rises by 25 basis points. Because the desk is long the bond and the constraint is to avoid that mark-to-market loss, it should sell. The correct decision is sell.</p></details>
+      <details><summary>Falsifier</summary><p>If the desk expected YTM to decrease rather than increase by 25 basis points, the source would not support selling to avoid this particular loss.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The bond value decreases by $37,589.72.</blockquote>
+        <p class="muted">Pages: 98</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q20 · trader · c0117_o00_r1q00</div>
+      <h2>What should the desk do with the bond?</h2>
+      <section><h3>Setup</h3><p>A bond trader expects the bond&#x27;s YTM to rise while holding other factors constant. The position is unhedged, so the desk must choose whether to buy, sell, or hold the bond. Modified duration measures the percentage price response to a yield change, and the source gives the sign of that response.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="gold">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>sell</p></section>
+      <details><summary>Sample COT</summary><p>A rise in YTM means ΔYTM is positive. The source states that the approximate percentage change in bond price equals −ModDur × ΔYTM, so the expected price change is negative. With no offsetting factor specified and other factors held constant, the desk should reduce the position rather than add to it. The desk decision is sell.</p></details>
+      <details><summary>Falsifier</summary><p>A positive expected yield change would be absent or another source-supported factor would make the expected bond-price change positive.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>approximate percentage change in bond price = −ModDur × ΔYTM</blockquote>
+        <p class="muted">Pages: 100</p>
+      </details>
+    </article></section><section id="book-3" class="tab-panel "><h2>Book 4 <span class="muted">· 20 questions</span></h2><article class="item">
+      <div class="eyebrow">Q1 · trader · c0003_o00_r1q05</div>
+      <h2>What should the manager do with risk budgeting in the risk-governance process?</h2>
+      <section><h3>Setup</h3><p>An investment firm is reviewing its risk-governance process after identifying a need to allocate risk deliberately across the portfolio. The source identifies risk budgeting as part of risk governance and separately describes risk governance as an element of the risk-management framework. The manager must decide whether to increase or decrease the use of risk budgeting in the governance process. The decision concerns governance, not a particular asset purchase.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">overweight</li><li class="">underweight</li><li class="">hold</li><li class="">sell</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>overweight</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is a governance process that needs an explicit way to allocate risk. The source identifies risk budgeting and its role in risk governance. That makes risk budgeting the relevant mechanism for the stated governance need. The manager should give it greater weight in the process rather than reduce or ignore it. The correct decision is overweight.</p></details>
+      <details><summary>Falsifier</summary><p>The firm determines that the governance process does not require risk budgeting and the identified need for deliberate risk allocation is withdrawn.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>describe risk budgeting and its role in risk governance.</blockquote>
+        <p class="muted">Pages: 9</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q2 · event · c0016_o00_r1q04</div>
+      <h2>Which concession should the large LP seek?</h2>
+      <section><h3>Setup</h3><p>A large LP is negotiating its commitment to an alternative investment fund. The LP’s priority is to reduce annual fees rather than improve redemption terms. The fund is willing to negotiate the economics of the commitment, so the LP must choose the concession to seek.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">lower fees</li><li class="">better liquidity</li><li class="">no negotiated concession</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>lower fees</p></section>
+      <details><summary>Sample COT</summary><p>The source states that investors making larger commitments can negotiate lower fees. It also identifies a tradeoff between liquidity provisions and fees, but this LP has made fee reduction its stated priority. Given the commitment size and the objective, the relevant negotiated concession is lower fees rather than better liquidity. The LP should seek lower fees. Therefore, the gold is lower fees.</p></details>
+      <details><summary>Falsifier</summary><p>The LP’s priority changes from fee reduction to shorter lockups or notice periods.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Investors making larger commitments can negotiate lower fees.</blockquote>
+        <p class="muted">Pages: 21</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q3 · trader · c0018_o00_r1q00</div>
+      <h2>Which total-fee formula should the trader book?</h2>
+      <section><h3>Setup</h3><p>A fund-operations trader is checking the fee accrual for an alternative investment whose beginning assets are V0 and end-of-period assets are V1. The mandate specifies a management fee of m times end-of-period assets and a performance fee of p times total return, with no hurdle rate. Since the investment gained value, the trader must choose the accrual formula rather than assume a generic fee convention.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">mV1 + max[0, p(V1 – V0)]</li><li class="">mV0 + p(V1 – V0)</li><li class="">mV1 only</li><li class="">pV1 + max[0, m(V1 – V0)]</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>mV1 + max[0, p(V1 – V0)]</p></section>
+      <details><summary>Sample COT</summary><p>The management-fee base is end-of-period assets, so its component is mV1. The performance fee is based on total return, represented by V1 – V0. The max operator makes that performance component nonnegative, which is consistent with the stated no-hurdle simple case. Therefore the booked total fee is mV1 + max[0, p(V1 – V0)].</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the mandate specified a different management-fee base or a performance-fee provision that changed the stated simple formula.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>total fees = mV1 + max[0, p(V1 – V0)]</blockquote>
+        <p class="muted">Pages: 22</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q4 · event · c0023_o00_r1q01</div>
+      <h2>Will the performance fee equal 1.8% under the full-return hurdle treatment?</h2>
+      <section><h3>Setup</h3><p>An LP is comparing two hurdle-rate provisions for a fund with a 9% gross return. Under one provision, the performance fee applies to the full 9% return; under the other, it applies only to the return above an 8% hurdle. The performance fee rate is 20%. The LP must determine whether the first provision produces a 1.8% performance fee.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen</li><li class="">will not happen</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is positive because the fund earns a 9% gross return. Under the full-return treatment, the fee base is the entire 9%, rather than only the 1% above an 8% hard hurdle. Applying the 20% performance fee rate to 9% gives 1.8%. Therefore, the contractual fee outcome is will happen.</p></details>
+      <details><summary>Falsifier</summary><p>If the applicable provision charged 20% only on the return above the 8% hurdle, the fee would be 0.2% and the gold would flip to will not happen.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>With a soft hurdle rate of 8%, the performance fee would be 20% of 9%, or 1.8%.</blockquote>
+        <p class="muted">Pages: 27</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q5 · trader · c0030_o00_r1q01</div>
+      <h2>What should the committee do to address the single-vintage concentration?</h2>
+      <section><h3>Setup</h3><p>An investment committee is building a private-capital program and discovers that all commitments would begin investing in the same vintage year. The committee must address concentration across entry vintages rather than simply add another fund with the same timing exposure. The source gives a direct portfolio-construction constraint for private-capital investors.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">buy a fund from a different vintage year</li><li class="">buy another fund from the same vintage year</li><li class="">hold the single-vintage concentration</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>buy a fund from a different vintage year</p></section>
+      <details><summary>Sample COT</summary><p>The economic concern is concentration in the timing of fund investments. The source states that investors in private capital should diversify across vintage years. Buying a fund from a different vintage year directly applies that constraint, whereas adding the same vintage does not. Therefore, the committee should buy a fund from a different vintage year.</p></details>
+      <details><summary>Falsifier</summary><p>If the source instead advised concentrating private-capital investments in one vintage year, the gold would flip away from buying a different vintage.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Investors in private capital should diversify across vintage years.</blockquote>
+        <p class="muted">Pages: 33</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q6 · trader · c0033_o00_r1q02</div>
+      <h2>What stance should the PM take toward adding direct real estate?</h2>
+      <section><h3>Setup</h3><p>A portfolio currently has one direct real estate property and is considering adding another direct property. The existing portfolio is therefore concentrated in one property, while the source identifies concentration risk for portfolios with one or few properties. The PM must decide whether to increase the direct real estate allocation. No diversification across multiple properties is assumed in the setup.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">buy</li><li class="">hold</li><li class="gold">sell</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>sell</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is negative because the portfolio already has one property. Adding another direct property preserves or increases the one-or-few-property concentration described in the source. Concentration risk is the relevant portfolio constraint, so increasing the allocation is not the appropriate action. The desk should sell rather than add exposure. The gold is sell.</p></details>
+      <details><summary>Falsifier</summary><p>If the portfolio already held a broad set of properties rather than one or a few, the stated concentration-risk constraint would no longer determine a sell decision and the gold would flip to buy.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Concentration risk if a portfolio has one or few properties</blockquote>
+        <p class="muted">Pages: 37</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q7 · trader · c0037_o00_r1q03</div>
+      <h2>Which project type should the desk buy?</h2>
+      <section><h3>Setup</h3><p>An infrastructure investor is choosing between an already constructed facility and a facility that is yet to be constructed. The investor wants to reduce project risk and does not require construction-stage exposure. The source distinguishes brownfield from greenfield investments and states their relative risk. The desk must choose one project type to buy.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">brownfield</li><li class="">greenfield</li><li class="">sell brownfield</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>brownfield</p></section>
+      <details><summary>Sample COT</summary><p>The risk objective is to reduce project risk, so the economic sign favors the less risky infrastructure type. Brownfield investments are already constructed, while greenfield investments are yet to be constructed. The source explicitly states that brownfield investments are less risky than greenfield investments. Therefore, the desk should buy brownfield.</p></details>
+      <details><summary>Falsifier</summary><p>If the investor&#x27;s mandate changed to require a facility yet to be constructed, the choice would flip to greenfield.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Brownfield investments are less risky than greenfield investments.</blockquote>
+        <p class="muted">Pages: 40</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q8 · trader · c0040_o00_r1q04</div>
+      <h2>Which instrument should the risk manager buy?</h2>
+      <section><h3>Setup</h3><p>A risk manager wants a commodity derivative traded on an exchange and is specifically concerned about counterparty risk. Futures and forwards are available choices. The risk manager must choose the instrument whose market structure addresses the stated risk constraint.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">futures</li><li class="">forwards</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>futures</p></section>
+      <details><summary>Sample COT</summary><p>The risk manager wants commodity exposure, so the position should provide a commodity derivative rather than no exposure. Counterparty risk is the relevant constraint. The source distinguishes exchange-traded futures from other derivatives and states that futures have no counterparty risk. Therefore the risk manager should buy futures, so the gold is futures.</p></details>
+      <details><summary>Falsifier</summary><p>If the risk manager&#x27;s priority were not avoiding counterparty risk, the source would not uniquely require futures over forwards on this criterion.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Futures trade on exchanges and therefore have no counterparty risk.</blockquote>
+        <p class="muted">Pages: 43</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q9 · correlation · c0050_o00_r1q04</div>
+      <h2>Which pairing should the risk manager prefer?</h2>
+      <section><h3>Setup</h3><p>A risk manager is adding hedge fund exposure to a traditional portfolio and wants the new exposure to provide the strongest diversification benefit available from the two named traditional asset classes. The source states that hedge funds provide diversification relative to traditional asset classes. It also distinguishes their relative correlations with equities and fixed income. The manager must choose the lower-correlation pairing.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">hedge funds versus equities is positively related</li><li class="gold">hedge funds versus fixed income is positively related</li><li class="">hedge funds versus equities is negatively related</li><li class="">hedge funds versus fixed income is negatively related</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>hedge funds versus fixed income is positively related</p></section>
+      <details><summary>Sample COT</summary><p>The diversification objective favors the traditional asset class with which hedge funds are less correlated. The source says hedge funds tend to be more correlated with equities than with fixed income. It does not state that either relationship is negative, so the correct closed label is the positive relationship with fixed income, which is weaker than the equity relationship. The risk manager should prefer hedge funds versus fixed income is positively related.</p></details>
+      <details><summary>Falsifier</summary><p>If hedge funds were more correlated with fixed income than with equities, the preferred lower-correlation pairing would flip to equities.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Hedge funds tend to be more correlated with equities than with fixed income.</blockquote>
+        <p class="muted">Pages: 51</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q10 · correlation · c0074_o00_r1q00</div>
+      <h2>Which correlation classification should the desk use for Assets A and B?</h2>
+      <section><h3>Setup</h3><p>You are a portfolio manager reviewing the return relationship between two risky assets before applying the two-asset portfolio-variance framework. The source example states that the two assets&#x27; returns are perfectly positively correlated. The desk must select the correlation classification to use in its portfolio-risk analysis rather than infer a negative relationship from diversification assumptions.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">A and B are positively related</li><li class="">A and B are negatively related</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>A and B are positively related</p></section>
+      <details><summary>Sample COT</summary><p>The source directly states that the returns on Assets A and B are perfectly positively correlated. Perfect positive correlation is a positive, not negative, relationship. Therefore the desk should use the positive correlation classification in its portfolio-risk analysis. The correct decision is A and B are positively related.</p></details>
+      <details><summary>Falsifier</summary><p>A source-supported correction stating that the returns on Assets A and B are negatively correlated would flip the decision.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>In this example, the returns on Assets A and B are perfectly positively correlated.</blockquote>
+        <p class="muted">Pages: 74</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q11 · correlation · c0075_o00_r1q02</div>
+      <h2>Which statistic should the analyst use to measure the relationship between the two assets&#x27; returns?</h2>
+      <section><h3>Setup</h3><p>A risk analyst is selecting the correct statistic to monitor co-movement between two risky assets before a portfolio rebalance. The available candidates are range, covariance, and standard deviation. The analyst must choose the statistic that measures how the two assets&#x27; returns move in relation to each other, rather than the dispersion of one asset&#x27;s returns.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">Range</li><li class="gold">Covariance</li><li class="">Standard deviation</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Covariance</p></section>
+      <details><summary>Sample COT</summary><p>The decision concerns joint movement between two risky assets, not the spread of outcomes for a single asset. Range summarizes the distance between observations, while standard deviation measures the volatility of an individual return series. Covariance measures how two return series move together. Therefore the analyst should use covariance. The correct choice is Covariance.</p></details>
+      <details><summary>Falsifier</summary><p>If the decision instead concerned the volatility of only one asset&#x27;s returns, standard deviation rather than covariance would be the relevant choice.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>A measure of how the returns of two risky assets move in relation to each other is the:</blockquote>
+        <p class="muted">Pages: 75</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q12 · trader · c0090_o00_r1q00</div>
+      <h2>What position decision should the PM make for the asset?</h2>
+      <section><h3>Setup</h3><p>A long-only equity PM is allocating to an asset with a positive beta to the market index. The expected excess return on the market is positive for the period. The mandate permits only overweight, underweight, or hold decisions and uses the single-factor market model.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">overweight</li><li class="">underweight</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>overweight</p></section>
+      <details><summary>Sample COT</summary><p>The single-factor model sets the asset&#x27;s expected excess return equal to beta multiplied by the market&#x27;s expected excess return. Both inputs are positive, so the model-implied expected excess return is positive. Under the long-only constraint, the decision is to increase the asset&#x27;s portfolio weight rather than reduce or leave it unchanged. Therefore, the gold choice is overweight.</p></details>
+      <details><summary>Falsifier</summary><p>A non-positive beta or a non-positive expected market excess return would remove the stated positive-sign conclusion and could flip the decision.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>E(Ri) – Rf = βi ×[E(Rm) – Rf]</blockquote>
+        <p class="muted">Pages: 91</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q13 · trader · c0091_o00_r1q00</div>
+      <h2>Which financing state should the manager record?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is reviewing a portfolio plotted on the capital market line. The portfolio lies to the right of the market portfolio, and the desk must classify its financing state before approving the position. The manager may label it as lending, borrowing, or inefficient. The classification must follow the capital-market-line relationship stated in the source.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">lending portfolio</li><li class="gold">borrowing portfolio</li><li class="">inefficient portfolio</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>borrowing portfolio</p></section>
+      <details><summary>Sample COT</summary><p>A position to the right of the market portfolio on the CML represents greater exposure along the lending-and-borrowing opportunity set. The source specifically identifies a portfolio to the right of the market portfolio as a borrowing portfolio. The desk therefore should not classify it as lending or inefficient. The correct decision is borrowing portfolio.</p></details>
+      <details><summary>Falsifier</summary><p>If the portfolio were not to the right of the market portfolio on the CML, the borrowing classification would no longer be determined by this source.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>3. A portfolio to the right of the market portfolio on the CML is a(n):
+A. lending portfolio.
+B. borrowing portfolio.
+C. inefficient portfolio.</blockquote>
+        <p class="muted">Pages: 93</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q14 · trader · c0091_o00_r1q01</div>
+      <h2>Which risk measure should the manager use for the CML position?</h2>
+      <section><h3>Setup</h3><p>A risk manager must choose the single risk measure for a portfolio positioned on the capital market line. The manager is constrained to use the risk measure associated with the CML rather than a separate decomposition of risk. The available labels are beta risk, unsystematic risk, and total risk.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">beta risk</li><li class="">unsystematic risk</li><li class="gold">total risk</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>total risk</p></section>
+      <details><summary>Sample COT</summary><p>The decision concerns the risk measure associated with the CML. The source contrasts beta risk and unsystematic risk with the measure used for the CML. It identifies total risk as that measure. The manager should therefore select total risk.</p></details>
+      <details><summary>Falsifier</summary><p>If the source instead associated the CML with beta risk or unsystematic risk, total risk would not be the correct selection.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>2. What is the risk measure associated with the capital market line (CML)?
+A. Beta risk.
+B. Unsystematic risk.
+C. Total risk.</blockquote>
+        <p class="muted">Pages: 93</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q15 · trader · c0091_o00_r1q02</div>
+      <h2>How should the desk characterize the change in systematic risk as the number of stocks increases?</h2>
+      <section><h3>Setup</h3><p>A portfolio construction desk is increasing the number of stocks in a portfolio and must update its systematic-risk assessment. The desk cannot assume that systematic risk must move in only one direction, because the source gives a specific relationship for this change. It must choose one of three stated descriptions.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">can increase or decrease</li><li class="">decreases at a decreasing rate</li><li class="">decreases at an increasing rate</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>can increase or decrease</p></section>
+      <details><summary>Sample COT</summary><p>Increasing the number of stocks does not determine a one-way movement in systematic risk according to the source. The source explicitly states that systematic risk can increase or decrease as the number of stocks increases. Therefore the two alternatives asserting a particular decreasing pattern are not supported. The correct decision is can increase or decrease.</p></details>
+      <details><summary>Falsifier</summary><p>If the source stated that systematic risk necessarily decreased at a specified rate as stocks were added, this gold would flip.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>4. As the number of stocks in a portfolio increases, the portfolio’s systematic risk:
+A. can increase or decrease.
+B. decreases at a decreasing rate.
+C. decreases at an increasing rate.</blockquote>
+        <p class="muted">Pages: 93</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q16 · trader · c0091_o00_r1q04</div>
+      <h2>Which factor exposure should the committee mark as least likely?</h2>
+      <section><h3>Setup</h3><p>An investment-model committee is selecting the type of factor exposure least likely to underpin a security’s return-generating model. The committee must choose among statistical, macroeconomic, and fundamental factors. Because the mandate asks for the least likely basis, the desk cannot simply select a factor category that is commonly used elsewhere.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">statistical factors</li><li class="">macroeconomic factors</li><li class="">fundamental factors</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>statistical factors</p></section>
+      <details><summary>Sample COT</summary><p>The source directly compares statistical, macroeconomic, and fundamental factors as possible bases for a return-generating model. It identifies statistical factors as the least likely of the three. The committee therefore should reject the two factor categories that are not marked least likely. The correct decision is statistical factors.</p></details>
+      <details><summary>Falsifier</summary><p>If the source identified macroeconomic factors or fundamental factors as least likely, the committee’s selection would change.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>6. A return generating model is least likely to be based on a security’s exposure to:
+A. statistical factors.
+B. macroeconomic factors.
+C. fundamental factors.</blockquote>
+        <p class="muted">Pages: 94</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q17 · trader · c0092_o00_r1q02</div>
+      <h2>What action should the manager take?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is deciding whether to retain a risky asset with negative beta. The observed market risk premium is positive, and the mandate requires a CAPM-implied expected return no lower than the risk-free rate. The manager can either retain the asset or underweight it in favor of the risk-free benchmark. No separate return premium for non-market risk is available in the decision rule.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">hold</li><li class="gold">underweight</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>underweight</p></section>
+      <details><summary>Sample COT</summary><p>The CAPM decomposes the asset&#x27;s expected return into the risk-free rate and beta times the market risk premium. A negative beta multiplied by a positive market risk premium is negative. The asset&#x27;s CAPM-implied expected return is therefore below the risk-free rate. That fails the mandate&#x27;s minimum-return condition, so the manager should reduce the position in favor of the benchmark. The manager should underweight.</p></details>
+      <details><summary>Falsifier</summary><p>The gold would flip if the market risk premium were negative, because a negative beta would then create a positive beta-adjusted term.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>E(Ri) = Rf + βi[E(Rmkt) – Rf]</blockquote>
+        <p class="muted">Pages: 95</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q18 · trader · c0093_o00_r1q03</div>
+      <h2>What should the trader do?</h2>
+      <section><h3>Setup</h3><p>A trader is considering a small portfolio allocation that is positive under the investor&#x27;s preferred risk-and-return combination. The trader&#x27;s only concern is that the desired position is too small to execute as an exact amount. The desk must decide whether to implement or reject it under the CAPM assumptions.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">buy</li><li class="">sell</li><li class="">hold</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>buy</p></section>
+      <details><summary>Sample COT</summary><p>The investor&#x27;s preferred allocation is positive, which gives the trade a buy sign. The source assumes that all investments are infinitely divisible, so a small desired allocation is not blocked by minimum position size in this model. The trader can therefore implement the allocation at its desired scale. The correct action is buy.</p></details>
+      <details><summary>Falsifier</summary><p>The asset cannot be divided into the required small position, so the stated divisible-assets assumption no longer holds.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>Divisible assets. All investments are infinitely divisible.</blockquote>
+        <p class="muted">Pages: 96</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q19 · correlation · c0102_o00_r1q04</div>
+      <h2>Which measure should the desk use?</h2>
+      <section><h3>Setup</h3><p>A portfolio manager is comparing portfolios for a mandate that evaluates excess return only against systematic risk. Total risk is not the risk measure specified by the mandate. The desk must choose one of the source&#x27;s performance measures.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="">Sharpe ratio</li><li class="gold">Treynor measure</li><li class="">Jensen’s alpha</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>Treynor measure</p></section>
+      <details><summary>Sample COT</summary><p>The economic sign is the portfolio&#x27;s excess return relative to systematic risk, not excess return relative to total risk. The mandate therefore constrains the denominator to market-related risk. The source defines the Treynor measure as excess return per unit of systematic risk. Therefore, the desk should use the Treynor measure.</p></details>
+      <details><summary>Falsifier</summary><p>The mandate is changed to evaluate excess return per unit of total risk.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>The Treynor measure measures a portfolio’s excess return per unit of systematic risk.</blockquote>
+        <p class="muted">Pages: 105</p>
+      </details>
+    </article><article class="item">
+      <div class="eyebrow">Q20 · event · c0117_o00_r1q03</div>
+      <h2>Will the IPS contain an acceptable absolute-risk objective in the proposed form?</h2>
+      <section><h3>Setup</h3><p>An investment committee wants to express absolute risk as a tail-probability constraint rather than as a hard loss limit. Its proposed IPS language is: no greater than a 5% probability of returns below -5% in any 12-month period. The committee asks whether this is a valid form of absolute risk objective. The desk must approve or reject the objective format.</p></section>
+      <section><h3>Choices</h3><ol type="a"><li class="gold">will happen—approve the probability-based loss statement</li><li class="">will not happen—absolute risk must always be a hard percentage limit</li><li class="">will happen—approve it only if it is benchmark-relative</li><li class="">will not happen—probability statements cannot refer to a 12-month period</li></ol></section>
+      <section class="gold"><h3>Gold</h3><p>will happen—approve the probability-based loss statement</p></section>
+      <details><summary>Sample COT</summary><p>The proposed objective has a negative tail outcome and specifies the maximum permitted probability over a 12-month period. It is not a strict prohibition on losses; it is a probability statement about a specific portfolio result. The source expressly identifies this wording as an example of an absolute risk objective. The benchmark-relative alternatives are unnecessary because the proposed statement is absolute. The correct state is will happen—approve the probability-based loss statement.</p></details>
+      <details><summary>Falsifier</summary><p>If the proposed statement instead measured underperformance relative to a named benchmark, it would be a relative-risk objective rather than the absolute-risk format being approved here.</p></details>
+      <details><summary>Source and provenance</summary>
+        <p><strong>As of:</strong> material_internal</p>
+        <blockquote>“No greater than a 5% probability of returns below -5% in any 12-month period.”</blockquote>
+        <p class="muted">Pages: 119</p>
+      </details>
+    </article></section></main>
+<script>document.querySelectorAll('.tab').forEach(function(button){button.addEventListener('click',function(){document.querySelectorAll('.tab,.tab-panel').forEach(function(node){node.classList.remove('active')});button.classList.add('active');document.getElementById(button.dataset.tab).classList.add('active')})});</script>
+</body></html>
