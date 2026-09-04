@@ -1,0 +1,435 @@
+{
+  "schema_version": "default_output_contract.v0.1",
+  "taxonomy_version": "intent_routing.v1.0",
+  "status": "confirmed",
+  "confirmed_date": "2026-09-04",
+  "merge": {
+    "mode": "dual_field_merge",
+    "formula": "effective_output = shared_output_envelope + skill.base_output + primary_action_overlay + secondary_action_overlays + conditional_slot_overlays + requested_output",
+    "overlay_order": "primary_action_then_secondary_actions_then_conditional_slot_overlays_in_declared_order",
+    "primary_precedence": ["explicit_user", "action_overlay", "skill_base"],
+    "list_merge": "stable_deduplicating_union",
+    "envelope_merge": "prepend_shared_required_components_and_stable_union",
+    "secondary_action_rule": "secondary_actions_must_be_leaf_action_ids; unresolved_family_hints_are_not_compiled",
+    "secondary_artifact_rule": "a_secondary_primary_artifact_is_appended_to_additional_artifacts_when_primary_is_already_set",
+    "conditional_slot_rule": "apply_only_the_overlay_matching_a_resolved_input_slot_or_mode",
+    "missing_conditional_overlay_behavior": "treat_as_empty",
+    "presentation_rule": "merge_when_compatible_clarify_when_mutually_exclusive",
+    "negative_request_rule": "explicit_user_suppresses_default_and_is_recorded_in_system_trace",
+    "unsupported_output_rule": "preserve_request_and_return_coverage_or_fallback_status"
+  },
+  "canonical_aliases": {
+    "action_type": {
+      "participate/pass": "participate_or_pass",
+      "IPT_update": "ipt_update",
+      "DCF": "dcf",
+      "KPI_bridge": "kpi_bridge"
+    },
+    "model_template": {
+      "operating+DCF": "operating+DCF"
+    }
+  },
+  "shared_output_envelope": {
+    "merge_into": "effective_output.required_components",
+    "required_components": [
+      "as_of_date",
+      "source_trace",
+      "availability_status",
+      "assumption_provenance",
+      "coverage_limitations"
+    ],
+    "provenance_values": ["user_provided", "skill_default", "model_derived", "source_lookup"],
+    "availability_values": ["available", "not_released", "unavailable", "not_applicable"],
+    "presentation_values": ["narrative", "table", "chart", "one_liner", "workbook", "raw_data"]
+  },
+  "contracts": {
+    "eq_ai_semis_thesis": {
+      "contract_version": "1.0",
+      "base_output": {
+        "primary_artifact": "thesis_brief",
+        "additional_artifacts": [],
+        "required_components": [
+          "subject_scope",
+          "horizon",
+          "thesis_summary",
+          "evidence_chain",
+          "catalyst_list",
+          "validation_indicators",
+          "invalidation_conditions"
+        ],
+        "requested_metrics": [],
+        "presentation": ["narrative"]
+      },
+      "action_overlays": {
+        "chain_map": {
+          "primary_artifact": "chain_map",
+          "additional_artifacts": [],
+          "required_components_add": ["node_relationships", "transmission_mechanism"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "beneficiary_rank": {
+          "primary_artifact": "ranking_table",
+          "additional_artifacts": [],
+          "required_components_add": ["comparison_basis", "ranking_rationale"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "earnings_readthrough": {
+          "primary_artifact": "readthrough_brief",
+          "additional_artifacts": [],
+          "required_components_add": ["event_vs_expectation", "earnings_transmission"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "relative_thesis": {
+          "primary_artifact": "relative_thesis_brief",
+          "additional_artifacts": [],
+          "required_components_add": ["comparison_basis", "relative_drivers", "ranking_rationale"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "catalyst_watch": {
+          "primary_artifact": null,
+          "additional_artifacts": ["catalyst_watchlist"],
+          "required_components_add": ["catalyst_timeline", "monitoring_indicators"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "invalidation": {
+          "primary_artifact": "invalidation_assessment",
+          "additional_artifacts": [],
+          "required_components_add": ["invalidation_test", "current_evidence"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        }
+      }
+    },
+    "fi_usd_primary": {
+      "contract_version": "1.0",
+      "base_output": {
+        "primary_artifact": "primary_deal_snapshot",
+        "additional_artifacts": [],
+        "required_components": [
+          "deal_identity",
+          "issuer",
+          "currency",
+          "tenor",
+          "rating",
+          "seniority_or_format",
+          "lifecycle_status"
+        ],
+        "requested_metrics": [],
+        "presentation": ["table"]
+      },
+      "action_overlays": {
+        "new_issue_calendar": {
+          "primary_artifact": "new_issue_calendar",
+          "additional_artifacts": [],
+          "required_components_add": ["deal_rows", "announcement_window", "settlement_date"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "ipt_update": {
+          "primary_artifact": null,
+          "additional_artifacts": ["ipt_snapshot"],
+          "required_components_add": ["ipt_history", "price_guidance"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "bookbuild": {
+          "primary_artifact": null,
+          "additional_artifacts": ["bookbuild_status"],
+          "required_components_add": ["book_status", "order_metrics"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "pricing": {
+          "primary_artifact": null,
+          "additional_artifacts": ["pricing_terms"],
+          "required_components_add": ["final_terms", "new_issue_premium"],
+          "requested_metrics_add": ["new_issue_premium"],
+          "presentation_add": []
+        },
+        "participate_or_pass": {
+          "primary_artifact": "primary_deal_pack",
+          "additional_artifacts": ["participation_recommendation"],
+          "required_components_add": ["participation_rationale", "target_conditions", "risk_summary", "comparable_new_issue_basis"],
+          "requested_metrics_add": [],
+          "presentation_add": ["narrative"]
+        },
+        "allocation_plan": {
+          "primary_artifact": null,
+          "additional_artifacts": ["allocation_plan"],
+          "required_components_add": ["allocation_constraints", "desired_allocation"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "settlement_check": {
+          "primary_artifact": null,
+          "additional_artifacts": ["settlement_status"],
+          "required_components_add": ["settlement_readiness"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        }
+      },
+      "overlay_classification": {
+        "router_action_overlays": ["new_issue_calendar", "participate_or_pass"],
+        "vertical_workflow_overlays": ["ipt_update", "bookbuild", "pricing", "allocation_plan", "settlement_check"]
+      }
+    },
+    "ma_cn_us_calendar": {
+      "contract_version": "1.0",
+      "base_output": {
+        "primary_artifact": "macro_event_snapshot",
+        "additional_artifacts": [],
+        "required_components": [
+          "event_identity",
+          "country_region",
+          "data_series",
+          "event_date",
+          "release_time",
+          "time_zone",
+          "release_status",
+          "actual",
+          "estimate",
+          "previous"
+        ],
+        "requested_metrics": [],
+        "presentation": ["table"]
+      },
+      "action_overlays": {
+        "upcoming_calendar": {
+          "primary_artifact": "macro_calendar",
+          "additional_artifacts": [],
+          "required_components_add": ["calendar_rows"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "print_vs_consensus": {
+          "primary_artifact": "print_comparison",
+          "additional_artifacts": [],
+          "required_components_add": ["comparison_table", "unit_check"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "revision_check": {
+          "primary_artifact": "revision_summary",
+          "additional_artifacts": [],
+          "required_components_add": ["prior_value", "revised_value", "revision_delta"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "surprise_brief": {
+          "primary_artifact": "surprise_brief",
+          "additional_artifacts": [],
+          "required_components_add": ["surprise_definition", "surprise_value"],
+          "requested_metrics_add": ["surprise"],
+          "presentation_add": []
+        },
+        "market_impact_summary": {
+          "primary_artifact": "market_impact_brief",
+          "additional_artifacts": [],
+          "required_components_add": ["transmission_assets", "impact_horizon", "uncertainty"],
+          "requested_metrics_add": [],
+          "presentation_add": ["one_liner"]
+        }
+      }
+    },
+    "fx_carry_curve_rv": {
+      "contract_version": "1.0",
+      "base_output": {
+        "primary_artifact": "strategy_spec",
+        "additional_artifacts": [],
+        "required_components": [
+          "subject_scope",
+          "strategy_style",
+          "side",
+          "horizon",
+          "tenor",
+          "legs",
+          "carry_definition",
+          "funding",
+          "hedge_ratio",
+          "risk_summary",
+          "invalidation_conditions"
+        ],
+        "requested_metrics": ["carry", "roll_down"],
+        "presentation": ["table"]
+      },
+      "action_overlays": {
+        "construct_legs": {
+          "primary_artifact": "strategy_spec",
+          "additional_artifacts": [],
+          "required_components_add": ["leg_schema", "weighting"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "compare_risk_reward": {
+          "primary_artifact": "risk_reward_comparison",
+          "additional_artifacts": [],
+          "required_components_add": ["comparison_basis", "risk_drivers", "ranking_rationale"],
+          "requested_metrics_add": ["risk_reward"],
+          "presentation_add": ["table"]
+        },
+        "hedged_carry": {
+          "primary_artifact": "strategy_spec",
+          "additional_artifacts": ["hedge_plan"],
+          "required_components_add": ["carry_components", "funding_cost", "vol_target"],
+          "requested_metrics_add": ["hedge_ratio"],
+          "presentation_add": []
+        },
+        "invalidation_check": {
+          "primary_artifact": "invalidation_assessment",
+          "additional_artifacts": [],
+          "required_components_add": ["invalidation_thresholds", "observed_state"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        }
+      }
+    },
+    "qt_event_backtest": {
+      "contract_version": "1.0",
+      "base_output": {
+        "primary_artifact": "backtest_report",
+        "additional_artifacts": ["trade_log", "pnl_drawdown_chart", "event_window_chart"],
+        "required_components": [
+          "spec_snapshot",
+          "data_coverage",
+          "sample_definition",
+          "train_test_split",
+          "cost_assumptions",
+          "no_lookahead_check",
+          "result_status",
+          "warnings"
+        ],
+        "requested_metrics": [
+          "cumulative_pnl",
+          "max_drawdown",
+          "event_window_return",
+          "hit_rate",
+          "trade_count",
+          "sample_size"
+        ],
+        "presentation": ["table", "chart"]
+      },
+      "action_overlays": {
+        "event_study": {
+          "primary_artifact": "event_study_report",
+          "additional_artifacts": [],
+          "required_components_add": ["event_window_distribution", "group_statistics"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "event_trigger_backtest": {
+          "primary_artifact": "event_backtest_report",
+          "additional_artifacts": [],
+          "required_components_add": ["signal_events", "entry_exit_records"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "train_test_run": {
+          "primary_artifact": "backtest_report",
+          "additional_artifacts": ["train_test_comparison"],
+          "required_components_add": ["train_metrics", "test_metrics", "overfit_diagnostics"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        }
+      }
+    },
+    "ibd_equity_model": {
+      "contract_version": "1.0",
+      "base_output": {
+        "primary_artifact": "equity_model_workbook",
+        "additional_artifacts": ["assumption_summary"],
+        "required_components": [
+          "historical_actuals",
+          "forecast_period",
+          "scenario_assumptions",
+          "segment_drivers",
+          "model_assumptions",
+          "source_trace",
+          "data_availability",
+          "default_provenance"
+        ],
+        "requested_metrics": ["revenue", "fcf"],
+        "presentation": ["workbook", "table"]
+      },
+      "action_overlays": {
+        "operating_model": {
+          "primary_artifact": "equity_model_workbook",
+          "additional_artifacts": [],
+          "required_components_add": ["operating_forecast", "operating_kpi_table"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "quarterly_update": {
+          "primary_artifact": null,
+          "additional_artifacts": ["quarterly_update_summary"],
+          "required_components_add": ["latest_actuals", "forecast_revisions"],
+          "requested_metrics_add": [],
+          "presentation_add": []
+        },
+        "dcf": {
+          "primary_artifact": null,
+          "additional_artifacts": ["valuation_summary", "sensitivity_table"],
+          "required_components_add": ["fcf_bridge", "wacc", "terminal_value", "net_debt", "share_count", "implied_value"],
+          "requested_metrics_add": ["implied_value"],
+          "presentation_add": ["table"]
+        },
+        "scenario_compare": {
+          "primary_artifact": null,
+          "additional_artifacts": ["scenario_table"],
+          "required_components_add": ["scenario_results"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "sensitivity": {
+          "primary_artifact": null,
+          "additional_artifacts": ["sensitivity_table"],
+          "required_components_add": ["sensitivity_axes", "sensitivity_results"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        },
+        "kpi_bridge": {
+          "primary_artifact": null,
+          "additional_artifacts": ["kpi_bridge_table"],
+          "required_components_add": ["bridge_steps"],
+          "requested_metrics_add": [],
+          "presentation_add": ["table"]
+        }
+      },
+      "conditional_slot_overlays": {
+        "model_template": {
+          "operating": {
+            "additional_artifacts": [],
+            "required_components_add": ["operating_forecast", "operating_kpi_table"],
+            "requested_metrics_add": [],
+            "presentation_add": []
+          },
+          "DCF": {
+            "additional_artifacts": ["valuation_summary", "sensitivity_table"],
+            "required_components_add": ["fcf_bridge", "wacc", "terminal_value", "net_debt", "share_count", "implied_value"],
+            "requested_metrics_add": ["implied_value"],
+            "presentation_add": ["table"]
+          },
+          "operating+DCF": {
+            "additional_artifacts": ["valuation_summary", "sensitivity_table"],
+            "required_components_add": ["operating_forecast", "operating_kpi_table", "fcf_bridge", "wacc", "terminal_value", "net_debt", "share_count", "implied_value"],
+            "requested_metrics_add": ["implied_value"],
+            "presentation_add": ["table"]
+          }
+        }
+      }
+    }
+  },
+  "fallback_contract": {
+    "primary_artifact": null,
+    "additional_artifacts": [],
+    "required_components": ["intent_restatement", "coverage_boundary", "nearest_supported_path"],
+    "requested_metrics": [],
+    "preserve_requested_output": true,
+    "presentation": ["narrative"],
+    "effective_output_status": "unsupported_no_result"
+  }
+}

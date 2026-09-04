@@ -1,0 +1,1348 @@
+{
+  "schema_version": "routing_fixture.v0.1",
+  "taxonomy_version": "intent_routing.v1.0",
+  "frozen_skill_ids": [
+    "eq_ai_semis_thesis",
+    "fi_usd_primary",
+    "ma_cn_us_calendar",
+    "fx_carry_curve_rv",
+    "qt_event_backtest",
+    "ibd_equity_model"
+  ],
+  "fallback_skill_id": "SOFT_FALLBACK",
+  "fixture_context": {
+    "evaluation_date": "2026-09-03",
+    "default_time_zone": "Asia/Shanghai",
+    "date_range_encoding": "[start, end]",
+    "output_resolution": {
+      "mode": "dual_field_merge",
+      "requested_output": "explicit_user_delta",
+      "effective_output": "default_output_contract_plus_requested",
+      "default_contract_key": [
+        "skill_id",
+        "action.family",
+        "action.type"
+      ],
+      "conditional_overlay_inputs": [
+        "resolved_slots.model_template"
+      ],
+      "effective_output_status": "compiled_v1",
+      "default_contract_file": "default_output_contracts_v0.1.json"
+    },
+    "notes": [
+      "Fixture dates are deterministic parsing inputs, not claims about an actual release calendar.",
+      "Numeric values carry an explicit unit.",
+      "missing_slots contains only required slots; unresolved semantic choices belong in unresolved_branches.",
+      "requested_output stores only explicit user requirements; expected.effective_output is the frozen compiler result for the fixture.",
+      "Supported effective_output.required_components includes the shared output envelope and uses stable deduplication.",
+      "secondary_actions are leaf action ids; family-only hints are not compiled into overlays."
+    ]
+  },
+  "status_enums": {
+    "route_status": [
+      "routed",
+      "clarification_required",
+      "soft_fallback"
+    ],
+    "coverage_status": [
+      "in_coverage",
+      "partial",
+      "out_of_coverage"
+    ],
+    "capability_status": [
+      "supported",
+      "out_of_scope"
+    ],
+    "approval_state": [
+      "not_required",
+      "awaiting_user",
+      "approved",
+      "not_applicable"
+    ],
+    "effective_output_status": [
+      "compiled",
+      "pending_clarification",
+      "unsupported_no_result"
+    ]
+  },
+  "fixtures": [
+    {
+      "fixture_id": "seed_01_eq_chain_map",
+      "category": "in_set",
+      "utterance": "画 HBM→CoWoS→GPU 受益链，比较 NVDA、TSM、ASML，未来 6-12 个月，列催化剂和失效条件。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "routed",
+        "skill_id": "eq_ai_semis_thesis",
+        "route_candidates": [
+          "eq_ai_semis_thesis"
+        ],
+        "rejected_candidates": [],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "Covered AI and semiconductor nodes are explicit.",
+            "The requested output is a chain map rather than valuation or backtesting."
+          ]
+        },
+        "routing_evidence": [
+          "HBM→CoWoS→GPU",
+          "受益链",
+          "NVDA、TSM、ASML",
+          "未来 6-12 个月"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "HBM",
+            "CoWoS",
+            "GPU",
+            "NVDA",
+            "TSM",
+            "ASML"
+          ],
+          "subject_scope": {
+            "scope_shape": "composite",
+            "components": [
+              {
+                "scope_id": "beneficiary_chain",
+                "scope_shape": "ordered_chain",
+                "object_type": "industry_node",
+                "entities": [
+                  {
+                    "id": "HBM",
+                    "role": "upstream_input"
+                  },
+                  {
+                    "id": "CoWoS",
+                    "role": "packaging_bottleneck"
+                  },
+                  {
+                    "id": "GPU",
+                    "role": "downstream_output"
+                  }
+                ]
+              },
+              {
+                "scope_id": "company_comparison",
+                "scope_shape": "set",
+                "object_type": "equity_security",
+                "relation_type": "comparison",
+                "comparison_basis": "chain_exposure",
+                "entities": [
+                  {
+                    "id": "NVDA"
+                  },
+                  {
+                    "id": "TSM"
+                  },
+                  {
+                    "id": "ASML"
+                  }
+                ]
+              }
+            ]
+          },
+          "asset_class": "EQ",
+          "action": {
+            "family": "map_structure",
+            "type": "chain_map",
+            "secondary_actions": [
+              "beneficiary_rank"
+            ]
+          },
+          "action_type": "chain_map",
+          "thesis_angle": "chain_map",
+          "horizon": "6-12m",
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [
+              "catalyst_list",
+              "invalidation_conditions"
+            ],
+            "requested_metrics": [],
+            "presentation": []
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "chain_map",
+          "additional_artifacts": [
+            "ranking_table"
+          ],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "subject_scope",
+            "horizon",
+            "thesis_summary",
+            "evidence_chain",
+            "catalyst_list",
+            "validation_indicators",
+            "invalidation_conditions",
+            "node_relationships",
+            "transmission_mechanism",
+            "comparison_basis",
+            "ranking_rationale"
+          ],
+          "requested_metrics": [],
+          "presentation": [
+            "narrative",
+            "table"
+          ]
+        },
+        "effective_output_status": "compiled",
+        "normalizations": [],
+        "data_requirements": [],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {},
+        "dimension_brief": null,
+        "source_context": null,
+        "next_hop": "inspiration_spec",
+        "approval_state": "not_required",
+        "assertions": [
+          "Output must include node relationships, catalysts, validation indicators, and invalidation conditions.",
+          "The request must not route to DCF, real-time quotes, or execution."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_02_fi_primary",
+      "category": "in_set",
+      "utterance": "2026-09-03 CMB 5Y Reg S A 级美元新债，给 IPT、簿记进度和 participate/pass。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "routed",
+        "skill_id": "fi_usd_primary",
+        "route_candidates": [
+          "fi_usd_primary"
+        ],
+        "rejected_candidates": [],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "The issuer and USD primary-deal lifecycle are explicit.",
+            "IPT, bookbuilding, and participate/pass are primary-market actions."
+          ]
+        },
+        "routing_evidence": [
+          "CMB",
+          "5Y Reg S A 级美元新债",
+          "IPT",
+          "簿记进度",
+          "participate/pass"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "CMB"
+          ],
+          "subject_scope": {
+            "scope_shape": "single",
+            "object_type": "primary_deal",
+            "entities": [
+              "CMB"
+            ]
+          },
+          "asset_class": "FI",
+          "action": {
+            "family": "decision_validate",
+            "type": "participate_or_pass",
+            "secondary_actions": []
+          },
+          "issuer": "CMB",
+          "action_type": "participate_or_pass",
+          "as_of_date": "2026-09-03",
+          "currency": "USD",
+          "tenor": "5y",
+          "deal_terms": {
+            "deal_type": "Reg S",
+            "rating": "A"
+          },
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [
+              "ipt_snapshot",
+              "bookbuild_status"
+            ],
+            "requested_metrics": [],
+            "presentation": []
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "primary_deal_pack",
+          "additional_artifacts": [
+            "participation_recommendation"
+          ],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "deal_identity",
+            "issuer",
+            "currency",
+            "tenor",
+            "rating",
+            "seniority_or_format",
+            "lifecycle_status",
+            "participation_rationale",
+            "target_conditions",
+            "risk_summary",
+            "comparable_new_issue_basis",
+            "ipt_snapshot",
+            "bookbuild_status"
+          ],
+          "requested_metrics": [],
+          "presentation": [
+            "table",
+            "narrative"
+          ]
+        },
+        "effective_output_status": "compiled",
+        "normalizations": [
+          {
+            "field": "action_type",
+            "raw": "participate/pass",
+            "canonical": "participate_or_pass"
+          }
+        ],
+        "data_requirements": [
+          {
+            "field": "deal_terms.price_guidance",
+            "status": "lookup_required"
+          },
+          {
+            "field": "deal_terms.bookbuild_window",
+            "status": "lookup_required"
+          },
+          {
+            "field": "deal_terms.settlement_date",
+            "status": "lookup_required"
+          },
+          {
+            "field": "deal_terms.seniority",
+            "status": "lookup_required"
+          }
+        ],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {},
+        "dimension_brief": null,
+        "source_context": null,
+        "next_hop": "calendar_answer",
+        "approval_state": "not_required",
+        "assertions": [
+          "IPT, bookbuilding, pricing, and settlement values must come from a named data source.",
+          "The request must not leak into secondary-credit OAS or switch analysis."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_03_ma_calendar",
+      "category": "in_set",
+      "utterance": "按北京时间列出下周中国 CPI、中国 PMI、美国 CPI、美国 PMI 和美国非农，给发布时间、共识和前值。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "routed",
+        "skill_id": "ma_cn_us_calendar",
+        "route_candidates": [
+          "ma_cn_us_calendar"
+        ],
+        "rejected_candidates": [],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "The request is for a scheduled CN/US macro calendar.",
+            "No trade construction or backtest action is requested."
+          ]
+        },
+        "routing_evidence": [
+          "北京时间",
+          "下周",
+          "中国 CPI、中国 PMI、美国 CPI、美国 PMI 和美国非农",
+          "发布时间、共识和前值"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "CN.CPI",
+            "CN.PMI",
+            "US.CPI",
+            "US.ISM",
+            "US.PAYROLLS"
+          ],
+          "subject_scope": {
+            "scope_shape": "set",
+            "object_type": "macro_event",
+            "entities": [
+              "CN.CPI",
+              "CN.PMI",
+              "US.CPI",
+              "US.ISM",
+              "US.PAYROLLS"
+            ]
+          },
+          "asset_class": "MA",
+          "action": {
+            "family": "monitor_retrieve",
+            "type": "upcoming_calendar"
+          },
+          "country_region": [
+            "CN",
+            "US"
+          ],
+          "data_series": [
+            "CN.CPI",
+            "CN.PMI",
+            "US.CPI",
+            "US.ISM",
+            "US.PAYROLLS"
+          ],
+          "action_type": "upcoming_calendar",
+          "event_date": [
+            "2026-09-07",
+            "2026-09-13"
+          ],
+          "time_zone": "Asia/Shanghai",
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [
+              "release_time",
+              "estimate",
+              "previous"
+            ],
+            "requested_metrics": [],
+            "presentation": []
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "macro_calendar",
+          "additional_artifacts": [],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "event_identity",
+            "country_region",
+            "data_series",
+            "event_date",
+            "release_time",
+            "time_zone",
+            "release_status",
+            "actual",
+            "estimate",
+            "previous",
+            "calendar_rows"
+          ],
+          "requested_metrics": [],
+          "presentation": [
+            "table"
+          ]
+        },
+        "effective_output_status": "compiled",
+        "normalizations": [
+          {
+            "field": "event_date",
+            "raw": "下周",
+            "canonical": [
+              "2026-09-07",
+              "2026-09-13"
+            ],
+            "basis": "fixture_context.evaluation_date"
+          },
+          {
+            "field": "data_series",
+            "raw": "美国 PMI",
+            "canonical": "US.ISM",
+            "basis": "US macro whitelist alias"
+          }
+        ],
+        "data_state": {
+          "actual": "not_released",
+          "estimate": "lookup_required",
+          "previous": "lookup_required"
+        },
+        "data_requirements": [
+          {
+            "field": "print_values.estimate",
+            "status": "lookup_required"
+          },
+          {
+            "field": "print_values.previous",
+            "status": "lookup_required"
+          }
+        ],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {},
+        "dimension_brief": null,
+        "source_context": null,
+        "next_hop": "calendar_answer",
+        "approval_state": "not_required",
+        "assertions": [
+          "The relative date must be resolved against the fixture clock.",
+          "US PMI must normalize to the registered US.ISM series while preserving the raw phrase.",
+          "Unreleased or unavailable values must never be fabricated."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_04_fx_ambiguous_dip",
+      "category": "in_set",
+      "utterance": "以 JPY 融资，逢低做多 USDJPY 3M carry，carry 按 forward points，目标波动率 10%，给失效条件。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "clarification_required",
+        "skill_id": "fx_carry_curve_rv",
+        "route_candidates": [
+          "fx_carry_curve_rv"
+        ],
+        "rejected_candidates": [],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "USDJPY, carry, funding currency, and trade direction are explicit.",
+            "The unresolved dip definition affects entry timing but not the route."
+          ]
+        },
+        "routing_evidence": [
+          "以 JPY 融资",
+          "逢低做多 USDJPY",
+          "3M carry",
+          "forward points",
+          "目标波动率 10%"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "USDJPY"
+          ],
+          "subject_scope": {
+            "scope_shape": "pair",
+            "object_type": "currency_pair",
+            "pair_family": "fx_currency_pair",
+            "relation_type": "base_quote",
+            "legs": {
+              "base": "USD",
+              "quote": "JPY"
+            }
+          },
+          "asset_class": "FX",
+          "action": {
+            "family": "construct_spec",
+            "type": "construct_legs",
+            "secondary_actions": [
+              "invalidation_check"
+            ]
+          },
+          "action_type": "construct_legs",
+          "strategy_style": "carry",
+          "side": "long",
+          "horizon": "1-3m",
+          "tenor": "3m",
+          "carry_metric": "forward_points",
+          "funding_currency": "JPY",
+          "vol_target": {
+            "value": 10,
+            "unit": "percent"
+          },
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [
+              "invalidation_conditions"
+            ],
+            "requested_metrics": [],
+            "presentation": []
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "strategy_spec",
+          "additional_artifacts": [
+            "invalidation_assessment"
+          ],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "subject_scope",
+            "strategy_style",
+            "side",
+            "horizon",
+            "tenor",
+            "legs",
+            "carry_definition",
+            "funding",
+            "hedge_ratio",
+            "risk_summary",
+            "invalidation_conditions",
+            "leg_schema",
+            "weighting",
+            "invalidation_thresholds",
+            "observed_state"
+          ],
+          "requested_metrics": [
+            "carry",
+            "roll_down"
+          ],
+          "presentation": [
+            "table"
+          ]
+        },
+        "effective_output_status": "pending_clarification",
+        "normalizations": [],
+        "data_requirements": [],
+        "missing_slots": [],
+        "candidate_slots": {
+          "dip_definition": [
+            "event_drawdown",
+            "moving_average",
+            "z_score"
+          ]
+        },
+        "unresolved_branches": [
+          "dip_definition"
+        ],
+        "committed_slots": {},
+        "dimension_brief": {
+          "candidate_dimensions": [
+            {
+              "dimension_id": "dip_definition",
+              "choices": [
+                "event_drawdown",
+                "moving_average",
+                "z_score"
+              ],
+              "operational_definition": "Convert 逢低 into an observable entry condition.",
+              "evidence_needed": [
+                "historical_price_series",
+                "entry_rule_definition"
+              ]
+            }
+          ],
+          "selected_dimensions": [],
+          "deferred_dimensions": [],
+          "selection_rationale": "Different dip definitions materially change entry dates and backtest results.",
+          "unresolved_branches": [
+            "dip_definition"
+          ],
+          "approval_state": "awaiting_user",
+          "expert_trace_id": null
+        },
+        "expected_clarification": {
+          "field": "dip_definition",
+          "question": "“逢低”按事件后回撤、均线还是 z-score？",
+          "choice_count": 3
+        },
+        "source_context": null,
+        "next_hop": "inspiration_spec",
+        "approval_state": "awaiting_user",
+        "assertions": [
+          "Only dip_definition may be asked in this clarification turn.",
+          "The router must not invent an entry rule.",
+          "The incomplete definition must not force a route to QT."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_05_qt_from_ma",
+      "category": "in_set",
+      "utterance": "把上面的 US CPI surprise 规则跑事件回测：surprise >= 1 个标准差时做空 UST10Y，事件窗 [-1,+3]，2019-2023 train、2024-2025 test，T+1 收盘入场、T+3 收盘平仓，日频，交易成本和滑点各 5 bps；确认按此规格执行。",
+      "conversation_context": {
+        "prior_skill_id": "ma_cn_us_calendar",
+        "prior_slots": {
+          "data_series": [
+            "US.CPI"
+          ]
+        }
+      },
+      "expected": {
+        "route_status": "routed",
+        "skill_id": "qt_event_backtest",
+        "route_candidates": [
+          "qt_event_backtest",
+          "ma_cn_us_calendar"
+        ],
+        "rejected_candidates": [
+          {
+            "skill_id": "ma_cn_us_calendar",
+            "reason": "The current action is an explicitly specified backtest, not a calendar answer."
+          }
+        ],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "The user explicitly requests an event backtest.",
+            "Event, signal, window, entry, exit, train, and test definitions are supplied and approved."
+          ]
+        },
+        "routing_evidence": [
+          "跑事件回测",
+          "surprise >= 1 个标准差",
+          "做空 UST10Y",
+          "事件窗 [-1,+3]",
+          "2019-2023 train、2024-2025 test",
+          "确认按此规格执行"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "UST/SOFR"
+          ],
+          "subject_scope": {
+            "scope_shape": "composite",
+            "components": [
+              {
+                "scope_shape": "single",
+                "object_type": "macro_event",
+                "entities": [
+                  "US.CPI"
+                ],
+                "event_type": "macro_release"
+              },
+              {
+                "scope_shape": "single",
+                "object_type": "rate_point",
+                "entities": [
+                  {
+                    "curve": "UST/SOFR",
+                    "tenor": "10y"
+                  }
+                ],
+                "role": "trade_underlying"
+              }
+            ]
+          },
+          "asset_class": "FI",
+          "action": {
+            "family": "backtest_evaluate",
+            "type": "train_test_run"
+          },
+          "curve": "UST/SOFR",
+          "tenor": "10y",
+          "event_type": "macro_release",
+          "data_series": [
+            "US.CPI"
+          ],
+          "action_type": "train_test_run",
+          "signal": {
+            "expression": "surprise_z >= 1",
+            "unit": "standard_deviation"
+          },
+          "side": "short",
+          "event_window": [
+            -1,
+            3
+          ],
+          "event_window_unit": "trading_day",
+          "entry_rule": "T+1_close",
+          "exit_rule": "T+3_close",
+          "train_period": [
+            "2019-01-01",
+            "2023-12-31"
+          ],
+          "test_period": [
+            "2024-01-01",
+            "2025-12-31"
+          ],
+          "data_frequency": "daily",
+          "transaction_cost": {
+            "value": 5,
+            "unit": "bps"
+          },
+          "slippage": {
+            "value": 5,
+            "unit": "bps"
+          },
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [],
+            "requested_metrics": [],
+            "presentation": []
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "backtest_report",
+          "additional_artifacts": [
+            "trade_log",
+            "pnl_drawdown_chart",
+            "event_window_chart",
+            "train_test_comparison"
+          ],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "spec_snapshot",
+            "data_coverage",
+            "sample_definition",
+            "train_test_split",
+            "cost_assumptions",
+            "no_lookahead_check",
+            "result_status",
+            "warnings",
+            "train_metrics",
+            "test_metrics",
+            "overfit_diagnostics"
+          ],
+          "requested_metrics": [
+            "cumulative_pnl",
+            "max_drawdown",
+            "event_window_return",
+            "hit_rate",
+            "trade_count",
+            "sample_size"
+          ],
+          "presentation": [
+            "table",
+            "chart"
+          ]
+        },
+        "effective_output_status": "compiled",
+        "normalizations": [
+          {
+            "field": "curve",
+            "raw": "UST10Y",
+            "canonical": "UST/SOFR"
+          },
+          {
+            "field": "tenor",
+            "raw": "UST10Y",
+            "canonical": "10y"
+          }
+        ],
+        "data_requirements": [
+          {
+            "field": "US.CPI.release_history",
+            "status": "lookup_required"
+          },
+          {
+            "field": "UST/SOFR.10y.daily_history",
+            "status": "lookup_required"
+          }
+        ],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {
+          "underlying_universe": [
+            "UST/SOFR"
+          ],
+          "curve": "UST/SOFR",
+          "tenor": "10y",
+          "event_type": "macro_release",
+          "data_series": [
+            "US.CPI"
+          ],
+          "signal": {
+            "expression": "surprise_z >= 1",
+            "unit": "standard_deviation"
+          },
+          "side": "short",
+          "event_window": [
+            -1,
+            3
+          ],
+          "event_window_unit": "trading_day",
+          "entry_rule": "T+1_close",
+          "exit_rule": "T+3_close",
+          "train_period": [
+            "2019-01-01",
+            "2023-12-31"
+          ],
+          "test_period": [
+            "2024-01-01",
+            "2025-12-31"
+          ],
+          "data_frequency": "daily",
+          "transaction_cost": {
+            "value": 5,
+            "unit": "bps"
+          },
+          "slippage": {
+            "value": 5,
+            "unit": "bps"
+          }
+        },
+        "dimension_brief": null,
+        "source_context": "ma_cn_us_calendar",
+        "next_hop": "backtest",
+        "approval_state": "approved",
+        "assertions": [
+          "A complete approved specification must route directly to QT.",
+          "asset_class must remain FI while source_context records the MA origin.",
+          "All required QT slots must be present in committed_slots.",
+          "The backtest must reject look-ahead and missing data rather than substitute values."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_06_ibd_dcf",
+      "category": "in_set",
+      "utterance": "给 NVDA 做 2026-2029 operating+DCF，base、bull、bear 三情景，WACC 9%，永续增长 3%，币种 USD，并输出 WACC/永续增长敏感性。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "routed",
+        "skill_id": "ibd_equity_model",
+        "route_candidates": [
+          "ibd_equity_model",
+          "eq_ai_semis_thesis"
+        ],
+        "rejected_candidates": [
+          {
+            "skill_id": "eq_ai_semis_thesis",
+            "reason": "The requested output is an operating model and DCF rather than a thesis map."
+          }
+        ],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "Operating model, DCF, scenarios, and valuation assumptions are explicit.",
+            "The output contract overrides the semiconductor subject-matter overlap."
+          ]
+        },
+        "routing_evidence": [
+          "NVDA",
+          "2026-2029 operating+DCF",
+          "base、bull、bear 三情景",
+          "WACC 9%",
+          "永续增长 3%",
+          "WACC/永续增长敏感性"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "NVDA"
+          ],
+          "subject_scope": {
+            "scope_shape": "single",
+            "object_type": "equity_security",
+            "entities": [
+              "NVDA"
+            ]
+          },
+          "asset_class": "EQ",
+          "action": {
+            "family": "model_value",
+            "type": "scenario_compare"
+          },
+          "ticker": {
+            "symbol": "NVDA",
+            "venue": "NASDAQ"
+          },
+          "action_type": "scenario_compare",
+          "model_template": "operating+DCF",
+          "forecast_period": [
+            "2026",
+            "2029"
+          ],
+          "scenarios": [
+            "base",
+            "bull",
+            "bear"
+          ],
+          "currency": "USD",
+          "valuation_assumptions": {
+            "wacc": {
+              "value": 9,
+              "unit": "percent"
+            },
+            "terminal_growth": {
+              "value": 3,
+              "unit": "percent"
+            }
+          },
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [
+              "sensitivity_table"
+            ],
+            "required_components": [],
+            "requested_metrics": [],
+            "presentation": []
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "equity_model_workbook",
+          "additional_artifacts": [
+            "assumption_summary",
+            "scenario_table",
+            "valuation_summary",
+            "sensitivity_table"
+          ],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "historical_actuals",
+            "forecast_period",
+            "scenario_assumptions",
+            "segment_drivers",
+            "model_assumptions",
+            "data_availability",
+            "default_provenance",
+            "scenario_results",
+            "operating_forecast",
+            "operating_kpi_table",
+            "fcf_bridge",
+            "wacc",
+            "terminal_value",
+            "net_debt",
+            "share_count",
+            "implied_value"
+          ],
+          "requested_metrics": [
+            "revenue",
+            "fcf",
+            "implied_value"
+          ],
+          "presentation": [
+            "workbook",
+            "table"
+          ]
+        },
+        "effective_output_status": "compiled",
+        "normalizations": [],
+        "data_requirements": [
+          {
+            "field": "valuation_assumptions.net_debt",
+            "status": "lookup_required"
+          },
+          {
+            "field": "valuation_assumptions.share_count",
+            "status": "lookup_required"
+          }
+        ],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {},
+        "dimension_brief": null,
+        "source_context": null,
+        "next_hop": "ibd_template",
+        "approval_state": "awaiting_user",
+        "assertions": [
+          "The explicit DCF output must route to IBD rather than EQ thesis research.",
+          "Forecast period and percentage assumptions must retain units.",
+          "Net debt and share count must be sourced or marked unavailable."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_07_ma_fx_collision",
+      "category": "near_miss",
+      "utterance": "2026-09-03 美国 headline CPI 同比 actual 3.1% vs consensus 3.0%，给一句话 USD 和 2s10s take，不要构造交易。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "routed",
+        "skill_id": "ma_cn_us_calendar",
+        "route_candidates": [
+          "ma_cn_us_calendar",
+          "fx_carry_curve_rv",
+          "qt_event_backtest"
+        ],
+        "rejected_candidates": [
+          {
+            "skill_id": "fx_carry_curve_rv",
+            "reason": "USD and 2s10s are transmission assets; no position, legs, carry, or hedge is requested."
+          },
+          {
+            "skill_id": "qt_event_backtest",
+            "reason": "No backtest, event-study, entry, exit, or train/test action is requested."
+          }
+        ],
+        "coverage_status": "in_coverage",
+        "capability_status": "supported",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "The user asks for a print-versus-consensus impact summary.",
+            "The user explicitly excludes trade construction."
+          ]
+        },
+        "routing_evidence": [
+          "美国 headline CPI 同比",
+          "actual 3.1% vs consensus 3.0%",
+          "一句话 USD 和 2s10s take",
+          "不要构造交易"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "US.CPI"
+          ],
+          "subject_scope": {
+            "scope_shape": "single",
+            "object_type": "macro_event",
+            "entities": [
+              "US.CPI"
+            ],
+            "event_date": "2026-09-03"
+          },
+          "asset_class": "MA",
+          "action": {
+            "family": "interpret_readthrough",
+            "type": "market_impact_summary",
+            "secondary_actions": []
+          },
+          "country_region": [
+            "US"
+          ],
+          "data_series": [
+            "US.CPI"
+          ],
+          "measure": "headline_yoy",
+          "action_type": "market_impact_summary",
+          "event_date": "2026-09-03",
+          "print_values": {
+            "actual": {
+              "value": 3.1,
+              "unit": "percent",
+              "source": "user_provided"
+            },
+            "estimate": {
+              "value": 3.0,
+              "unit": "percent",
+              "source": "user_provided"
+            }
+          },
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [
+              "usd_take",
+              "curve_2s10s_take"
+            ],
+            "requested_metrics": [],
+            "presentation": [
+              "one_liner"
+            ]
+          }
+        },
+        "effective_output": {
+          "primary_artifact": "market_impact_brief",
+          "additional_artifacts": [],
+          "required_components": [
+            "as_of_date",
+            "source_trace",
+            "availability_status",
+            "assumption_provenance",
+            "coverage_limitations",
+            "event_identity",
+            "country_region",
+            "data_series",
+            "event_date",
+            "release_time",
+            "time_zone",
+            "release_status",
+            "actual",
+            "estimate",
+            "previous",
+            "transmission_assets",
+            "impact_horizon",
+            "uncertainty",
+            "usd_take",
+            "curve_2s10s_take"
+          ],
+          "requested_metrics": [],
+          "presentation": [
+            "table",
+            "one_liner"
+          ]
+        },
+        "effective_output_status": "compiled",
+        "normalizations": [
+          {
+            "field": "measure",
+            "raw": "headline CPI 同比",
+            "canonical": "headline_yoy"
+          }
+        ],
+        "data_state": {
+          "actual": "provided",
+          "estimate": "provided",
+          "previous": "missing"
+        },
+        "data_requirements": [],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {},
+        "dimension_brief": {
+          "candidate_dimensions": [],
+          "selected_dimensions": [
+            {
+              "dimension_id": "measure",
+              "value": "headline_yoy"
+            },
+            {
+              "dimension_id": "transmission_assets",
+              "value": [
+                {
+                  "asset_class": "FX",
+                  "instrument": "USD"
+                },
+                {
+                  "asset_class": "FI",
+                  "curve": "UST/SOFR",
+                  "structure": "2s10s"
+                }
+              ]
+            }
+          ],
+          "deferred_dimensions": [],
+          "selection_rationale": "The requested assets are channels for interpreting the macro print, not trade legs.",
+          "unresolved_branches": [],
+          "approval_state": "not_required",
+          "expert_trace_id": null
+        },
+        "source_context": null,
+        "next_hop": "calendar_answer",
+        "approval_state": "not_required",
+        "assertions": [
+          "USD and 2s10s must be treated as transmission assets without changing the MA route.",
+          "The explicit no-trade instruction must prevent FX routing.",
+          "The absence of backtest rules must prevent QT routing."
+        ]
+      }
+    },
+    {
+      "fixture_id": "seed_08_secondary_credit_fallback",
+      "category": "near_miss",
+      "utterance": "比较存量 2028 腾讯和阿里美元债的 OAS、carry 和 switch。",
+      "conversation_context": null,
+      "expected": {
+        "route_status": "soft_fallback",
+        "skill_id": "SOFT_FALLBACK",
+        "route_candidates": [
+          "fi_usd_primary"
+        ],
+        "rejected_candidates": [
+          {
+            "skill_id": "fi_usd_primary",
+            "reason": "The action is secondary-credit relative value, while the frozen FI skill covers primary issuance only."
+          },
+          {
+            "skill_id": "fx_carry_curve_rv",
+            "reason": "Credit-bond carry and switch analysis are outside the FX and rates-curve relative-value universe."
+          }
+        ],
+        "coverage_status": "partial",
+        "capability_status": "out_of_scope",
+        "confidence": {
+          "level": "high",
+          "reasons": [
+            "The request explicitly concerns outstanding bonds, OAS, and switch analysis.",
+            "Secondary-credit relative value is explicitly excluded from v1."
+          ]
+        },
+        "routing_evidence": [
+          "存量 2028 腾讯和阿里美元债",
+          "OAS",
+          "carry",
+          "switch"
+        ],
+        "slots": {
+          "underlying_universe": [
+            "TENCENT",
+            "ALIBABA"
+          ],
+          "subject_scope": {
+            "scope_shape": "pair",
+            "object_type": "bond_security",
+            "pair_family": "bond_security_pair",
+            "relation_type": "relative_value",
+            "legs": [
+              {
+                "issuer": "TENCENT",
+                "maturity_year": 2028,
+                "currency": "USD"
+              },
+              {
+                "issuer": "ALIBABA",
+                "maturity_year": 2028,
+                "currency": "USD"
+              }
+            ]
+          },
+          "asset_class": "FI",
+          "action": {
+            "family": "compare_rank",
+            "type": "secondary_credit_rv"
+          },
+          "action_type": "secondary_credit_rv",
+          "security_scope": "outstanding_usd_bond",
+          "currency": "USD",
+          "maturity_year": {
+            "value": 2028,
+            "unit": "year"
+          },
+          "requested_output": {
+            "primary_artifact": null,
+            "additional_artifacts": [],
+            "required_components": [],
+            "requested_metrics": [
+              "oas",
+              "carry",
+              "switch"
+            ],
+            "presentation": []
+          }
+        },
+        "effective_output": null,
+        "effective_output_status": "unsupported_no_result",
+        "normalizations": [],
+        "data_requirements": [],
+        "missing_slots": [],
+        "candidate_slots": {},
+        "unresolved_branches": [],
+        "committed_slots": {},
+        "dimension_brief": null,
+        "source_context": null,
+        "next_hop": "soft_fallback",
+        "approval_state": "not_applicable",
+        "fallback_reason": "secondary_credit_rv_not_supported",
+        "nearest_supported_paths": [
+          {
+            "skill_id": "fi_usd_primary",
+            "boundary": "USD primary issuance only"
+          },
+          {
+            "skill_id": "qt_event_backtest",
+            "boundary": "Available only when a supported event and complete trading specification are supplied"
+          }
+        ],
+        "assertions": [
+          "The request must not be forced into the primary-issuance skill.",
+          "OAS, carry, and switch values must not be fabricated.",
+          "The fallback response must state the capability boundary and the nearest supported path."
+        ]
+      }
+    }
+  ]
+}
