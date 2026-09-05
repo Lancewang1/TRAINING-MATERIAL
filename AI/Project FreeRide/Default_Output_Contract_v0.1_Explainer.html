@@ -1346,6 +1346,12 @@
       detailContinued.parentNode.insertBefore(detailFirst, detailContinued);
     }
 
+    const fixtureCases = document.getElementById("fixture-cases");
+    const examples = document.getElementById("examples");
+    if (fixtureCases && examples) {
+      examples.parentNode.insertBefore(fixtureCases, examples);
+    }
+
     const sections = [...document.querySelectorAll('.section[id]')];
     const links = [...document.querySelectorAll('.nav-inner a')];
     const linkById = new Map(links.map(link => [link.getAttribute('href').slice(1), link]));
