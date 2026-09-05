@@ -165,6 +165,58 @@
     .decision-item.fallback { background: var(--coral-soft); border: 1px solid #efc5c0; color: #923d36; }
     .decision-item b { display: block; margin-bottom: 3px; color: inherit; }
 
+    .step-details { display: grid; gap: 10px; margin-top: 22px; }
+    .step-details details { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .step-details details[open] { box-shadow: var(--shadow); }
+    .step-details summary { display: flex; align-items: center; gap: 11px; padding: 14px 17px; color: var(--ink); cursor: pointer; list-style: none; font-size: 16px; font-weight: 760; }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::after { content: "+"; margin-left: auto; color: var(--teal); font-size: 22px; font-weight: 500; }
+    .step-details details[open] summary::after { content: "−"; }
+    .summary-number { display: inline-grid; place-items: center; flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; color: #fff; background: var(--ink); font-size: 13px; }
+    .summary-sub { color: var(--muted); font-size: 12px; font-weight: 500; }
+    .step-detail-body { padding: 0 17px 18px; border-top: 1px solid var(--line); }
+    .step-detail-body > p { max-width: 900px; margin: 14px 0; color: var(--ink-2); font-size: 14px; }
+    .step-detail-body h4 { margin: 15px 0 7px; color: var(--ink); font-size: 14px; }
+    .variable-table { width: 100%; border-collapse: collapse; background: #fbfcfd; border: 1px solid var(--line); font-size: 13px; }
+    .variable-table th, .variable-table td { padding: 8px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .variable-table th { color: var(--ink); background: #edf3f5; font-size: 12px; }
+    .variable-table tr:last-child td { border-bottom: 0; }
+    .variable-table td:first-child { width: 22%; color: var(--ink-2); font-weight: 750; white-space: nowrap; }
+    .variable-table td:nth-child(2) { width: 29%; color: #7b3f18; }
+    .variable-note { margin: 9px 0 0; padding: 10px 12px; color: #674514; background: var(--amber-soft); border-left: 3px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; font-size: 13px; }
+    .value-list { display: flex; flex-wrap: wrap; gap: 5px; margin: 7px 0 0; }
+    .value-list code { display: inline-block; }
+    .value-list span { color: var(--muted); font-size: 12px; }
+
+    .walkthrough-lead { margin: 0 0 17px; color: var(--muted); font-size: 15px; }
+    .walkthrough-grid { display: grid; gap: 9px; }
+    .walkthrough-row { display: grid; grid-template-columns: 58px minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 12px; align-items: start; padding: 13px 14px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; }
+    .walkthrough-row:nth-child(4n + 1) { border-left-color: var(--blue); }
+    .walkthrough-row:nth-child(4n + 2) { border-left-color: var(--teal); }
+    .walkthrough-row:nth-child(4n + 3) { border-left-color: var(--amber); }
+    .walkthrough-row:nth-child(4n + 4) { border-left-color: var(--violet); }
+    .walkthrough-no { color: var(--muted); font-size: 12px; font-weight: 800; }
+    .walkthrough-row h3 { margin: 0 0 5px; font-size: 16px; }
+    .walkthrough-row p { margin: 0; color: var(--muted); font-size: 13px; }
+    .walkthrough-result { padding: 10px 11px; color: var(--ink-2); background: #f4f8f9; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
+    .walkthrough-result b { color: var(--ink); }
+    .fixture-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .fixture-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .fixture-card summary { display: flex; align-items: flex-start; gap: 9px; padding: 13px 14px; cursor: pointer; list-style: none; }
+    .fixture-card summary::-webkit-details-marker { display: none; }
+    .fixture-card summary::after { content: "+"; margin-left: auto; color: var(--teal); font-size: 19px; }
+    .fixture-card[open] summary::after { content: "−"; }
+    .fixture-card .fixture-no { flex: 0 0 auto; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .fixture-card .fixture-title { color: var(--ink); font-size: 15px; font-weight: 750; }
+    .fixture-card .fixture-body { padding: 0 14px 14px; border-top: 1px solid var(--line); }
+    .fixture-card blockquote { margin: 12px 0; font-size: 13px; }
+    .fixture-step-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .fixture-step-table td { padding: 6px 0; vertical-align: top; border-bottom: 1px dashed var(--line); }
+    .fixture-step-table tr:last-child td { border-bottom: 0; }
+    .fixture-step-table td:first-child { width: 27%; color: var(--muted); font-weight: 750; }
+    .fixture-step-table td:last-child { color: var(--ink-2); }
+    .fixture-status { display: inline-flex; margin: 0 0 10px; }
+
     .rules-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr); gap: 18px; align-items: start; }
     .rule-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 13px; }
     .rule-table th, .rule-table td { padding: 11px 13px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
@@ -251,6 +303,7 @@
       .schema-grid { grid-template-columns: repeat(2, 1fr); }
       .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
       .standard-result { grid-template-columns: 1fr; }
+      .fixture-cards { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       .top-inner, main, .footer-inner { padding-left: 17px; padding-right: 17px; }
@@ -269,6 +322,12 @@
       .pipeline-grid, .decision-strip { grid-template-columns: 1fr; }
       .sentence-box blockquote { font-size: 16px; }
       .plain-list li { grid-template-columns: 1fr; gap: 2px; }
+      .walkthrough-row { grid-template-columns: 38px minmax(0, 1fr); }
+      .walkthrough-row .walkthrough-result { grid-column: 2; }
+      .step-details summary { align-items: flex-start; }
+      .summary-sub { display: block; }
+      .variable-table { display: block; overflow-x: auto; min-width: 680px; }
+      .step-detail-body { overflow-x: hidden; }
       .merge-arrow { transform: rotate(90deg); min-height: 28px; }
       .skill-grid, .schema-grid { grid-template-columns: 1fr; }
       .flow-svg-wrap { display: none; }
@@ -301,11 +360,14 @@
   <nav class="section-nav" aria-label="章节导航">
     <div class="nav-inner">
       <a href="#overview">一步一步</a>
+      <a href="#step-details">拆开看每一步</a>
       <a href="#dual-field">两份清单</a>
       <a href="#rules">如何补齐</a>
       <a href="#contracts">六个方向</a>
+      <a href="#walkthrough">完整走一遍</a>
+      <a href="#fixture-cases">8 条样本</a>
       <a href="#examples">再看四个例子</a>
-      <a href="#fixtures">检查流程</a>
+      <a href="#fixtures">检查统计</a>
       <a href="#done">做到哪一步</a>
     </div>
   </nav>
@@ -481,8 +543,309 @@
       </div>
     </section>
 
+    <section class="section" id="step-details-continued">
+      <div class="section-kicker">02 / 拆开看每一步（续）</div>
+      <h2 class="section-title">第 5 到第 8 步：选方向、检查、记录、交接</h2>
+      <p class="section-intro">前四步回答“用户在说什么”，后四步回答“谁来做、能不能做、要交什么、怎样交接”。</p>
+      <div class="step-details">
+        <details>
+          <summary><span class="summary-number">5</span>选择专业方向 <span class="summary-sub">回答“谁来处理这件事”</span></summary>
+          <div class="step-detail-body">
+            <p>前面已经知道研究对象和动作。现在把它们放到一起，选择一个最合适的专业方向。输出格式不能单独决定方向；例如用户说“做成表格”，并不会把股票问题变成宏观问题。</p>
+            <h4>目前冻结的 6 个专业方向和 1 个兜底出口</h4>
+            <table class="variable-table">
+              <thead><tr><th><code>skill_id</code></th><th>处理什么</th><th>下一步</th></tr></thead>
+              <tbody>
+                <tr><td><code>eq_ai_semis_thesis</code></td><td>AI / 半导体产业链和股票主题研究</td><td><code>inspiration_spec</code></td></tr>
+                <tr><td><code>fi_usd_primary</code></td><td>美元债一级发行和参与判断</td><td><code>calendar_answer</code></td></tr>
+                <tr><td><code>ma_cn_us_calendar</code></td><td>中国和美国宏观数据日历、发布和影响</td><td><code>calendar_answer</code></td></tr>
+                <tr><td><code>fx_carry_curve_rv</code></td><td>白名单 FX carry、曲线和相对价值结构</td><td><code>inspiration_spec</code></td></tr>
+                <tr><td><code>qt_event_backtest</code></td><td>已经写清规则的事件回测</td><td><code>backtest</code></td></tr>
+                <tr><td><code>ibd_equity_model</code></td><td>股票经营模型、DCF 和情景分析</td><td><code>ibd_template</code></td></tr>
+                <tr><td><code>SOFT_FALLBACK</code></td><td>当前没有可执行的支持路径</td><td><code>soft_fallback</code></td></tr>
+              </tbody>
+            </table>
+            <h4>这一步产生的系统变量</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>可选值 / 形式</th><th>人话</th></tr></thead>
+              <tbody>
+                <tr><td><code>route_candidates</code></td><td>一个或多个候选 <code>skill_id</code></td><td>系统认为可能处理这句话的方向。</td></tr>
+                <tr><td><code>rejected_candidates</code></td><td>被排除的方向</td><td>记录为什么没有选另一个看起来相近的方向。</td></tr>
+                <tr><td><code>source_context</code></td><td>来源方向 ID，或 <code>null</code></td><td>例如 FX 想法后来进入回测，保留它从哪里来。</td></tr>
+                <tr><td><code>next_hop</code></td><td><code>inspiration_spec</code> · <code>calendar_answer</code> · <code>backtest</code> · <code>ibd_template</code> · <code>soft_fallback</code></td><td>下一步交给哪一种专业处理程序。</td></tr>
+                <tr><td><code>confidence</code></td><td><code>level</code> + <code>reasons</code></td><td>为什么选这个方向，以及把握有多大。</td></tr>
+              </tbody>
+            </table>
+            <div class="variable-note">一级发行里的 IPT、bookbuild、pricing，以及宏观日历的内部步骤，不在这里继续拆；它们交给对应专业方向内部处理。</div>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="summary-number">6</span>检查能不能接 <span class="summary-sub">回答“能不能现在做，还是需要问一句”</span></summary>
+          <div class="step-detail-body">
+            <p>系统分别检查三件事：对象是否认得出来、这个专业方向有没有这种能力、需要的数据现在有没有。三种情况不能混成一句“支持/不支持”。</p>
+            <h4>状态变量</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>目前支持的值</th><th>人话</th></tr></thead>
+              <tbody>
+                <tr><td><code>subject_resolution_status</code></td><td><code>resolved</code> · <code>ambiguous</code> · <code>unresolved</code></td><td>对象已经认清、存在歧义、还是完全没认清。</td></tr>
+                <tr><td><code>coverage_status</code></td><td><code>in_coverage</code> · <code>partial</code> · <code>out_of_coverage</code></td><td>全部支持、只支持一部分、还是超出范围。</td></tr>
+                <tr><td><code>capability_status</code></td><td><code>supported</code> · <code>out_of_scope</code></td><td>这个专业方向有没有对应能力。</td></tr>
+                <tr><td><code>route_status</code></td><td><code>routed</code> · <code>clarification_required</code> · <code>soft_fallback</code></td><td>可以继续、要先问用户、或只能说明边界。</td></tr>
+                <tr><td><code>approval_state</code></td><td><code>not_required</code> · <code>awaiting_user</code> · <code>approved</code> · <code>not_applicable</code></td><td>是否需要用户确认缩小范围或采用某个方案。</td></tr>
+                <tr><td><code>availability_status</code></td><td><code>available</code> · <code>not_released</code> · <code>unavailable</code> · <code>not_applicable</code></td><td>能力有了，但资料可能还没发布或暂时取不到。</td></tr>
+              </tbody>
+            </table>
+            <h4>需要补充或保留的变量</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>形式</th><th>人话</th></tr></thead>
+              <tbody>
+                <tr><td><code>coverage_by_route</code></td><td>每个候选方向 × 每个对象的覆盖结果</td><td>不要只给一个总判断，要知道是哪一个对象卡住了。</td></tr>
+                <tr><td><code>missing_slots</code></td><td>进入下一步前还缺的必填信息</td><td>例如缺少交易期限或测试区间。</td></tr>
+                <tr><td><code>candidate_slots</code></td><td>可能改变结论、但还没决定的选项</td><td>例如“逢低”到底用哪一种定义。</td></tr>
+                <tr><td><code>unresolved_branches</code></td><td>待用户选择的分叉</td><td>把真正需要用户决定的地方列出来。</td></tr>
+                <tr><td><code>excluded_entities</code></td><td>用户明确同意后排除的对象</td><td>系统不能悄悄删掉一个公司或一条腿。</td></tr>
+              </tbody>
+            </table>
+            <details>
+              <summary><span class="summary-number">+</span>专业方向专属变量（完整列表）</summary>
+              <div class="step-detail-body">
+                <table class="variable-table">
+                  <thead><tr><th>分组</th><th>变量</th><th>目前支持的形式</th></tr></thead>
+                  <tbody>
+                    <tr><td>通用时间</td><td><code>horizon</code>、<code>as_of_date</code>、<code>event_date</code></td><td><code>intraday</code>、<code>1-5d</code>、<code>1-3m</code>、<code>6-12m</code>、<code>1-3y</code>；ISO 日期或区间。</td></tr>
+                    <tr><td>宏观 / 事件</td><td><code>data_series</code>、<code>print_values</code>、<code>surprise_definition</code></td><td>CPI、PMI、payrolls、FOMC；actual、estimate、previous、unit、source；实际减共识、百分比、标准差或分位数。</td></tr>
+                    <tr><td>策略规则</td><td><code>signal</code>、<code>entry_rule</code>、<code>exit_rule</code>、<code>filters</code></td><td>可判断的布尔/数值条件、开仓规则、平仓/止损规则、过滤条件数组。</td></tr>
+                    <tr><td>回测</td><td><code>event_window</code>、<code>train_period</code>、<code>test_period</code>、<code>data_frequency</code>、<code>rebalance_freq</code></td><td>例如 <code>[-1,+3]</code>；日期区间；<code>daily</code>、<code>1h</code>、已接入的盘中频率；event/daily/weekly/monthly。</td></tr>
+                    <tr><td>回测成本</td><td><code>benchmark</code>、<code>transaction_cost</code>、<code>slippage</code>、<code>position_sizing</code></td><td>代码/指数/曲线 ID；bps 或成本模型；bps 或滑点模型；等权、固定名义、波动率目标或公式。</td></tr>
+                    <tr><td>FX / 利率</td><td><code>tenor</code>、<code>curve</code>、<code>curve_pair</code>、<code>carry_metric</code></td><td>1m/3m/6m/1y/2y/5y/10y/30y；UST/SOFR、JGB/TONA、Bund/€STR、Gilt/SONIA、CGB/SHIBOR；forward_points、coupon、roll_down、total_carry。</td></tr>
+                    <tr><td>FX / 对冲</td><td><code>funding_currency</code>、<code>hedge_ratio</code>、<code>vol_target</code></td><td>融资币种；0-1 或公式；百分比目标波动率。</td></tr>
+                    <tr><td>一级发行</td><td><code>deal_terms.*</code></td><td><code>deal_type</code>、<code>rating</code>、<code>seniority</code>、<code>issue_size</code>、<code>price_guidance</code>、<code>bookbuild_window</code>、<code>settlement_date</code>、<code>allocation_intent</code>。</td></tr>
+                    <tr><td>股票模型</td><td><code>model_template</code>、<code>forecast_period</code>、<code>scenario</code></td><td><code>operating</code>、<code>DCF</code>、<code>operating+DCF</code>；年份/日期区间；<code>base</code>、<code>bull</code>、<code>bear</code>、<code>custom</code>。</td></tr>
+                    <tr><td>股票模型细节</td><td><code>revenue_segments</code>、<code>margin_driver</code>、<code>valuation_assumptions.*</code>、<code>catalyst</code></td><td>业务分部；毛利率/费用率等驱动；<code>wacc</code>、<code>terminal_growth</code>、<code>net_debt</code>、<code>share_count</code>；事件数组。</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="summary-number">7</span>记录用户明确要求 <span class="summary-sub">只记用户说出来的额外内容</span></summary>
+          <div class="step-detail-body">
+            <p>这一步不负责重新选择专业方向，只记录用户额外点名的交付要求。用户没有说的内容，不会被写成“用户要求”。</p>
+            <h4><code>requested_output</code> 的四个部分</h4>
+            <table class="variable-table">
+              <thead><tr><th>部分</th><th>机器名</th><th>人话</th></tr></thead>
+              <tbody>
+                <tr><td>交付物</td><td><code>primary_artifact</code>、<code>additional_artifacts</code></td><td>最主要要拿到什么，另外还要不要别的文件/结果。</td></tr>
+                <tr><td>必含栏目</td><td><code>required_components</code></td><td>结果里一定要出现哪些栏目。</td></tr>
+                <tr><td>指标</td><td><code>requested_metrics</code></td><td>要计算或展示哪些数值。</td></tr>
+                <tr><td>呈现方式</td><td><code>presentation</code></td><td>文字、表格、图、工作簿或原始数据。</td></tr>
+              </tbody>
+            </table>
+            <h4>呈现方式的全部选项</h4>
+            <div class="value-list"><code>narrative</code><code>table</code><code>chart</code><code>one_liner</code><code>workbook</code><code>raw_data</code></div>
+            <h4>目前各方向可点名的交付物</h4>
+            <table class="variable-table">
+              <thead><tr><th>方向</th><th>可选的 artifact</th><th>可选的主要指标</th></tr></thead>
+              <tbody>
+                <tr><td>EQ</td><td><code>thesis_brief</code>、<code>chain_map</code>、<code>ranking_table</code>、<code>readthrough_brief</code>、<code>relative_thesis_brief</code>、<code>invalidation_assessment</code></td><td>当前默认不预设额外数值指标。</td></tr>
+                <tr><td>FI</td><td><code>primary_deal_snapshot</code>、<code>new_issue_calendar</code>、<code>primary_deal_pack</code></td><td><code>new_issue_premium</code></td></tr>
+                <tr><td>MA</td><td><code>macro_event_snapshot</code>、<code>macro_calendar</code>、<code>print_comparison</code>、<code>revision_summary</code>、<code>surprise_brief</code>、<code>market_impact_brief</code></td><td><code>surprise</code></td></tr>
+                <tr><td>FX</td><td><code>strategy_spec</code>、<code>risk_reward_comparison</code>、<code>invalidation_assessment</code></td><td><code>carry</code>、<code>roll_down</code>、<code>risk_reward</code>、<code>hedge_ratio</code></td></tr>
+                <tr><td>QT</td><td><code>backtest_report</code>、<code>trade_log</code>、<code>pnl_drawdown_chart</code>、<code>event_window_chart</code>、<code>event_study_report</code>、<code>event_backtest_report</code></td><td><code>cumulative_pnl</code>、<code>max_drawdown</code>、<code>event_window_return</code>、<code>hit_rate</code>、<code>trade_count</code>、<code>sample_size</code></td></tr>
+                <tr><td>IBD</td><td><code>equity_model_workbook</code>、<code>assumption_summary</code>、<code>quarterly_update_summary</code>、<code>valuation_summary</code>、<code>sensitivity_table</code>、<code>scenario_table</code>、<code>kpi_bridge_table</code></td><td><code>revenue</code>、<code>fcf</code>、<code>implied_value</code></td></tr>
+              </tbody>
+            </table>
+            <details>
+              <summary><span class="summary-number">+</span>各方向的必含栏目（完整列表）</summary>
+              <div class="step-detail-body">
+                <table class="variable-table">
+                  <thead><tr><th>方向</th><th><code>required_components</code></th></tr></thead>
+                  <tbody>
+                    <tr><td>EQ</td><td><code>subject_scope</code>、<code>horizon</code>、<code>thesis_summary</code>、<code>evidence_chain</code>、<code>catalyst_list</code>、<code>validation_indicators</code>、<code>invalidation_conditions</code>、<code>node_relationships</code>、<code>transmission_mechanism</code>、<code>comparison_basis</code>、<code>ranking_rationale</code>、<code>event_vs_expectation</code>、<code>earnings_transmission</code>、<code>relative_drivers</code>、<code>catalyst_timeline</code>、<code>monitoring_indicators</code>、<code>invalidation_test</code>、<code>current_evidence</code></td></tr>
+                    <tr><td>FI</td><td><code>deal_identity</code>、<code>issuer</code>、<code>currency</code>、<code>tenor</code>、<code>rating</code>、<code>seniority_or_format</code>、<code>lifecycle_status</code>、<code>deal_rows</code>、<code>announcement_window</code>、<code>settlement_date</code>、<code>ipt_history</code>、<code>price_guidance</code>、<code>book_status</code>、<code>order_metrics</code>、<code>final_terms</code>、<code>new_issue_premium</code>、<code>participation_rationale</code>、<code>target_conditions</code>、<code>risk_summary</code>、<code>comparable_new_issue_basis</code>、<code>allocation_constraints</code>、<code>desired_allocation</code>、<code>settlement_readiness</code></td></tr>
+                    <tr><td>MA</td><td><code>event_identity</code>、<code>country_region</code>、<code>data_series</code>、<code>event_date</code>、<code>release_time</code>、<code>time_zone</code>、<code>release_status</code>、<code>actual</code>、<code>estimate</code>、<code>previous</code>、<code>calendar_rows</code>、<code>comparison_table</code>、<code>unit_check</code>、<code>prior_value</code>、<code>revised_value</code>、<code>revision_delta</code>、<code>surprise_definition</code>、<code>surprise_value</code>、<code>transmission_assets</code>、<code>impact_horizon</code>、<code>uncertainty</code></td></tr>
+                    <tr><td>FX</td><td><code>subject_scope</code>、<code>strategy_style</code>、<code>side</code>、<code>horizon</code>、<code>tenor</code>、<code>legs</code>、<code>carry_definition</code>、<code>funding</code>、<code>hedge_ratio</code>、<code>risk_summary</code>、<code>invalidation_conditions</code>、<code>leg_schema</code>、<code>weighting</code>、<code>comparison_basis</code>、<code>risk_drivers</code>、<code>ranking_rationale</code>、<code>carry_components</code>、<code>funding_cost</code>、<code>vol_target</code>、<code>invalidation_thresholds</code>、<code>observed_state</code></td></tr>
+                    <tr><td>QT</td><td><code>spec_snapshot</code>、<code>data_coverage</code>、<code>sample_definition</code>、<code>train_test_split</code>、<code>cost_assumptions</code>、<code>no_lookahead_check</code>、<code>result_status</code>、<code>warnings</code>、<code>event_window_distribution</code>、<code>group_statistics</code>、<code>signal_events</code>、<code>entry_exit_records</code>、<code>train_metrics</code>、<code>test_metrics</code>、<code>overfit_diagnostics</code></td></tr>
+                    <tr><td>IBD</td><td><code>historical_actuals</code>、<code>forecast_period</code>、<code>scenario_assumptions</code>、<code>segment_drivers</code>、<code>model_assumptions</code>、<code>source_trace</code>、<code>data_availability</code>、<code>default_provenance</code>、<code>operating_forecast</code>、<code>operating_kpi_table</code>、<code>latest_actuals</code>、<code>forecast_revisions</code>、<code>fcf_bridge</code>、<code>wacc</code>、<code>terminal_value</code>、<code>net_debt</code>、<code>share_count</code>、<code>implied_value</code>、<code>scenario_results</code>、<code>sensitivity_axes</code>、<code>sensitivity_results</code>、<code>bridge_steps</code></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="summary-number">8</span>生成完整标准任务 <span class="summary-sub">把默认内容和用户要求合成一张执行清单</span></summary>
+          <div class="step-detail-body">
+            <p>最后才生成完整任务单。它告诉专业模块：主要交付物是什么、还要哪些附加结果、必须写哪些栏目、要算哪些指标、用什么方式呈现。</p>
+            <h4>合并顺序</h4>
+            <table class="variable-table">
+              <thead><tr><th>顺序</th><th>放入什么</th><th>人话</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>共享信息</td><td>日期、来源、数据是否可用、假设从哪里来、覆盖限制。</td></tr>
+                <tr><td>2</td><td>方向的默认清单</td><td>这个专业方向不管用户怎么说，都至少要交付的内容。</td></tr>
+                <tr><td>3</td><td>主要动作的附加内容</td><td>例如选择 <code>chain_map</code> 后增加节点关系和传导机制。</td></tr>
+                <tr><td>4</td><td>附加动作和条件模式</td><td>例如再加 <code>beneficiary_rank</code>，或选择 <code>operating+DCF</code>。</td></tr>
+                <tr><td>5</td><td>用户明确要求</td><td>用户点名的内容最后合入；明确说“不需要”的默认项可以被压掉。</td></tr>
+              </tbody>
+            </table>
+            <h4>最终结果的状态</h4>
+            <table class="variable-table">
+              <thead><tr><th><code>effective_output_status</code></th><th>什么时候出现</th></tr></thead>
+              <tbody>
+                <tr><td><code>compiled</code></td><td>信息足够，可以把完整任务交给专业模块。</td></tr>
+                <tr><td><code>pending_clarification</code></td><td>有一个会改变结论的选择还没确定，先问用户。</td></tr>
+                <tr><td><code>unsupported_no_result</code></td><td>没有可执行路径，只说明边界，不生成假结果。</td></tr>
+              </tbody>
+            </table>
+            <h4>每份支持的结果都会带上的信息</h4>
+            <div class="value-list"><code>as_of_date</code><code>source_trace</code><code>availability_status</code><code>assumption_provenance</code><code>coverage_limitations</code></div>
+            <p class="variable-note">这里的 <code>effective_output</code> 只描述“要交付什么”，不重新决定研究对象，也不把一级发行或宏观日历的内部流程搬到通用步骤里。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="step-details">
+      <div class="section-kicker">02 / 拆开看每一步</div>
+      <h2 class="section-title">每一步到底在判断什么</h2>
+      <p class="section-intro">下面每一栏都可以打开或收起。先看“人话说明”，再看这一栏目前允许出现哪些变量。变量是给系统用的，不要求用户一开始就会说出机器名。</p>
+
+      <div class="step-details">
+        <details>
+          <summary><span class="summary-number">1</span>把原话保留下来 <span class="summary-sub">不做解释，只做记录</span></summary>
+          <div class="step-detail-body">
+            <p>系统先把用户真正说的话保存下来。就像做题先抄清题目，不能一开始就凭感觉改题。后面每一个判断，都要能回到这句话找到依据。</p>
+            <h4>这一栏目前支持的变量</h4>
+            <table class="variable-table">
+              <thead><tr><th>机器名</th><th>可选值 / 形式</th><th>高中生能懂的意思</th></tr></thead>
+              <tbody>
+                <tr><td><code>utterance</code></td><td>用户原始文字</td><td>用户到底说了什么，一字不偷偷改掉。</td></tr>
+                <tr><td><code>conversation_context</code></td><td>前文，或 <code>null</code></td><td>如果用户说“上面那条规则”，就把前面相关内容带上。</td></tr>
+                <tr><td><code>routing_evidence</code></td><td>原句中的关键短语</td><td>指出是哪几个词让系统做出这个判断。</td></tr>
+                <tr><td><code>normalizations</code><br><code>normalization_trace</code></td><td>别名 → 标准写法</td><td>例如把“DCF”记录成标准动作名，但仍保留用户原词。</td></tr>
+                <tr><td><code>confidence</code></td><td><code>level</code> + <code>reasons</code></td><td>系统有多确定，以及为什么这么判断。</td></tr>
+              </tbody>
+            </table>
+            <div class="variable-note">这一步没有“猜一个最像的答案”这个选项。找不到依据，就把原话留下，等后面追问。</div>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="summary-number">2</span>圈出研究对象 <span class="summary-sub">先回答“在研究谁或什么”</span></summary>
+          <div class="step-detail-body">
+            <p>把句子里的名词找出来，并给每个名词贴一个类型。股票、产业链节点、美元债和 CPI 不是同一种对象，后面能用的专业模块也不同。</p>
+            <h4>对象大类</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>目前支持的选项</th><th>例子</th></tr></thead>
+              <tbody>
+                <tr><td><code>asset_class</code></td><td><code>EQ</code> · <code>FI</code> · <code>MA</code> · <code>FX</code></td><td>股票、固定收益、宏观、外汇/利率。</td></tr>
+                <tr><td><code>object_type</code></td><td><code>industry_node</code> · <code>equity_security</code> · <code>currency</code> · <code>currency_pair</code> · <code>rate_point</code> · <code>yield_curve</code> · <code>bond_security</code> · <code>primary_deal</code> · <code>macro_data_series</code> · <code>macro_event</code></td><td>产业链节点、股票、货币、货币对、利率点、曲线、存量债、一级新债、数据系列、某次数据发布/会议。</td></tr>
+                <tr><td><code>entities</code></td><td>一个或多个标准对象</td><td>NVDA、USDJPY、UST 10Y、US.CPI。</td></tr>
+                <tr><td><code>underlying_universe</code></td><td>支持名单中的对象列表</td><td>兼容旧系统的对象列表；权威表达仍是 <code>subject_scope</code>。</td></tr>
+              </tbody>
+            </table>
+            <h4>对象的补充信息</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>目前支持的形式</th><th>用途</th></tr></thead>
+              <tbody>
+                <tr><td><code>ticker</code></td><td><code>{symbol, venue}</code></td><td>股票代码和交易所，例如 NVDA / NASDAQ。</td></tr>
+                <tr><td><code>issuer</code></td><td>发行人 ID 或标准名称</td><td>谁发行了股票或债券。</td></tr>
+                <tr><td><code>country_region</code></td><td><code>CN</code> · <code>US</code></td><td>目前通用范围先支持中国和美国。</td></tr>
+                <tr><td><code>currency</code></td><td>ISO-4217，例如 <code>USD</code>、<code>JPY</code>、<code>EUR</code>、<code>CNY</code></td><td>计价或融资用什么货币。</td></tr>
+                <tr><td><code>data_series</code></td><td>支持的 CPI、PMI、payrolls、FOMC 等系列</td><td>具体看哪一项宏观数据。</td></tr>
+                <tr><td><code>event_type</code></td><td>按专业方向限制的事件枚举</td><td>财报、宏观发布、政策会议等。</td></tr>
+                <tr><td><code>event_date</code></td><td>日期、日期区间或相对日期</td><td>事件是哪天，或看哪段时间。</td></tr>
+                <tr><td><code>time_zone</code></td><td><code>Asia/Shanghai</code> · <code>America/New_York</code> · <code>UTC</code></td><td>发布时间按哪个时区显示。</td></tr>
+              </tbody>
+            </table>
+            <div class="variable-note">如果对象无法放入这 10 类，保留原文并标记为未解决或超出范围，不强行塞进“最像”的类别。</div>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="summary-number">3</span>看对象之间的关系 <span class="summary-sub">回答“这些东西是怎么放在一起的”</span></summary>
+          <div class="step-detail-body">
+            <p>三个公司放在一起，不一定就是 pair；有箭头的 HBM → CoWoS → GPU，也不是普通列表。系统要把对象之间的结构保留下来，否则后面的比较和计算会变形。</p>
+            <h4>范围形状</h4>
+            <table class="variable-table">
+              <thead><tr><th><code>scope_shape</code></th><th>人话</th><th>例子</th></tr></thead>
+              <tbody>
+                <tr><td><code>single</code></td><td>一个对象</td><td>研究 NVDA，分析 US.CPI。</td></tr>
+                <tr><td><code>set</code></td><td>几个互相独立、并列看的对象</td><td>并列看 NVDA、TSM、ASML。</td></tr>
+                <tr><td><code>pair</code></td><td>两个对象之间有明确的二元关系</td><td>USDJPY、NVDA vs AMD、UST 2Y / 10Y。</td></tr>
+                <tr><td><code>ordered_chain</code></td><td>有方向、有先后顺序的链</td><td>HBM → CoWoS → GPU。</td></tr>
+                <tr><td><code>curve_structure</code></td><td>三个以上曲线点，或明确的多腿曲线公式</td><td>2s5s10s butterfly。</td></tr>
+                <tr><td><code>composite</code></td><td>一句话里同时包含几种不同结构</td><td>产业链图 + 三家公司比较。</td></tr>
+              </tbody>
+            </table>
+            <h4>当范围是 <code>pair</code> 时的三层写法</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>目前支持的选项</th><th>人话</th></tr></thead>
+              <tbody>
+                <tr><td><code>pair_family</code></td><td><code>fx_currency_pair</code> · <code>equity_pair</code> · <code>rates_tenor_pair</code> · <code>curve_point_pair</code> · <code>bond_security_pair</code></td><td>先说是哪一种 pair：外汇、股票、同曲线期限、跨曲线，还是两只具体债券。</td></tr>
+                <tr><td><code>relation_type</code></td><td><code>base_quote</code> · <code>comparison</code> · <code>relative_value</code> · <code>spread</code> · <code>basis</code></td><td>再说两者是什么关系：报价、比较、相对价值、利差或 basis。</td></tr>
+                <tr><td><code>legs</code></td><td>按 pair 类型填写的两条 typed leg</td><td>例如 base=USD、quote=JPY，或 issuer + maturity + currency。</td></tr>
+                <tr><td><code>role</code></td><td>例如 <code>upstream_input</code>、<code>packaging_bottleneck</code>、<code>downstream_output</code></td><td>对象在链条里扮演什么角色。</td></tr>
+                <tr><td><code>comparison_basis</code></td><td>例如 <code>chain_exposure</code></td><td>比较时用什么标准。</td></tr>
+              </tbody>
+            </table>
+            <div class="variable-note">当前 rates / bond 的 pair 细分仍标为候选；三层写法已经确定，但候选枚举未来可能继续合并或细分。</div>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="summary-number">4</span>找出用户要做的事 <span class="summary-sub">回答“用户想让我们做什么”</span></summary>
+          <div class="step-detail-body">
+            <p>对象只是“研究谁”。动作才是“要做什么”。系统从动词和上下文判断一个主要动作，也可以记录几个附加动作，但不会因为附加动作就凭空增加新的专业方向。</p>
+            <h4>一级动作分类</h4>
+            <table class="variable-table">
+              <thead><tr><th><code>action_family</code></th><th>人话</th><th>代表动作</th></tr></thead>
+              <tbody>
+                <tr><td><code>monitor_retrieve</code></td><td>查、列出、跟踪状态</td><td><code>upcoming_calendar</code>、<code>new_issue_calendar</code>、<code>catalyst_watch</code>、<code>revision_check</code></td></tr>
+                <tr><td><code>map_structure</code></td><td>画结构、链条或传导路径</td><td><code>chain_map</code></td></tr>
+                <tr><td><code>compare_rank</code></td><td>比较、排序、判断谁更好</td><td><code>beneficiary_rank</code>、<code>relative_thesis</code>、<code>compare_risk_reward</code></td></tr>
+                <tr><td><code>interpret_readthrough</code></td><td>解释一件事会怎样传导</td><td><code>earnings_readthrough</code>、<code>surprise_brief</code>、<code>market_impact_summary</code></td></tr>
+                <tr><td><code>model_value</code></td><td>建模、估值、做情景</td><td><code>operating_model</code>、<code>dcf</code>、<code>scenario_compare</code>、<code>sensitivity</code>、<code>kpi_bridge</code></td></tr>
+                <tr><td><code>construct_spec</code></td><td>构造交易或结构规格</td><td><code>construct_legs</code>、<code>hedged_carry</code></td></tr>
+                <tr><td><code>decision_validate</code></td><td>做参与决定、风险检查或失效判断</td><td><code>participate_or_pass</code>、<code>invalidation_check</code></td></tr>
+                <tr><td><code>backtest_evaluate</code></td><td>用历史数据检验规则</td><td><code>event_study</code>、<code>event_trigger_backtest</code>、<code>train_test_run</code></td></tr>
+              </tbody>
+            </table>
+            <h4>各专业方向目前允许的具体动作</h4>
+            <table class="variable-table">
+              <thead><tr><th>专业方向</th><th><code>action.type</code> 可选值</th></tr></thead>
+              <tbody>
+                <tr><td><code>eq_ai_semis_thesis</code></td><td><code>chain_map</code>、<code>beneficiary_rank</code>、<code>earnings_readthrough</code>、<code>relative_thesis</code>、<code>catalyst_watch</code>、<code>invalidation</code></td></tr>
+                <tr><td><code>fi_usd_primary</code></td><td><code>new_issue_calendar</code>、<code>ipt_update</code>、<code>bookbuild</code>、<code>pricing</code>、<code>participate_or_pass</code>、<code>allocation_plan</code>、<code>settlement_check</code></td></tr>
+                <tr><td><code>ma_cn_us_calendar</code></td><td><code>upcoming_calendar</code>、<code>print_vs_consensus</code>、<code>revision_check</code>、<code>surprise_brief</code>、<code>market_impact_summary</code></td></tr>
+                <tr><td><code>fx_carry_curve_rv</code></td><td><code>construct_legs</code>、<code>compare_risk_reward</code>、<code>hedged_carry</code>、<code>invalidation_check</code></td></tr>
+                <tr><td><code>qt_event_backtest</code></td><td><code>event_study</code>、<code>event_trigger_backtest</code>、<code>train_test_run</code></td></tr>
+                <tr><td><code>ibd_equity_model</code></td><td><code>operating_model</code>、<code>quarterly_update</code>、<code>dcf</code>、<code>scenario_compare</code>、<code>sensitivity</code>、<code>kpi_bridge</code></td></tr>
+              </tbody>
+            </table>
+            <h4>动作旁边还可以带什么</h4>
+            <table class="variable-table">
+              <thead><tr><th>变量</th><th>可选值 / 形式</th><th>用途</th></tr></thead>
+              <tbody>
+                <tr><td><code>action</code></td><td><code>{family, type, secondary_actions, secondary_action_family_hints}</code></td><td>同时记录主要动作和附加动作。</td></tr>
+                <tr><td><code>secondary_actions</code></td><td>当前专业方向里的具体动作 ID</td><td>例如画链后再做 <code>beneficiary_rank</code>。</td></tr>
+                <tr><td><code>secondary_action_family_hints</code></td><td>只有大类、还没确定具体动作时的提示</td><td>只能先保存，不能直接当成最终动作。</td></tr>
+                <tr><td><code>side</code></td><td><code>long</code>、<code>short</code>、<code>buy</code>、<code>sell</code>、<code>receive</code>、<code>pay</code>、<code>participate</code>、<code>pass</code></td><td>交易方向或一级参与/放弃。</td></tr>
+                <tr><td><code>thesis_angle</code></td><td><code>chain_map</code>、<code>earnings</code>、<code>valuation</code>、<code>catalyst</code>、<code>relative</code>、<code>invalidation</code></td><td>研究角度，和动作、输出格式分开记录。</td></tr>
+                <tr><td><code>strategy_style</code></td><td><code>carry</code>、<code>roll_down</code>、<code>steepener</code>、<code>flattener</code>、<code>butterfly</code>、<code>basis</code>、<code>cross_market_rv</code></td><td>只在策略类请求中说明采用哪种策略。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <section class="section" id="dual-field">
-      <div class="section-kicker">02 / 两份清单</div>
+      <div class="section-kicker">03 / 两份清单</div>
       <h2 class="section-title">用户说了什么，最后要交付什么</h2>
       <p class="section-intro">系统会同时保留两份清单：一份只记录用户明确点名的内容，另一份是在此基础上补齐专业方向的标准内容。前者不替用户做决定，后者才是交给专业 skill 执行的完整任务单。</p>
 
@@ -552,7 +915,7 @@
     </section>
 
     <section class="section" id="rules">
-      <div class="section-kicker">03 / 如何补齐</div>
+      <div class="section-kicker">04 / 如何补齐</div>
       <h2 class="section-title">系统怎样把默认内容和用户要求放在一起</h2>
       <p class="section-intro">先放入这个专业方向本来就需要的内容，再加入用户明确点名的内容。遇到冲突不猜，遇到不支持也不偷偷删掉。</p>
       <div class="rules-grid">
@@ -583,7 +946,7 @@
     </section>
 
     <section class="section" id="contracts">
-      <div class="section-kicker">04 / 六个方向</div>
+      <div class="section-kicker">05 / 六个方向</div>
       <h2 class="section-title">每个专业方向默认要交付什么</h2>
       <p class="section-intro">用户没有特别说明时，每个方向都有一份最小交付清单。用户提出额外要求时，只在这份清单上增加内容。</p>
 
@@ -652,8 +1015,71 @@
       <div class="callout" style="margin-top:16px"><strong>唯一兜底：</strong><code>SOFT_FALLBACK</code> 不属于六个正类 contract。它只复述目标、说明 coverage boundary、保留用户 requested items，并给最近支持路径；不生成结果型 <code>effective_output</code>。</div>
     </section>
 
+    <section class="section" id="walkthrough">
+      <div class="section-kicker">06 / 完整走一遍</div>
+      <h2 class="section-title">把刚才那句话从头到尾走一次</h2>
+      <p class="walkthrough-lead">下面用同一句话演示 8 步。左边是这一格在做什么，右边是这一格留下的标准结果。每一步都只增加信息，不偷偷改变用户原意。</p>
+      <div class="sentence-box">
+        <div class="sentence-label">客户问题</div>
+        <blockquote>“画 HBM→CoWoS→GPU 受益链，比较 NVDA、TSM、ASML，未来 6-12 个月，列催化剂和失效条件。”</blockquote>
+      </div>
+      <div class="walkthrough-grid">
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 1</div>
+          <div><h3>保留原话</h3><p>先不解释，只把句子和关键词存下来。</p></div>
+          <div class="walkthrough-result"><b>留下：</b>HBM→CoWoS→GPU、NVDA/TSM/ASML、6-12 个月、催化剂、失效条件。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 2</div>
+          <div><h3>圈出对象</h3><p>把名词分成产业链节点和股票。</p></div>
+          <div class="walkthrough-result"><b><code>object_type</code>：</b><code>industry_node</code> = HBM、CoWoS、GPU；<code>equity_security</code> = NVDA、TSM、ASML。<br><b><code>asset_class</code>：</b><code>EQ</code>。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 3</div>
+          <div><h3>看对象关系</h3><p>箭头表示传导顺序，三家公司是并列比较；这不是一个普通列表。</p></div>
+          <div class="walkthrough-result"><b><code>subject_scope</code>：</b><code>composite</code>。<br>子范围 A：<code>ordered_chain</code>（HBM → CoWoS → GPU）。<br>子范围 B：<code>set</code> + <code>comparison</code>（NVDA、TSM、ASML）。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 4</div>
+          <div><h3>找出动作</h3><p>“画链”是主要动作，“比较受益程度”是附加动作。</p></div>
+          <div class="walkthrough-result"><b><code>action</code>：</b><code>family=map_structure</code>，<code>type=chain_map</code>，<code>secondary_actions=[beneficiary_rank]</code>。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 5</div>
+          <div><h3>选专业方向</h3><p>产业链 + 公司比较 + 主题研究，匹配到 AI / 半导体股票方向。</p></div>
+          <div class="walkthrough-result"><b><code>skill_id</code>：</b><code>eq_ai_semis_thesis</code>。<br><b><code>next_hop</code>：</b><code>inspiration_spec</code>。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 6</div>
+          <div><h3>检查能不能接</h3><p>对象在名单内，动作有对应能力，没有需要用户补充的关键选择。</p></div>
+          <div class="walkthrough-result"><b>状态：</b><code>route_status=routed</code>、<code>coverage_status=in_coverage</code>、<code>capability_status=supported</code>、<code>missing_slots=[]</code>。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 7</div>
+          <div><h3>记录用户明确要求</h3><p>只记录用户亲口说出的时间范围和必含栏目。</p></div>
+          <div class="walkthrough-result"><b><code>requested_output</code>：</b><code>required_components=[catalyst_list, invalidation_conditions]</code>；<code>horizon=6-12m</code>。</div>
+        </article>
+        <article class="walkthrough-row">
+          <div class="walkthrough-no">STEP 8</div>
+          <div><h3>生成完整任务</h3><p>把方向默认内容、画链附加内容、比较附加内容和用户要求合在一起。</p></div>
+          <div class="walkthrough-result"><b><code>effective_output</code>：</b>主交付 <code>chain_map</code>；附加 <code>ranking_table</code>；必须包含证据链、节点关系、传导机制、催化剂和失效条件；文字 + 表格。</div>
+        </article>
+      </div>
+      <div class="standard-result">
+        <article>
+          <h3>交接给专业模块时的简版任务单</h3>
+          <div class="walkthrough-result"><code>skill_id: eq_ai_semis_thesis</code><br><code>scope: HBM → CoWoS → GPU + NVDA / TSM / ASML</code><br><code>action: chain_map + beneficiary_rank</code><br><code>horizon: 6-12m</code><br><code>must_include: catalyst_list, invalidation_conditions</code><br><code>status: compiled</code></div>
+        </article>
+        <article>
+          <h3>这一步没有做什么</h3>
+          <p>没有把三家公司压成一个对象，没有把“画链”改成 DCF，也没有在用户没要求时偷偷增加目标价或交易指令。</p>
+          <div class="decision-item ready"><b>结果</b>专业模块收到的是一张清楚的任务单，而不是一段需要重新猜测的原话。</div>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="examples">
-      <div class="section-kicker">05 / 再看四个例子</div>
+      <div class="section-kicker">08 / 再看四个例子</div>
       <h2 class="section-title">不同说法，怎样走到不同的专业方向</h2>
       <p class="section-intro">每个例子都按同一套顺序处理：先找对象，再找动作，最后列出标准交付。这里展示的是系统内部整理后的简版结果。</p>
 
@@ -700,8 +1126,143 @@
       </div>
     </section>
 
+    <section class="section" id="fixture-cases">
+      <div class="section-kicker">07 / 8 条检查样本</div>
+      <h2 class="section-title">8 个客户问题，各自经过了哪些步骤</h2>
+      <p class="section-intro">每张卡都可以展开。上面的完整走遍使用了第 1 条；这里仍把全部 8 条列出来，方便逐条检查每一步的结果。它们是流程测试句子，不是市场数据结论。</p>
+      <div class="fixture-cards">
+        <details class="fixture-card">
+          <summary><span class="fixture-no">01</span><span class="fixture-title">产业链 + 三家公司比较 <span class="chip status-compiled">compiled</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“画 HBM→CoWoS→GPU 受益链，比较 NVDA、TSM、ASML，未来 6-12 个月，列催化剂和失效条件。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td><code>industry_node</code>：HBM/CoWoS/GPU；<code>equity_security</code>：NVDA/TSM/ASML；资产类 <code>EQ</code>。</td></tr>
+              <tr><td>关系</td><td><code>composite</code> = <code>ordered_chain</code> + <code>set/comparison</code>。</td></tr>
+              <tr><td>动作</td><td><code>map_structure/chain_map</code> + <code>beneficiary_rank</code>。</td></tr>
+              <tr><td>方向</td><td><code>eq_ai_semis_thesis</code>。</td></tr>
+              <tr><td>检查</td><td><code>routed</code>、<code>in_coverage</code>、信息完整。</td></tr>
+              <tr><td>用户要求</td><td><code>horizon=6-12m</code>；<code>catalyst_list</code>、<code>invalidation_conditions</code>。</td></tr>
+              <tr><td>最终任务</td><td><code>chain_map</code> + <code>ranking_table</code>；文字 + 表格；<code>compiled</code>。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">02</span><span class="fixture-title">美元新债参与判断 <span class="chip status-compiled">compiled</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“2026-09-03 CMB 5Y Reg S A 级美元新债，给 IPT、簿记进度和 participate/pass。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td><code>primary_deal</code>：CMB；资产类 <code>FI</code>；5Y、Reg S、A 级、USD。</td></tr>
+              <tr><td>关系</td><td><code>single</code>，不是存量债 pair。</td></tr>
+              <tr><td>动作</td><td><code>decision_validate/participate_or_pass</code>；IPT 和 bookbuild 是专业内部步骤。</td></tr>
+              <tr><td>方向</td><td><code>fi_usd_primary</code>。</td></tr>
+              <tr><td>检查</td><td><code>routed</code>、<code>in_coverage</code>。</td></tr>
+              <tr><td>用户要求</td><td><code>ipt_snapshot</code>、<code>bookbuild_status</code>；参与或放弃判断。</td></tr>
+              <tr><td>最终任务</td><td><code>primary_deal_pack</code> + <code>participation_recommendation</code>；表格 + 文字；<code>compiled</code>。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">03</span><span class="fixture-title">中美宏观日历 <span class="chip status-compiled">compiled</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“按北京时间列出下周中国 CPI、中国 PMI、美国 CPI、美国 PMI 和美国非农，给发布时间、共识和前值。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td>5 个 <code>macro_event</code>：CN.CPI、CN.PMI、US.CPI、US.ISM、US.PAYROLLS；资产类 <code>MA</code>。</td></tr>
+              <tr><td>关系</td><td><code>set</code>，几个事件并列列出。</td></tr>
+              <tr><td>动作</td><td><code>monitor_retrieve/upcoming_calendar</code>。</td></tr>
+              <tr><td>方向</td><td><code>ma_cn_us_calendar</code>。</td></tr>
+              <tr><td>检查</td><td><code>routed</code>、<code>in_coverage</code>；时区明确为 Asia/Shanghai。</td></tr>
+              <tr><td>用户要求</td><td><code>release_time</code>、<code>estimate</code>、<code>previous</code>。</td></tr>
+              <tr><td>最终任务</td><td><code>macro_calendar</code>；表格；<code>compiled</code>。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">04</span><span class="fixture-title">USDJPY carry，但“逢低”不清楚 <span class="chip status-pending">pending</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“以 JPY 融资，逢低做多 USDJPY 3M carry，carry 按 forward points，目标波动率 10%，给失效条件。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td><code>currency_pair</code>：USD/JPY；资产类 <code>FX</code>；融资币种 JPY。</td></tr>
+              <tr><td>关系</td><td><code>pair</code> + <code>fx_currency_pair</code> + <code>base_quote</code>。</td></tr>
+              <tr><td>动作</td><td><code>construct_spec/construct_legs</code> + <code>invalidation_check</code>。</td></tr>
+              <tr><td>方向</td><td><code>fx_carry_curve_rv</code>。</td></tr>
+              <tr><td>检查</td><td>能力支持，但 <code>dip_definition</code> 未定义；<code>clarification_required</code>。</td></tr>
+              <tr><td>用户要求</td><td>3M、forward points、10% vol target、失效条件。</td></tr>
+              <tr><td>最终任务</td><td><code>strategy_spec</code> + <code>invalidation_assessment</code>；状态 <code>pending_clarification</code>，不能替用户选“逢低”定义。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">05</span><span class="fixture-title">从 CPI 规则进入事件回测 <span class="chip status-compiled">compiled</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“把上面的 US CPI surprise 规则跑事件回测：surprise &gt;= 1 个标准差时做空 UST10Y，事件窗 [-1,+3]，2019-2023 train、2024-2025 test，T+1 收盘入场、T+3 收盘平仓，日频，交易成本和滑点各 5 bps；确认按此规格执行。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td><code>macro_event</code>：US.CPI + <code>rate_point</code>：UST/SOFR 10Y；复合范围。</td></tr>
+              <tr><td>关系</td><td><code>composite</code>；CPI 是触发事件，UST 10Y 是交易标的。</td></tr>
+              <tr><td>动作</td><td><code>backtest_evaluate/train_test_run</code>。</td></tr>
+              <tr><td>方向</td><td><code>qt_event_backtest</code>，保留来自宏观方向的上下文。</td></tr>
+              <tr><td>检查</td><td><code>routed</code>、<code>in_coverage</code>；规则、频率、训练/测试区间齐全。</td></tr>
+              <tr><td>用户要求</td><td>阈值、事件窗、入场/平仓、日频、交易成本和滑点。</td></tr>
+              <tr><td>最终任务</td><td><code>backtest_report</code> + <code>trade_log</code> + P&amp;L/回撤图 + 事件窗图；表格 + 图；<code>compiled</code>。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">06</span><span class="fixture-title">NVDA operating + DCF <span class="chip status-compiled">compiled</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“给 NVDA 做 2026-2029 operating+DCF，base、bull、bear 三情景，WACC 9%，永续增长 3%，币种 USD，并输出 WACC/永续增长敏感性。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td><code>equity_security</code>：NVDA；资产类 <code>EQ</code>。</td></tr>
+              <tr><td>关系</td><td><code>single</code>。</td></tr>
+              <tr><td>动作</td><td><code>model_value/scenario_compare</code>；<code>model_template=operating+DCF</code>。</td></tr>
+              <tr><td>方向</td><td><code>ibd_equity_model</code>。</td></tr>
+              <tr><td>检查</td><td><code>routed</code>、<code>in_coverage</code>。</td></tr>
+              <tr><td>用户要求</td><td>2026-2029、三情景、WACC 9%、永续增长 3%、USD、<code>sensitivity_table</code>。</td></tr>
+              <tr><td>最终任务</td><td><code>equity_model_workbook</code> + assumption/scenario/valuation/sensitivity tables；工作簿 + 表格；<code>compiled</code>。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">07</span><span class="fixture-title">CPI 发布后的 USD 和 2s10s 解释 <span class="chip status-compiled">compiled</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“2026-09-03 美国 headline CPI 同比 actual 3.1% vs consensus 3.0%，给一句话 USD 和 2s10s take，不要构造交易。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td><code>macro_event</code>：US.CPI；资产类 <code>MA</code>。USD 和 2s10s 是影响传导对象，不是自动交易请求。</td></tr>
+              <tr><td>关系</td><td><code>single</code> 事件 + 两个 transmission assets。</td></tr>
+              <tr><td>动作</td><td><code>interpret_readthrough/market_impact_summary</code>。</td></tr>
+              <tr><td>方向</td><td><code>ma_cn_us_calendar</code>，不是 FX 交易方向。</td></tr>
+              <tr><td>检查</td><td><code>routed</code>、<code>in_coverage</code>；明确“不构造交易”。</td></tr>
+              <tr><td>用户要求</td><td><code>usd_take</code>、<code>curve_2s10s_take</code>；<code>presentation=one_liner</code>。</td></tr>
+              <tr><td>最终任务</td><td><code>market_impact_brief</code>；表格 + 一句话；<code>compiled</code>。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+
+        <details class="fixture-card">
+          <summary><span class="fixture-no">08</span><span class="fixture-title">存量信用债相对价值（当前不支持） <span class="chip status-fallback">fallback</span></span></summary>
+          <div class="fixture-body">
+            <blockquote>“比较存量 2028 腾讯和阿里美元债的 OAS、carry 和 switch。”</blockquote>
+            <table class="fixture-step-table"><tbody>
+              <tr><td>对象</td><td>两只 <code>bond_security</code>：TENCENT 2028 USD、ALIBABA 2028 USD；资产类 <code>FI</code>。</td></tr>
+              <tr><td>关系</td><td><code>pair</code> + <code>bond_security_pair</code> + <code>relative_value</code>。</td></tr>
+              <tr><td>动作</td><td>用户要比较存量信用债；当前没有可执行的 <code>secondary_credit_rv</code> 方向。</td></tr>
+              <tr><td>方向</td><td><code>SOFT_FALLBACK</code>，不强行塞进美元一级发行。</td></tr>
+              <tr><td>检查</td><td><code>soft_fallback</code>、<code>partial</code>、<code>out_of_scope</code>。</td></tr>
+              <tr><td>用户要求</td><td><code>requested_metrics=[oas, carry, switch]</code>，原样保留。</td></tr>
+              <tr><td>最终任务</td><td><code>unsupported_no_result</code>；不生成虚构数值，只说明边界和最近支持路径。</td></tr>
+            </tbody></table>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <section class="section" id="fixtures">
-      <div class="section-kicker">06 / 检查流程</div>
+      <div class="section-kicker">09 / 检查统计</div>
       <h2 class="section-title">用 8 个句子检查每一步有没有走对</h2>
       <p class="section-intro">这 8 个句子不是市场结论，而是检查样本：它们用来确认对象、动作、专业方向和最终交付没有被误读。</p>
       <div class="fixture-wrap">
@@ -727,7 +1288,7 @@
     </section>
 
     <section class="section" id="done">
-      <div class="section-kicker">07 / 做到哪一步</div>
+      <div class="section-kicker">10 / 做到哪一步</div>
       <h2 class="section-title">现在这套流程已经完成到哪里</h2>
       <p class="section-intro">现在已经把“怎么拆、怎么归类、怎么生成任务单”定下来了；把它接成真正自动运行的程序，还需要下一阶段的工作。</p>
       <div class="completion-grid">
@@ -778,6 +1339,13 @@
   </footer>
 
   <script>
+    // Keep the detailed sections in the same 1-to-8 reading order.
+    const detailFirst = document.getElementById("step-details");
+    const detailContinued = document.getElementById("step-details-continued");
+    if (detailFirst && detailContinued) {
+      detailContinued.parentNode.insertBefore(detailFirst, detailContinued);
+    }
+
     const sections = [...document.querySelectorAll('.section[id]')];
     const links = [...document.querySelectorAll('.nav-inner a')];
     const linkById = new Map(links.map(link => [link.getAttribute('href').slice(1), link]));
