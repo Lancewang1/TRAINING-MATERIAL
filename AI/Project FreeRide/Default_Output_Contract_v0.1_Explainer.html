@@ -135,6 +135,36 @@
     .schema-item p { margin: 0; color: var(--muted); font-size: 13px; }
     .schema-item .examples { margin-top: 10px; color: var(--ink-2); font-size: 12px; }
 
+    .sentence-box { margin: 20px 0 18px; padding: 18px 20px; background: #eef7f7; border: 1px solid #b9e4e7; border-left: 5px solid var(--teal); border-radius: var(--radius); }
+    .sentence-label { color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .sentence-box blockquote { margin: 7px 0 0; padding: 0; color: var(--ink); background: transparent; border: 0; font-size: 18px; line-height: 1.55; }
+    .pipeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 22px; }
+    .pipeline-step { min-height: 210px; padding: 15px; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--teal); border-radius: var(--radius); box-shadow: 0 3px 10px rgba(20, 35, 46, 0.04); }
+    .pipeline-step:nth-child(4n + 1) { border-top-color: var(--blue); }
+    .pipeline-step:nth-child(4n + 2) { border-top-color: var(--teal); }
+    .pipeline-step:nth-child(4n + 3) { border-top-color: var(--amber); }
+    .pipeline-step:nth-child(4n + 4) { border-top-color: var(--violet); }
+    .pipeline-step .step-number { display: inline-grid; place-items: center; width: 27px; height: 27px; margin-bottom: 9px; border-radius: 50%; color: #fff; background: var(--ink); font-size: 13px; font-weight: 800; }
+    .pipeline-step h3 { margin: 0 0 6px; font-size: 17px; }
+    .pipeline-step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .pipeline-step .step-example { margin-top: 10px; padding-top: 9px; border-top: 1px dashed var(--line); color: var(--ink-2); font-size: 12px; line-height: 1.5; }
+    .pipeline-step .step-example b { color: var(--ink); }
+    .standard-result { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr); gap: 16px; align-items: start; margin-top: 20px; }
+    .standard-result > article { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 17px; }
+    .standard-result h3 { margin-bottom: 8px; }
+    .standard-result p { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+    .plain-list { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .plain-list li { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 9px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+    .plain-list li:last-child { border-bottom: 0; }
+    .plain-list b { color: var(--ink-2); }
+    .plain-list span { color: var(--muted); }
+    .decision-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+    .decision-item { padding: 12px 14px; border-radius: var(--radius); font-size: 13px; }
+    .decision-item.ready { background: var(--green-soft); border: 1px solid #bfe4cc; color: #1d704d; }
+    .decision-item.ask { background: var(--amber-soft); border: 1px solid #f0d7a6; color: #885400; }
+    .decision-item.fallback { background: var(--coral-soft); border: 1px solid #efc5c0; color: #923d36; }
+    .decision-item b { display: block; margin-bottom: 3px; color: inherit; }
+
     .rules-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr); gap: 18px; align-items: start; }
     .rule-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: 13px; }
     .rule-table th, .rule-table td { padding: 11px 13px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
@@ -219,6 +249,8 @@
       .status-panel { border-left: 0; border-top: 1px solid #49616d; padding: 17px 0 0; }
       .skill-grid { grid-template-columns: repeat(2, 1fr); }
       .schema-grid { grid-template-columns: repeat(2, 1fr); }
+      .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
+      .standard-result { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       .top-inner, main, .footer-inner { padding-left: 17px; padding-right: 17px; }
@@ -234,6 +266,9 @@
       .title-version { margin-top: 4px; font-size: 0.56em; }
       .stat-strip { grid-template-columns: repeat(2, 1fr); }
       .dual-grid, .example-grid, .completion-grid { grid-template-columns: 1fr; }
+      .pipeline-grid, .decision-strip { grid-template-columns: 1fr; }
+      .sentence-box blockquote { font-size: 16px; }
+      .plain-list li { grid-template-columns: 1fr; gap: 2px; }
       .merge-arrow { transform: rotate(90deg); min-height: 28px; }
       .skill-grid, .schema-grid { grid-template-columns: 1fr; }
       .flow-svg-wrap { display: none; }
@@ -251,13 +286,13 @@
       <div class="hero-grid">
         <div>
           <h1><span class="title-main">default_output_contract</span> <span class="title-version">v0.1</span></h1>
-          <p class="hero-lead">把“用户要做什么”编译成“被选中的 skill 必须交付什么”的可审计契约。</p>
-          <p class="hero-note">它不是一张固定回答模板，也不是第七个 route。它是路由完成之后，约束交付物、栏目、指标、呈现方式和数据状态的机器中间层。</p>
-          <span class="status-chip">CONFIRMED · 2026-09-04</span>
+          <p class="hero-lead">用户说一句自然语言，系统按固定顺序把它整理成一份专业模块可以直接执行的标准任务。</p>
+          <p class="hero-note">这页先讲“怎么拆解”，再讲机器字段：先找对象，再看关系和动作，最后补齐必须交付的内容。</p>
+          <span class="status-chip">UPDATED · 2026-09-05</span>
         </div>
         <aside class="status-panel" aria-label="当前结论">
           <h2>当前结论</h2>
-          <p>六个正类 contract 与唯一 fallback 已冻结。设计层的 v1 已形成闭环；运行时 compiler、数据连接和 owner 级验收仍是下一阶段。</p>
+          <p>六个专业方向和一个兜底出口已经确定。现在这页先把“怎么拆解”讲清楚；真正的运行程序、数据连接和验收还在下一阶段。</p>
         </aside>
       </div>
     </div>
@@ -265,31 +300,87 @@
 
   <nav class="section-nav" aria-label="章节导航">
     <div class="nav-inner">
-      <a href="#overview">全景</a>
-      <a href="#dual-field">双字段</a>
-      <a href="#rules">合并规则</a>
-      <a href="#contracts">六类契约</a>
-      <a href="#examples">完整例子</a>
-      <a href="#fixtures">Fixture</a>
-      <a href="#done">完成度</a>
+      <a href="#overview">一步一步</a>
+      <a href="#dual-field">两份清单</a>
+      <a href="#rules">如何补齐</a>
+      <a href="#contracts">六个方向</a>
+      <a href="#examples">再看四个例子</a>
+      <a href="#fixtures">检查流程</a>
+      <a href="#done">做到哪一步</a>
     </div>
   </nav>
 
   <main>
     <section class="section" id="overview">
-      <div class="section-kicker">01 / Big Picture</div>
-      <h2 class="section-title">契约在意图解析链路中的位置</h2>
-      <p class="section-intro">Router 先判断对象、覆盖范围和动作，再由 contract compiler 把“默认交付”和“用户额外要求”合成一个完整输出协议。垂类 skill 负责专业计算与内部 workflow，Router 不重新发明 IPT、宏观日历或回测流程。</p>
+      <div class="section-kicker">01 / 一步一步</div>
+      <h2 class="section-title">用户说一句话，我们怎样把它变成标准任务</h2>
+      <p class="section-intro">先不用记字段名。系统先读懂这句话在说什么，再按固定顺序整理：说的是谁或什么、这些对象是什么关系、用户要做什么、应该交给哪个专业方向，最后列出必须交付的内容。</p>
 
-      <div class="stat-strip" aria-label="基线统计">
-        <div class="stat"><strong>6</strong><span>冻结正类 skill</span></div>
-        <div class="stat"><strong>1</strong><span>唯一 SOFT_FALLBACK</span></div>
-        <div class="stat"><strong>4</strong><span>requested_output 语义层</span></div>
-        <div class="stat"><strong>8</strong><span>手工 routing fixture</span></div>
+      <div class="sentence-box">
+        <div class="sentence-label">示例：用户原话</div>
+        <blockquote>“帮我比较 NVDA、TSM 和 ASML 在 HBM → CoWoS → GPU 这条链上的受益程度，列出未来 6-12 个月的催化剂和失效条件。”</blockquote>
+      </div>
+
+      <div class="stat-strip" aria-label="当前设计规模">
+        <div class="stat"><strong>6</strong><span>专业方向</span></div>
+        <div class="stat"><strong>1</strong><span>无法支持时的兜底出口</span></div>
+        <div class="stat"><strong>4</strong><span>输出要求的组成部分</span></div>
+        <div class="stat"><strong>8</strong><span>用于检查流程的示例句子</span></div>
+      </div>
+
+      <div class="pipeline-grid" aria-label="自然语言标准化的八个步骤">
+        <article class="pipeline-step">
+          <span class="step-number">1</span>
+          <h3>先把原话保留下来</h3>
+          <p>不急着猜意思，也不先改写。原句会一直保留，方便之后检查系统有没有理解错。</p>
+          <div class="step-example"><b>留下：</b>“比较……受益程度，列出催化剂和失效条件”</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">2</span>
+          <h3>圈出研究对象</h3>
+          <p>找出句子里真正要研究的名词，并标明它是什么：公司、股票、产业链节点、货币、曲线、债券或宏观数据。</p>
+          <div class="step-example"><b>对象：</b>HBM、CoWoS、GPU；NVDA、TSM、ASML</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">3</span>
+          <h3>看对象之间的关系</h3>
+          <p>判断是一个对象、几个并列对象、两条腿的关系、传导链、曲线结构，还是几种范围放在一起。</p>
+          <div class="step-example"><b>关系：</b>产业链传导 + 三家公司并列比较</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">4</span>
+          <h3>找出用户要做的事</h3>
+          <p>从动词判断动作：查询、画结构、比较、解释、建模、构造交易、检查风险或回测。先确定一个主要动作。</p>
+          <div class="step-example"><b>动作：</b>主动作是画链；附加动作是比较受益者</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">5</span>
+          <h3>选对应的专业方向</h3>
+          <p>把“对象 + 动作”与六个已冻结的专业方向匹配。不是看到一个关键词就直接跳转。</p>
+          <div class="step-example"><b>方向：</b>AI / 半导体股票主题研究</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">6</span>
+          <h3>检查能不能接</h3>
+          <p>确认对象在支持名单内，动作有对应能力，必要资料是否可用，句子有没有关键歧义。</p>
+          <div class="step-example"><b>结果：</b>对象和动作都支持，可以继续</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">7</span>
+          <h3>只记录用户明确点名的要求</h3>
+          <p>把用户额外说出的时间范围、栏目、指标和格式单独记下；没有说的内容不冒充用户要求。</p>
+          <div class="step-example"><b>明确要求：</b>6-12 个月、催化剂、失效条件</div>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-number">8</span>
+          <h3>补上标准交付清单</h3>
+          <p>在专业方向的默认交付上，加上用户刚才点名的内容，形成一份下游专业模块可以直接执行的任务单。</p>
+          <div class="step-example"><b>交付：</b>产业链图 + 受益者比较 + 证据、催化剂、失效条件</div>
+        </article>
       </div>
 
       <div class="diagram-shell">
-        <p class="diagram-caption">桌面视图：从自然语言到 effective_output 的编译路径。下游 skill 只接收冻结后的交付契约和 machine spec。</p>
+        <p class="diagram-caption">桌面视图：上面的 8 步可以压缩成 6 个阶段。每一步先整理“内容”，最后才决定“交付什么”。</p>
         <div class="flow-svg-wrap">
           <svg class="flow-svg" viewBox="0 0 1200 300" role="img" aria-label="自然语言到 effective output 的流程图">
             <defs>
@@ -298,28 +389,28 @@
               </marker>
             </defs>
             <rect class="flow-node" x="20" y="35" width="155" height="72" rx="7"></rect>
-            <text class="flow-title" x="97" y="63" text-anchor="middle">自然语言</text>
-            <text class="flow-sub" x="97" y="84" text-anchor="middle">“画链图、比较三家公司”</text>
+            <text class="flow-title" x="97" y="63" text-anchor="middle">用户原话</text>
+            <text class="flow-sub" x="97" y="84" text-anchor="middle">完整保留，不先猜</text>
 
             <rect class="flow-node route" x="205" y="35" width="165" height="72" rx="7"></rect>
-            <text class="flow-title" x="287" y="63" text-anchor="middle">Route + Scope</text>
-            <text class="flow-sub" x="287" y="84" text-anchor="middle">对象、覆盖、资产类别</text>
+            <text class="flow-title" x="287" y="63" text-anchor="middle">找对象</text>
+            <text class="flow-sub" x="287" y="84" text-anchor="middle">公司、节点、曲线等</text>
 
             <rect class="flow-node route" x="400" y="35" width="165" height="72" rx="7"></rect>
-            <text class="flow-title" x="482" y="63" text-anchor="middle">Action</text>
-            <text class="flow-sub" x="482" y="84" text-anchor="middle">family + leaf + 次动作</text>
+            <text class="flow-title" x="482" y="63" text-anchor="middle">看关系</text>
+            <text class="flow-sub" x="482" y="84" text-anchor="middle">单个、集合、两对象、链</text>
 
             <rect class="flow-node contract" x="595" y="35" width="175" height="72" rx="7"></rect>
-            <text class="flow-title" x="682" y="63" text-anchor="middle">Load Contract</text>
-            <text class="flow-sub" x="682" y="84" text-anchor="middle">shared envelope + base</text>
+            <text class="flow-title" x="682" y="63" text-anchor="middle">找动作</text>
+            <text class="flow-sub" x="682" y="84" text-anchor="middle">比较、解释、建模等</text>
 
             <rect class="flow-node merge" x="800" y="35" width="175" height="72" rx="7"></rect>
-            <text class="flow-title" x="887" y="63" text-anchor="middle">Apply Overlays</text>
-            <text class="flow-sub" x="887" y="84" text-anchor="middle">primary → secondary → mode</text>
+            <text class="flow-title" x="887" y="63" text-anchor="middle">选专业方向</text>
+            <text class="flow-sub" x="887" y="84" text-anchor="middle">匹配六类 skill</text>
 
             <rect class="flow-node merge" x="1005" y="35" width="175" height="72" rx="7"></rect>
-            <text class="flow-title" x="1092" y="63" text-anchor="middle">Merge Delta</text>
-            <text class="flow-sub" x="1092" y="84" text-anchor="middle">requested_output 最后合并</text>
+            <text class="flow-title" x="1092" y="63" text-anchor="middle">生成标准任务</text>
+            <text class="flow-sub" x="1092" y="84" text-anchor="middle">默认内容 + 明确要求</text>
 
             <path class="flow-arrow" d="M175 71 H205"></path>
             <path class="flow-arrow" d="M370 71 H400"></path>
@@ -328,35 +419,72 @@
             <path class="flow-arrow" d="M975 71 H1005"></path>
 
             <rect class="flow-node output" x="420" y="185" width="360" height="70" rx="7"></rect>
-            <text class="flow-title" x="600" y="213" text-anchor="middle">effective_output</text>
-            <text class="flow-sub" x="600" y="234" text-anchor="middle">primary artifact + components + metrics + presentation</text>
+            <text class="flow-title" x="600" y="213" text-anchor="middle">标准任务（effective_output）</text>
+            <text class="flow-sub" x="600" y="234" text-anchor="middle">要交什么、必须包含什么、怎么呈现</text>
             <path class="flow-arrow" d="M1092 107 V150 H780 V185"></path>
 
             <rect class="flow-node" x="850" y="185" width="280" height="70" rx="7"></rect>
-            <text class="flow-title" x="990" y="213" text-anchor="middle">Vertical Skill / Next Hop</text>
-            <text class="flow-sub" x="990" y="234" text-anchor="middle">数据、模型、回测或垂类 workflow</text>
+            <text class="flow-title" x="990" y="213" text-anchor="middle">交给专业模块</text>
+            <text class="flow-sub" x="990" y="234" text-anchor="middle">查数据、做模型或生成研究结果</text>
             <path class="flow-arrow" d="M780 220 H850"></path>
 
-            <text class="flow-label" x="600" y="153" text-anchor="middle">编译结果，不反向改写 route</text>
+            <text class="flow-label" x="600" y="153" text-anchor="middle">不清楚就追问；不支持就说明边界</text>
           </svg>
         </div>
         <div class="mobile-flow">
           <ol>
-            <li><span class="step-no">1</span><div><b>读自然语言</b><span>保留原词、实体和用户明确的输出要求。</span></div></li>
-            <li><span class="step-no">2</span><div><b>确定 route / scope / action</b><span>对象覆盖和用户动作先于输出格式。</span></div></li>
-            <li><span class="step-no">3</span><div><b>加载 shared envelope 与 skill base</b><span>补齐审计字段和该 skill 的最小交付。</span></div></li>
-            <li><span class="step-no">4</span><div><b>按顺序应用 overlays</b><span>primary action、leaf secondary、已解析 slot/mode。</span></div></li>
-            <li><span class="step-no">5</span><div><b>合并 requested_output</b><span>用户显式增量拥有最高优先级。</span></div></li>
-            <li><span class="step-no">6</span><div><b>输出 effective_output 并 handoff</b><span>交给垂类 skill 或返回澄清 / fallback 状态。</span></div></li>
+            <li><span class="step-no">1</span><div><b>保留用户原话</b><span>不先猜，不先改写，保留原句和上下文。</span></div></li>
+            <li><span class="step-no">2</span><div><b>圈出研究对象</b><span>标明是公司、股票、产业链节点、货币、曲线、债券还是宏观数据。</span></div></li>
+            <li><span class="step-no">3</span><div><b>判断对象关系</b><span>区分单个、集合、两腿关系、传导链、曲线结构和组合范围。</span></div></li>
+            <li><span class="step-no">4</span><div><b>找出主要动作</b><span>从“比较、解释、建模、构造、回测”等动词确定用户要做什么。</span></div></li>
+            <li><span class="step-no">5</span><div><b>选择专业方向</b><span>把对象和动作匹配到六个已确定的专业模块。</span></div></li>
+            <li><span class="step-no">6</span><div><b>检查覆盖范围</b><span>支持就继续；有歧义就追问；不支持就保留原要求并说明边界。</span></div></li>
+            <li><span class="step-no">7</span><div><b>记录用户明确要求</b><span>单独保存时间、栏目、指标和格式等额外要求。</span></div></li>
+            <li><span class="step-no">8</span><div><b>生成标准任务并交接</b><span>补齐默认交付清单，再交给对应的专业模块。</span></div></li>
           </ol>
         </div>
+      </div>
+
+      <div class="standard-result">
+        <article>
+          <h3>这句话最后会被整理成什么</h3>
+          <p>下面是给机器和下游专业模块使用的标准结果。字段名是机器名，旁边的中文才是它的实际含义。</p>
+          <ul class="plain-list">
+            <li><b>研究方向 <code>skill_id</code></b><span>AI / 半导体股票主题研究</span></li>
+            <li><b>对象 <code>subject_scope</code></b><span>HBM → CoWoS → GPU；NVDA、TSM、ASML</span></li>
+            <li><b>主要动作 <code>action</code></b><span>画产业链；附带比较受益者</span></li>
+            <li><b>用户加项 <code>requested_output</code></b><span>6-12 个月、催化剂、失效条件</span></li>
+            <li><b>执行状态 <code>status</code></b><span>信息足够，交给专业模块</span></li>
+          </ul>
+        </article>
+        <article>
+          <h3>最后才生成完整交付清单</h3>
+          <p>默认内容不会被用户每次重复写一遍；用户明确提出的内容会加进去。</p>
+          <pre>effective_output:
+  primary_artifact: chain_map
+  additional_artifacts:
+    - ranking_table
+  required_components:
+    - evidence_chain
+    - catalyst_list
+    - invalidation_conditions
+  presentation:
+    - narrative
+    - table</pre>
+        </article>
+      </div>
+
+      <div class="decision-strip" aria-label="三种结果">
+        <div class="decision-item ready"><b>信息足够</b>生成标准任务，交给对应 skill。</div>
+        <div class="decision-item ask"><b>有关键歧义</b>只追问会改变结论的那一项。</div>
+        <div class="decision-item fallback"><b>不在支持范围</b>不伪造结果，保留原要求并给出边界。</div>
       </div>
     </section>
 
     <section class="section" id="dual-field">
-      <div class="section-kicker">02 / Dual Field</div>
-      <h2 class="section-title">为什么要有 requested_output 和 effective_output</h2>
-      <p class="section-intro"><code>requested_output</code> 只保存用户明确说出的增量；<code>effective_output</code> 是系统把默认契约和增量合并后，交给下游执行的完整交付协议。这样既不丢用户要求，也不会让每句话都必须重复描述 skill 的标准结果。</p>
+      <div class="section-kicker">02 / 两份清单</div>
+      <h2 class="section-title">用户说了什么，最后要交付什么</h2>
+      <p class="section-intro">系统会同时保留两份清单：一份只记录用户明确点名的内容，另一份是在此基础上补齐专业方向的标准内容。前者不替用户做决定，后者才是交给专业 skill 执行的完整任务单。</p>
 
       <div class="dual-grid">
         <article class="contract-panel requested">
@@ -424,9 +552,9 @@
     </section>
 
     <section class="section" id="rules">
-      <div class="section-kicker">03 / Merge Logic</div>
-      <h2 class="section-title">编译顺序、优先级与边界</h2>
-      <p class="section-intro">契约的价值在于可重复。相同的 route、action、resolved slot 和用户显式要求，应得到相同的输出结构；任何无法支持的部分必须显式暴露。</p>
+      <div class="section-kicker">03 / 如何补齐</div>
+      <h2 class="section-title">系统怎样把默认内容和用户要求放在一起</h2>
+      <p class="section-intro">先放入这个专业方向本来就需要的内容，再加入用户明确点名的内容。遇到冲突不猜，遇到不支持也不偷偷删掉。</p>
       <div class="rules-grid">
         <table class="rule-table">
           <thead><tr><th>规则</th><th>操作定义</th></tr></thead>
@@ -440,9 +568,9 @@
           </tbody>
         </table>
         <div>
-          <div class="callout"><strong>一个重要区分：</strong>对象和 action 决定“去哪一个 skill”；contract 决定“这个 skill 至少交付哪些内容”。输出要求可以作为冲突证据，但不能反向把 NVDA 的 DCF 请求改成主题研究。</div>
-          <h3 style="margin-top:18px">Shared output envelope</h3>
-          <p style="margin:0;color:var(--muted);font-size:13px">以下五项会并入 supported <code>effective_output.required_components</code>，与 skill 栏目稳定去重。</p>
+          <div class="callout"><strong>简单说：</strong>前面几步决定“交给哪个专业方向”；这一部分只决定“这个方向至少要交付什么”。输出格式不能把一个建模问题偷偷改成另一种研究。</div>
+          <h3 style="margin-top:18px">每份结果都要带的五项信息</h3>
+          <p style="margin:0;color:var(--muted);font-size:13px">这些信息会自动加入最终任务单，方便用户知道数据从哪里来、截至哪一天、哪些地方还有限制。</p>
           <div class="envelope-list">
             <div class="envelope-item"><b><code>as_of_date</code></b><span>结果对应的数据截止时间或事件时间。</span></div>
             <div class="envelope-item"><b><code>source_trace</code></b><span>关键事实、用户提供值、查找数据的来源。</span></div>
@@ -455,9 +583,9 @@
     </section>
 
     <section class="section" id="contracts">
-      <div class="section-kicker">04 / Six Contracts</div>
-      <h2 class="section-title">六个正类 skill 的默认交付</h2>
-      <p class="section-intro">每个 skill 都采用 base + overlay，而不是一张永远不变的模板。下列主 artifact 是没有用户显式覆盖时的默认值；overlay 只增加当前动作真正需要的内容。</p>
+      <div class="section-kicker">04 / 六个方向</div>
+      <h2 class="section-title">每个专业方向默认要交付什么</h2>
+      <p class="section-intro">用户没有特别说明时，每个方向都有一份最小交付清单。用户提出额外要求时，只在这份清单上增加内容。</p>
 
       <div class="skill-grid">
         <article class="skill-card eq">
@@ -525,9 +653,9 @@
     </section>
 
     <section class="section" id="examples">
-      <div class="section-kicker">05 / Worked Examples</div>
-      <h2 class="section-title">四个完整例子：同一句自然语言如何被编译</h2>
-      <p class="section-intro">例子中的“解析结果”是内部中间结构，不要求用户看到全部字段；它的作用是让 owner 和测试可以逐项核对 route、action、默认交付与用户增量是否一致。</p>
+      <div class="section-kicker">05 / 再看四个例子</div>
+      <h2 class="section-title">不同说法，怎样走到不同的专业方向</h2>
+      <p class="section-intro">每个例子都按同一套顺序处理：先找对象，再找动作，最后列出标准交付。这里展示的是系统内部整理后的简版结果。</p>
 
       <div class="example-grid">
         <article class="example">
@@ -573,9 +701,9 @@
     </section>
 
     <section class="section" id="fixtures">
-      <div class="section-kicker">06 / Acceptance Fixtures</div>
-      <h2 class="section-title">8 条 fixture 的编译状态</h2>
-      <p class="section-intro">fixture 同时断言路由结果、显式 <code>requested_output</code> 和系统生成的 <code>expected.effective_output</code>。它们是设计契约的回归样本，不是实际市场数据声明。</p>
+      <div class="section-kicker">06 / 检查流程</div>
+      <h2 class="section-title">用 8 个句子检查每一步有没有走对</h2>
+      <p class="section-intro">这 8 个句子不是市场结论，而是检查样本：它们用来确认对象、动作、专业方向和最终交付没有被误读。</p>
       <div class="fixture-wrap">
         <table class="fixture-table">
           <thead><tr><th>Fixture</th><th>状态</th><th>Route / Action</th><th>验证重点</th></tr></thead>
@@ -599,9 +727,9 @@
     </section>
 
     <section class="section" id="done">
-      <div class="section-kicker">07 / Readiness</div>
-      <h2 class="section-title">第一个用户意图解析 Skill，大致做完了吗？</h2>
-      <p class="section-intro">要把“做完”拆成两个层次：设计契约是否闭环，以及生产运行时是否已经可用。当前前者已达到 v1 基线，后者还没有。</p>
+      <div class="section-kicker">07 / 做到哪一步</div>
+      <h2 class="section-title">现在这套流程已经完成到哪里</h2>
+      <p class="section-intro">现在已经把“怎么拆、怎么归类、怎么生成任务单”定下来了；把它接成真正自动运行的程序，还需要下一阶段的工作。</p>
       <div class="completion-grid">
         <article class="completion-panel done">
           <h3>已完成：Intent Decomposition / Routing v1 设计层</h3>
@@ -646,7 +774,7 @@
   </main>
 
   <footer>
-    <div class="footer-inner">FreeRide · default_output_contract v0.1 · confirmed 2026-09-04 · <a href="#overview">回到顶部</a></div>
+    <div class="footer-inner">FreeRide · default_output_contract v0.1 · updated 2026-09-05 · <a href="#overview">回到顶部</a></div>
   </footer>
 
   <script>
